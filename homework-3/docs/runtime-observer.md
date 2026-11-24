@@ -34,7 +34,10 @@ Allocation byte counts describe logical tensor storage plus slot blobs; they do
 not measure pinned-allocator reserved memory or process RSS.
 Per-forward block tables, prefix positions, replay lengths and snapshot/restore
 frontiers are retained. The checker rejects unequal stored/restored frontiers.
-Replica-agreed completion IDs are separate from rank-local ACKs.
+Replica-agreed completion IDs are separate from rank-local ACKs. The checker
+requires the exact expected rank IDs, equal agreed completion tickets, and equal
+per-request snapshot/restore frontiers across ranks; disagreement fails validation.
+This check is prepared for TP2 but is not itself evidence of a hardware TP2 pass.
 
 Host destinations assigned different content keys count physical replacements,
 **not all logical evictions**. First-admission prefix hits/misses include every

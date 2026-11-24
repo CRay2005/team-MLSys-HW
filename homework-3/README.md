@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 48 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 53 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -136,8 +136,8 @@ eviction, leak freedom, TP2, larger models or performance; those experiments rem
 
 `--suite trace` repeats the smoke with optional completed-transfer and scheduler
 observation. See [measurement definitions and limitations](docs/runtime-observer.md).
-Seven additional CPU tests validate completion accounting and reject incomplete
-transfers or restoration-frontier mismatches. The observer passed an independent Ascend TP1 smoke with 165 decode and 7 prefill
+Eight additional CPU tests validate completion accounting and reject incomplete
+transfers or restoration-frontier mismatches, including disagreement between ranks. The observer passed an independent Ascend TP1 smoke with 165 decode and 7 prefill
 snapshot/restore frontier checks, completed payload bytes and fresh final idle
 snapshots. All outputs match the baseline; all device blocks are reclaimable and
 all snapshot blocks free at the end. See [trace evidence](results/2026-11-24-tp1-trace/summary.json).
@@ -208,3 +208,17 @@ and 264-token extended requests separately for the example above. Do not pool
 them into one latency comparison. Identical schedule/lengths must be used for off
 and on. `--repeats` cycles within one Engine instance; independent repetitions
 require separate fresh invocations and output directories.
+
+Analyze a completed downloaded matrix with:
+
+```bash
+.venv/bin/python homework-3/scripts/analyze_matrix.py \
+  --suite-dir /path/to/downloaded-suite --output /path/to/new-analysis.json
+```
+
+The analyzer independently recomputes raw trace summaries, validates exact output
+comparisons and actual device block budgets, and keeps cold, initial and extended
+phases separate. Throughput is generated tokens divided by total batch time within
+each phase. It reports three independent run values and paired ratios, discloses
+fixed execution order and observer overhead, and rejects incomplete suites.
+Four CPU tests cover aggregation and incomplete/invalid timing input.

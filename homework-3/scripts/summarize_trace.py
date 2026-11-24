@@ -139,6 +139,21 @@ def wait_for_quiescence(directory, ranks, *, timeout=30):
     raise RuntimeError("No fresh quiescent/ACK-complete snapshot from every rank before shutdown")
 
 
+def validate_rank_agreement(reports, world_size):
+    """Require every expected rank, equal agreed tickets and restore frontiers."""
+    if sorted(report["rank"] for report in reports) != list(range(world_size)):
+        raise ValueError("wrong/missing trace rank count or IDs")
+    reference = reports[0]
+    def frontiers(report):
+        return sorted((row["request_id"], row["stored"], row["restored"])
+                      for row in report["frontier_checks"])
+    for report in reports[1:]:
+        if report["rank_agreed_operations"] != reference["rank_agreed_operations"]:
+            raise ValueError("rank completion disagreement")
+        if frontiers(report) != frontiers(reference):
+            raise ValueError("rank restoration frontier disagreement")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-dir", type=Path, required=True)
@@ -152,10 +167,9 @@ def main():
         reports.append(summarize([json.loads(line) for line in file.read_text().splitlines()]))
         hashes[file.name] = hashlib.sha256(file.read_bytes()).hexdigest()
     result = json.loads((args.run_dir / "result.json").read_text())
-    if len(reports) != result["config"]["world_size"] or len({r["rank"] for r in reports}) != len(reports):
-        raise ValueError("wrong/missing trace rank count")
+    validate_rank_agreement(reports, result["config"]["world_size"])
     output = dict(ranks=reports, trace_sha256=hashes,
-                  rank_completion_agreement=all(r["rank_agreed_operations"] == reports[0]["rank_agreed_operations"] for r in reports),
+                  rank_completion_agreement=True, rank_restore_frontier_agreement=True,
                   d2h_bytes=sum(r["d2h_bytes"] for r in reports), h2d_bytes=sum(r["h2d_bytes"] for r in reports),
                   full_assignment_verified=False)
     (args.run_dir / "trace-summary.json").write_text(json.dumps(output, indent=2) + "\n")

@@ -22,6 +22,16 @@ summary = load("hw3_summary_test", ROOT / "scripts/summarize_trace.py")
 
 
 class ObserverTests(unittest.TestCase):
+    def test_rank_agreement_rejects_wrong_ids_tickets_and_frontiers(self):
+        def report(rank, frontier=128, ticket=1):
+            return dict(rank=rank, rank_agreed_operations=[("RestoreDoneEvent", ticket)],
+                        frontier_checks=[dict(request_id="a", stored=frontier, restored=frontier)])
+        summary.validate_rank_agreement([report(0), report(1)], 2)
+        for other, message in [(report(2), "rank count"), (report(1, ticket=2), "completion disagreement"),
+                               (report(1, frontier=129), "frontier disagreement")]:
+            with self.subTest(message=message), self.assertRaisesRegex(ValueError, message):
+                summary.validate_rank_agreement([report(0), other], 2)
+
     def test_old_idle_sample_cannot_satisfy_fresh_barrier(self):
         with tempfile.TemporaryDirectory() as tmp:
             (Path(tmp) / "old.jsonl").write_text(json.dumps({"event": "scheduler_quiescent", "rank": 0, "monotonic_ns": 0}) + "\n")
