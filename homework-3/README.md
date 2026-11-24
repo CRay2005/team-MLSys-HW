@@ -59,8 +59,8 @@ were checked against source, including rejection of an incorrect negative-interv
 restriction. The review is not hardware certification.
 
 This milestone adds a harness, not a new transport implementation. Initial NPU
-generation and forced-suspension token comparisons now pass. Completed-copy
-measurements, eviction, leak freedom and full numerical validation remain pending.
+generation and forced-suspension token comparisons now pass. Completed-copy measurements and final quiescence now pass in an independent
+instrumented TP1 smoke; eviction, long-cycle leak freedom and TP2 remain pending.
 Even the larger working set may fit entirely
 in HBM; calibrate pressure before claiming a Host-cache benefit.
 
@@ -137,8 +137,12 @@ eviction, leak freedom, TP2, larger models or performance; those experiments rem
 `--suite trace` repeats the smoke with optional completed-transfer and scheduler
 observation. See [measurement definitions and limitations](docs/runtime-observer.md).
 Seven additional CPU tests validate completion accounting and reject incomplete
-transfers or restoration-frontier mismatches. Hardware validation of the new
-observer is pending; earlier smoke evidence remains separately preserved.
+transfers or restoration-frontier mismatches. The observer passed an independent Ascend TP1 smoke with 165 decode and 7 prefill
+snapshot/restore frontier checks, completed payload bytes and fresh final idle
+snapshots. All outputs match the baseline; all device blocks are reclaimable and
+all snapshot blocks free at the end. See [trace evidence](results/2026-11-24-tp1-trace/summary.json).
+Earlier smoke evidence remains separately preserved. Full assignment coverage is
+still incomplete; physical replacement counts are not complete logical evictions.
 
 Additional suites use the same verified deployment, occupancy checks and bounded
 process supervision:

@@ -1,0 +1,3046 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": {
+        "event": "allocation",
+        "rank": 0,
+        "pid": 641536,
+        "monotonic_ns": 4508717633225750,
+        "device_lcm_blocks": 16,
+        "host_l2_bytes": 201326592,
+        "host_snapshot_bytes": 201326592,
+        "slot_blob_bytes": 432,
+        "snapshot_blocks": 16,
+        "host_blocks": 16,
+        "groups": [
+          {
+            "name": "linear_attention_0",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.0.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.2.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.0.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.10.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.13.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.16.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.18.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.2.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.21.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.8.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.8.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.10.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.13.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.16.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.18.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.21.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "linear_attention_1",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.1.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.4.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.1.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.12.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.14.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.17.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.20.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.22.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.4.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.9.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.9.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.12.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.14.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.17.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.20.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.22.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "full_attention",
+            "blocks_per_lcm": 8,
+            "fields": [
+              {
+                "name": "layer.3.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.3.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.v",
+                "bytes": 131072
+              }
+            ]
+          }
+        ]
+      },
+      "peaks": {
+        "device_active": 10,
+        "host_cached": 30,
+        "host_pinned": 12,
+        "retracted": 2,
+        "tail_cap_evictions": 13
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 641536,
+        "monotonic_ns": 4508744197604040,
+        "device_total": 16,
+        "device_empty": 2,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 30,
+        "host_pinned": 0,
+        "snapshot_free": 16,
+        "tail_entries": 15,
+        "tail_cap_evictions": 13,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {
+        "writeback": 2659295232,
+        "snapshot": 23760,
+        "restore": 3483303120
+      },
+      "completed_operations": {
+        "writeback": 122,
+        "snapshot": 165,
+        "restore": 165
+      },
+      "observed_completion_seconds_sum": {
+        "writeback": 8.384278020000005,
+        "snapshot": 3.82626906,
+        "restore": 3.5202631500000003
+      },
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 2659318992,
+      "h2d_bytes": 3483303120,
+      "transfer_batches": 452,
+      "frontier_checks": [
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 258,
+          "restored": 258
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 260,
+          "restored": 260
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 258,
+          "restored": 258
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 259,
+          "restored": 259
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 260,
+          "restored": 260
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 259,
+          "restored": 259
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 260,
+          "restored": 260
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 260,
+          "restored": 260
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 261,
+          "restored": 261
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 262,
+          "restored": 262
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 263,
+          "restored": 263
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 265,
+          "restored": 265
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 272,
+          "restored": 272
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 275,
+          "restored": 275
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 275,
+          "restored": 275
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 272,
+          "restored": 272
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 278,
+          "restored": 278
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "stored": 279,
+          "restored": 279
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 275,
+          "restored": 275
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 278,
+          "restored": 278
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "stored": 279,
+          "restored": 279
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 266,
+          "restored": 266
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 267,
+          "restored": 267
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 268,
+          "restored": 268
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 269,
+          "restored": 269
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 272,
+          "restored": 272
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 270,
+          "restored": 270
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 271,
+          "restored": 271
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 272,
+          "restored": 272
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 275,
+          "restored": 275
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 273,
+          "restored": 273
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 278,
+          "restored": 278
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 274,
+          "restored": 274
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "stored": 279,
+          "restored": 279
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 275,
+          "restored": 275
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 276,
+          "restored": 276
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 277,
+          "restored": 277
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 278,
+          "restored": 278
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 278,
+          "restored": 278
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "stored": 279,
+          "restored": 279
+        }
+      ],
+      "first_admission_prefix_hits": 1,
+      "first_admission_prefix_misses": 7,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 358,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 188,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c0cfbe8abd104ea9bab9fe5db3378784",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5a952e98c623410982b6e4377df7df14",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "16b087867cbc46f19a2862937f8ad55a",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "1b1386240b244f9abafc06ffa5b5f185",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "ffbe53fcd73f4e768959dcd60a3f7fb1",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "bf71ee59ac3a482eb1a261a87d1ed777",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d2f0e438a4054575b26cb82473384b07",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "start": 248,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "2854ab9e12e242218b645c601851a7ed",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [
+        [
+          "RestoreDoneEvent",
+          7
+        ],
+        [
+          "RestoreDoneEvent",
+          8
+        ],
+        [
+          "RestoreDoneEvent",
+          12
+        ],
+        [
+          "RestoreDoneEvent",
+          13
+        ],
+        [
+          "RestoreDoneEvent",
+          18
+        ],
+        [
+          "RestoreDoneEvent",
+          19
+        ],
+        [
+          "RestoreDoneEvent",
+          24
+        ],
+        [
+          "RestoreDoneEvent",
+          25
+        ],
+        [
+          "RestoreDoneEvent",
+          30
+        ],
+        [
+          "RestoreDoneEvent",
+          31
+        ],
+        [
+          "RestoreDoneEvent",
+          34
+        ],
+        [
+          "RestoreDoneEvent",
+          35
+        ],
+        [
+          "RestoreDoneEvent",
+          38
+        ],
+        [
+          "RestoreDoneEvent",
+          39
+        ],
+        [
+          "RestoreDoneEvent",
+          44
+        ],
+        [
+          "RestoreDoneEvent",
+          45
+        ],
+        [
+          "RestoreDoneEvent",
+          48
+        ],
+        [
+          "RestoreDoneEvent",
+          49
+        ],
+        [
+          "RestoreDoneEvent",
+          52
+        ],
+        [
+          "RestoreDoneEvent",
+          53
+        ],
+        [
+          "RestoreDoneEvent",
+          57
+        ],
+        [
+          "RestoreDoneEvent",
+          58
+        ],
+        [
+          "RestoreDoneEvent",
+          63
+        ],
+        [
+          "RestoreDoneEvent",
+          64
+        ],
+        [
+          "RestoreDoneEvent",
+          68
+        ],
+        [
+          "RestoreDoneEvent",
+          69
+        ],
+        [
+          "RestoreDoneEvent",
+          74
+        ],
+        [
+          "RestoreDoneEvent",
+          75
+        ],
+        [
+          "RestoreDoneEvent",
+          80
+        ],
+        [
+          "RestoreDoneEvent",
+          81
+        ],
+        [
+          "RestoreDoneEvent",
+          86
+        ],
+        [
+          "RestoreDoneEvent",
+          87
+        ],
+        [
+          "RestoreDoneEvent",
+          91
+        ],
+        [
+          "RestoreDoneEvent",
+          94
+        ],
+        [
+          "RestoreDoneEvent",
+          96
+        ],
+        [
+          "RestoreDoneEvent",
+          99
+        ],
+        [
+          "RestoreDoneEvent",
+          102
+        ],
+        [
+          "RestoreDoneEvent",
+          104
+        ],
+        [
+          "RestoreDoneEvent",
+          106
+        ],
+        [
+          "RestoreDoneEvent",
+          108
+        ],
+        [
+          "RestoreDoneEvent",
+          111
+        ],
+        [
+          "RestoreDoneEvent",
+          120
+        ],
+        [
+          "RestoreDoneEvent",
+          121
+        ],
+        [
+          "RestoreDoneEvent",
+          126
+        ],
+        [
+          "RestoreDoneEvent",
+          127
+        ],
+        [
+          "RestoreDoneEvent",
+          130
+        ],
+        [
+          "RestoreDoneEvent",
+          131
+        ],
+        [
+          "RestoreDoneEvent",
+          136
+        ],
+        [
+          "RestoreDoneEvent",
+          137
+        ],
+        [
+          "RestoreDoneEvent",
+          140
+        ],
+        [
+          "RestoreDoneEvent",
+          141
+        ],
+        [
+          "RestoreDoneEvent",
+          146
+        ],
+        [
+          "RestoreDoneEvent",
+          147
+        ],
+        [
+          "RestoreDoneEvent",
+          152
+        ],
+        [
+          "RestoreDoneEvent",
+          153
+        ],
+        [
+          "RestoreDoneEvent",
+          158
+        ],
+        [
+          "RestoreDoneEvent",
+          159
+        ],
+        [
+          "RestoreDoneEvent",
+          164
+        ],
+        [
+          "RestoreDoneEvent",
+          165
+        ],
+        [
+          "RestoreDoneEvent",
+          169
+        ],
+        [
+          "RestoreDoneEvent",
+          170
+        ],
+        [
+          "RestoreDoneEvent",
+          175
+        ],
+        [
+          "RestoreDoneEvent",
+          176
+        ],
+        [
+          "RestoreDoneEvent",
+          181
+        ],
+        [
+          "RestoreDoneEvent",
+          182
+        ],
+        [
+          "RestoreDoneEvent",
+          185
+        ],
+        [
+          "RestoreDoneEvent",
+          186
+        ],
+        [
+          "RestoreDoneEvent",
+          191
+        ],
+        [
+          "RestoreDoneEvent",
+          192
+        ],
+        [
+          "RestoreDoneEvent",
+          195
+        ],
+        [
+          "RestoreDoneEvent",
+          196
+        ],
+        [
+          "RestoreDoneEvent",
+          199
+        ],
+        [
+          "RestoreDoneEvent",
+          202
+        ],
+        [
+          "RestoreDoneEvent",
+          205
+        ],
+        [
+          "RestoreDoneEvent",
+          208
+        ],
+        [
+          "RestoreDoneEvent",
+          210
+        ],
+        [
+          "RestoreDoneEvent",
+          218
+        ],
+        [
+          "RestoreDoneEvent",
+          219
+        ],
+        [
+          "RestoreDoneEvent",
+          223
+        ],
+        [
+          "RestoreDoneEvent",
+          224
+        ],
+        [
+          "RestoreDoneEvent",
+          228
+        ],
+        [
+          "RestoreDoneEvent",
+          229
+        ],
+        [
+          "RestoreDoneEvent",
+          232
+        ],
+        [
+          "RestoreDoneEvent",
+          233
+        ],
+        [
+          "RestoreDoneEvent",
+          236
+        ],
+        [
+          "RestoreDoneEvent",
+          237
+        ],
+        [
+          "RestoreDoneEvent",
+          241
+        ],
+        [
+          "RestoreDoneEvent",
+          242
+        ],
+        [
+          "RestoreDoneEvent",
+          247
+        ],
+        [
+          "RestoreDoneEvent",
+          248
+        ],
+        [
+          "RestoreDoneEvent",
+          253
+        ],
+        [
+          "RestoreDoneEvent",
+          254
+        ],
+        [
+          "RestoreDoneEvent",
+          259
+        ],
+        [
+          "RestoreDoneEvent",
+          260
+        ],
+        [
+          "RestoreDoneEvent",
+          265
+        ],
+        [
+          "RestoreDoneEvent",
+          266
+        ],
+        [
+          "RestoreDoneEvent",
+          269
+        ],
+        [
+          "RestoreDoneEvent",
+          270
+        ],
+        [
+          "RestoreDoneEvent",
+          275
+        ],
+        [
+          "RestoreDoneEvent",
+          276
+        ],
+        [
+          "RestoreDoneEvent",
+          279
+        ],
+        [
+          "RestoreDoneEvent",
+          280
+        ],
+        [
+          "RestoreDoneEvent",
+          285
+        ],
+        [
+          "RestoreDoneEvent",
+          286
+        ],
+        [
+          "RestoreDoneEvent",
+          291
+        ],
+        [
+          "RestoreDoneEvent",
+          292
+        ],
+        [
+          "RestoreDoneEvent",
+          296
+        ],
+        [
+          "RestoreDoneEvent",
+          297
+        ],
+        [
+          "RestoreDoneEvent",
+          301
+        ],
+        [
+          "RestoreDoneEvent",
+          303
+        ],
+        [
+          "RestoreDoneEvent",
+          305
+        ],
+        [
+          "RestoreDoneEvent",
+          307
+        ],
+        [
+          "RestoreDoneEvent",
+          309
+        ],
+        [
+          "RestoreDoneEvent",
+          311
+        ],
+        [
+          "RestoreDoneEvent",
+          313
+        ],
+        [
+          "RestoreDoneEvent",
+          316
+        ],
+        [
+          "RestoreDoneEvent",
+          319
+        ],
+        [
+          "RestoreDoneEvent",
+          321
+        ],
+        [
+          "RestoreDoneEvent",
+          323
+        ],
+        [
+          "RestoreDoneEvent",
+          326
+        ],
+        [
+          "RestoreDoneEvent",
+          328
+        ],
+        [
+          "RestoreDoneEvent",
+          331
+        ],
+        [
+          "RestoreDoneEvent",
+          334
+        ],
+        [
+          "RestoreDoneEvent",
+          344
+        ],
+        [
+          "RestoreDoneEvent",
+          345
+        ],
+        [
+          "RestoreDoneEvent",
+          348
+        ],
+        [
+          "RestoreDoneEvent",
+          349
+        ],
+        [
+          "RestoreDoneEvent",
+          352
+        ],
+        [
+          "RestoreDoneEvent",
+          353
+        ],
+        [
+          "RestoreDoneEvent",
+          356
+        ],
+        [
+          "RestoreDoneEvent",
+          357
+        ],
+        [
+          "RestoreDoneEvent",
+          362
+        ],
+        [
+          "RestoreDoneEvent",
+          363
+        ],
+        [
+          "RestoreDoneEvent",
+          367
+        ],
+        [
+          "RestoreDoneEvent",
+          368
+        ],
+        [
+          "RestoreDoneEvent",
+          373
+        ],
+        [
+          "RestoreDoneEvent",
+          374
+        ],
+        [
+          "RestoreDoneEvent",
+          377
+        ],
+        [
+          "RestoreDoneEvent",
+          378
+        ],
+        [
+          "RestoreDoneEvent",
+          383
+        ],
+        [
+          "RestoreDoneEvent",
+          384
+        ],
+        [
+          "RestoreDoneEvent",
+          389
+        ],
+        [
+          "RestoreDoneEvent",
+          390
+        ],
+        [
+          "RestoreDoneEvent",
+          393
+        ],
+        [
+          "RestoreDoneEvent",
+          394
+        ],
+        [
+          "RestoreDoneEvent",
+          399
+        ],
+        [
+          "RestoreDoneEvent",
+          400
+        ],
+        [
+          "RestoreDoneEvent",
+          405
+        ],
+        [
+          "RestoreDoneEvent",
+          406
+        ],
+        [
+          "RestoreDoneEvent",
+          411
+        ],
+        [
+          "RestoreDoneEvent",
+          412
+        ],
+        [
+          "RestoreDoneEvent",
+          416
+        ],
+        [
+          "RestoreDoneEvent",
+          417
+        ],
+        [
+          "RestoreDoneEvent",
+          422
+        ],
+        [
+          "RestoreDoneEvent",
+          423
+        ],
+        [
+          "RestoreDoneEvent",
+          427
+        ],
+        [
+          "RestoreDoneEvent",
+          428
+        ],
+        [
+          "RestoreDoneEvent",
+          432
+        ],
+        [
+          "RestoreDoneEvent",
+          435
+        ],
+        [
+          "RestoreDoneEvent",
+          438
+        ],
+        [
+          "RestoreDoneEvent",
+          440
+        ],
+        [
+          "RestoreDoneEvent",
+          442
+        ],
+        [
+          "RestoreDoneEvent",
+          445
+        ],
+        [
+          "RestoreDoneEvent",
+          447
+        ],
+        [
+          "RestoreDoneEvent",
+          450
+        ],
+        [
+          "SnapshotDoneEvent",
+          4
+        ],
+        [
+          "SnapshotDoneEvent",
+          6
+        ],
+        [
+          "SnapshotDoneEvent",
+          9
+        ],
+        [
+          "SnapshotDoneEvent",
+          11
+        ],
+        [
+          "SnapshotDoneEvent",
+          15
+        ],
+        [
+          "SnapshotDoneEvent",
+          17
+        ],
+        [
+          "SnapshotDoneEvent",
+          21
+        ],
+        [
+          "SnapshotDoneEvent",
+          23
+        ],
+        [
+          "SnapshotDoneEvent",
+          27
+        ],
+        [
+          "SnapshotDoneEvent",
+          29
+        ],
+        [
+          "SnapshotDoneEvent",
+          32
+        ],
+        [
+          "SnapshotDoneEvent",
+          33
+        ],
+        [
+          "SnapshotDoneEvent",
+          36
+        ],
+        [
+          "SnapshotDoneEvent",
+          37
+        ],
+        [
+          "SnapshotDoneEvent",
+          41
+        ],
+        [
+          "SnapshotDoneEvent",
+          43
+        ],
+        [
+          "SnapshotDoneEvent",
+          46
+        ],
+        [
+          "SnapshotDoneEvent",
+          47
+        ],
+        [
+          "SnapshotDoneEvent",
+          50
+        ],
+        [
+          "SnapshotDoneEvent",
+          51
+        ],
+        [
+          "SnapshotDoneEvent",
+          54
+        ],
+        [
+          "SnapshotDoneEvent",
+          56
+        ],
+        [
+          "SnapshotDoneEvent",
+          60
+        ],
+        [
+          "SnapshotDoneEvent",
+          62
+        ],
+        [
+          "SnapshotDoneEvent",
+          65
+        ],
+        [
+          "SnapshotDoneEvent",
+          67
+        ],
+        [
+          "SnapshotDoneEvent",
+          71
+        ],
+        [
+          "SnapshotDoneEvent",
+          73
+        ],
+        [
+          "SnapshotDoneEvent",
+          77
+        ],
+        [
+          "SnapshotDoneEvent",
+          79
+        ],
+        [
+          "SnapshotDoneEvent",
+          83
+        ],
+        [
+          "SnapshotDoneEvent",
+          85
+        ],
+        [
+          "SnapshotDoneEvent",
+          89
+        ],
+        [
+          "SnapshotDoneEvent",
+          93
+        ],
+        [
+          "SnapshotDoneEvent",
+          95
+        ],
+        [
+          "SnapshotDoneEvent",
+          98
+        ],
+        [
+          "SnapshotDoneEvent",
+          101
+        ],
+        [
+          "SnapshotDoneEvent",
+          103
+        ],
+        [
+          "SnapshotDoneEvent",
+          105
+        ],
+        [
+          "SnapshotDoneEvent",
+          107
+        ],
+        [
+          "SnapshotDoneEvent",
+          110
+        ],
+        [
+          "SnapshotDoneEvent",
+          117
+        ],
+        [
+          "SnapshotDoneEvent",
+          119
+        ],
+        [
+          "SnapshotDoneEvent",
+          123
+        ],
+        [
+          "SnapshotDoneEvent",
+          125
+        ],
+        [
+          "SnapshotDoneEvent",
+          128
+        ],
+        [
+          "SnapshotDoneEvent",
+          129
+        ],
+        [
+          "SnapshotDoneEvent",
+          133
+        ],
+        [
+          "SnapshotDoneEvent",
+          135
+        ],
+        [
+          "SnapshotDoneEvent",
+          138
+        ],
+        [
+          "SnapshotDoneEvent",
+          139
+        ],
+        [
+          "SnapshotDoneEvent",
+          143
+        ],
+        [
+          "SnapshotDoneEvent",
+          145
+        ],
+        [
+          "SnapshotDoneEvent",
+          149
+        ],
+        [
+          "SnapshotDoneEvent",
+          151
+        ],
+        [
+          "SnapshotDoneEvent",
+          155
+        ],
+        [
+          "SnapshotDoneEvent",
+          157
+        ],
+        [
+          "SnapshotDoneEvent",
+          161
+        ],
+        [
+          "SnapshotDoneEvent",
+          163
+        ],
+        [
+          "SnapshotDoneEvent",
+          166
+        ],
+        [
+          "SnapshotDoneEvent",
+          168
+        ],
+        [
+          "SnapshotDoneEvent",
+          172
+        ],
+        [
+          "SnapshotDoneEvent",
+          174
+        ],
+        [
+          "SnapshotDoneEvent",
+          178
+        ],
+        [
+          "SnapshotDoneEvent",
+          180
+        ],
+        [
+          "SnapshotDoneEvent",
+          183
+        ],
+        [
+          "SnapshotDoneEvent",
+          184
+        ],
+        [
+          "SnapshotDoneEvent",
+          188
+        ],
+        [
+          "SnapshotDoneEvent",
+          190
+        ],
+        [
+          "SnapshotDoneEvent",
+          193
+        ],
+        [
+          "SnapshotDoneEvent",
+          194
+        ],
+        [
+          "SnapshotDoneEvent",
+          197
+        ],
+        [
+          "SnapshotDoneEvent",
+          201
+        ],
+        [
+          "SnapshotDoneEvent",
+          204
+        ],
+        [
+          "SnapshotDoneEvent",
+          207
+        ],
+        [
+          "SnapshotDoneEvent",
+          209
+        ],
+        [
+          "SnapshotDoneEvent",
+          215
+        ],
+        [
+          "SnapshotDoneEvent",
+          217
+        ],
+        [
+          "SnapshotDoneEvent",
+          220
+        ],
+        [
+          "SnapshotDoneEvent",
+          222
+        ],
+        [
+          "SnapshotDoneEvent",
+          225
+        ],
+        [
+          "SnapshotDoneEvent",
+          227
+        ],
+        [
+          "SnapshotDoneEvent",
+          230
+        ],
+        [
+          "SnapshotDoneEvent",
+          231
+        ],
+        [
+          "SnapshotDoneEvent",
+          234
+        ],
+        [
+          "SnapshotDoneEvent",
+          235
+        ],
+        [
+          "SnapshotDoneEvent",
+          238
+        ],
+        [
+          "SnapshotDoneEvent",
+          240
+        ],
+        [
+          "SnapshotDoneEvent",
+          244
+        ],
+        [
+          "SnapshotDoneEvent",
+          246
+        ],
+        [
+          "SnapshotDoneEvent",
+          250
+        ],
+        [
+          "SnapshotDoneEvent",
+          252
+        ],
+        [
+          "SnapshotDoneEvent",
+          256
+        ],
+        [
+          "SnapshotDoneEvent",
+          258
+        ],
+        [
+          "SnapshotDoneEvent",
+          262
+        ],
+        [
+          "SnapshotDoneEvent",
+          264
+        ],
+        [
+          "SnapshotDoneEvent",
+          267
+        ],
+        [
+          "SnapshotDoneEvent",
+          268
+        ],
+        [
+          "SnapshotDoneEvent",
+          272
+        ],
+        [
+          "SnapshotDoneEvent",
+          274
+        ],
+        [
+          "SnapshotDoneEvent",
+          277
+        ],
+        [
+          "SnapshotDoneEvent",
+          278
+        ],
+        [
+          "SnapshotDoneEvent",
+          282
+        ],
+        [
+          "SnapshotDoneEvent",
+          284
+        ],
+        [
+          "SnapshotDoneEvent",
+          288
+        ],
+        [
+          "SnapshotDoneEvent",
+          290
+        ],
+        [
+          "SnapshotDoneEvent",
+          293
+        ],
+        [
+          "SnapshotDoneEvent",
+          295
+        ],
+        [
+          "SnapshotDoneEvent",
+          299
+        ],
+        [
+          "SnapshotDoneEvent",
+          302
+        ],
+        [
+          "SnapshotDoneEvent",
+          304
+        ],
+        [
+          "SnapshotDoneEvent",
+          306
+        ],
+        [
+          "SnapshotDoneEvent",
+          308
+        ],
+        [
+          "SnapshotDoneEvent",
+          310
+        ],
+        [
+          "SnapshotDoneEvent",
+          312
+        ],
+        [
+          "SnapshotDoneEvent",
+          315
+        ],
+        [
+          "SnapshotDoneEvent",
+          318
+        ],
+        [
+          "SnapshotDoneEvent",
+          320
+        ],
+        [
+          "SnapshotDoneEvent",
+          322
+        ],
+        [
+          "SnapshotDoneEvent",
+          325
+        ],
+        [
+          "SnapshotDoneEvent",
+          327
+        ],
+        [
+          "SnapshotDoneEvent",
+          330
+        ],
+        [
+          "SnapshotDoneEvent",
+          333
+        ],
+        [
+          "SnapshotDoneEvent",
+          341
+        ],
+        [
+          "SnapshotDoneEvent",
+          343
+        ],
+        [
+          "SnapshotDoneEvent",
+          346
+        ],
+        [
+          "SnapshotDoneEvent",
+          347
+        ],
+        [
+          "SnapshotDoneEvent",
+          350
+        ],
+        [
+          "SnapshotDoneEvent",
+          351
+        ],
+        [
+          "SnapshotDoneEvent",
+          354
+        ],
+        [
+          "SnapshotDoneEvent",
+          355
+        ],
+        [
+          "SnapshotDoneEvent",
+          359
+        ],
+        [
+          "SnapshotDoneEvent",
+          361
+        ],
+        [
+          "SnapshotDoneEvent",
+          364
+        ],
+        [
+          "SnapshotDoneEvent",
+          366
+        ],
+        [
+          "SnapshotDoneEvent",
+          370
+        ],
+        [
+          "SnapshotDoneEvent",
+          372
+        ],
+        [
+          "SnapshotDoneEvent",
+          375
+        ],
+        [
+          "SnapshotDoneEvent",
+          376
+        ],
+        [
+          "SnapshotDoneEvent",
+          380
+        ],
+        [
+          "SnapshotDoneEvent",
+          382
+        ],
+        [
+          "SnapshotDoneEvent",
+          386
+        ],
+        [
+          "SnapshotDoneEvent",
+          388
+        ],
+        [
+          "SnapshotDoneEvent",
+          391
+        ],
+        [
+          "SnapshotDoneEvent",
+          392
+        ],
+        [
+          "SnapshotDoneEvent",
+          396
+        ],
+        [
+          "SnapshotDoneEvent",
+          398
+        ],
+        [
+          "SnapshotDoneEvent",
+          402
+        ],
+        [
+          "SnapshotDoneEvent",
+          404
+        ],
+        [
+          "SnapshotDoneEvent",
+          408
+        ],
+        [
+          "SnapshotDoneEvent",
+          410
+        ],
+        [
+          "SnapshotDoneEvent",
+          413
+        ],
+        [
+          "SnapshotDoneEvent",
+          415
+        ],
+        [
+          "SnapshotDoneEvent",
+          419
+        ],
+        [
+          "SnapshotDoneEvent",
+          421
+        ],
+        [
+          "SnapshotDoneEvent",
+          424
+        ],
+        [
+          "SnapshotDoneEvent",
+          426
+        ],
+        [
+          "SnapshotDoneEvent",
+          430
+        ],
+        [
+          "SnapshotDoneEvent",
+          434
+        ],
+        [
+          "SnapshotDoneEvent",
+          437
+        ],
+        [
+          "SnapshotDoneEvent",
+          439
+        ],
+        [
+          "SnapshotDoneEvent",
+          441
+        ],
+        [
+          "SnapshotDoneEvent",
+          444
+        ],
+        [
+          "SnapshotDoneEvent",
+          446
+        ],
+        [
+          "SnapshotDoneEvent",
+          449
+        ],
+        [
+          "WriteBackDoneEvent",
+          0
+        ],
+        [
+          "WriteBackDoneEvent",
+          1
+        ],
+        [
+          "WriteBackDoneEvent",
+          2
+        ],
+        [
+          "WriteBackDoneEvent",
+          3
+        ],
+        [
+          "WriteBackDoneEvent",
+          5
+        ],
+        [
+          "WriteBackDoneEvent",
+          10
+        ],
+        [
+          "WriteBackDoneEvent",
+          14
+        ],
+        [
+          "WriteBackDoneEvent",
+          16
+        ],
+        [
+          "WriteBackDoneEvent",
+          20
+        ],
+        [
+          "WriteBackDoneEvent",
+          22
+        ],
+        [
+          "WriteBackDoneEvent",
+          26
+        ],
+        [
+          "WriteBackDoneEvent",
+          28
+        ],
+        [
+          "WriteBackDoneEvent",
+          40
+        ],
+        [
+          "WriteBackDoneEvent",
+          42
+        ],
+        [
+          "WriteBackDoneEvent",
+          55
+        ],
+        [
+          "WriteBackDoneEvent",
+          59
+        ],
+        [
+          "WriteBackDoneEvent",
+          61
+        ],
+        [
+          "WriteBackDoneEvent",
+          66
+        ],
+        [
+          "WriteBackDoneEvent",
+          70
+        ],
+        [
+          "WriteBackDoneEvent",
+          72
+        ],
+        [
+          "WriteBackDoneEvent",
+          76
+        ],
+        [
+          "WriteBackDoneEvent",
+          78
+        ],
+        [
+          "WriteBackDoneEvent",
+          82
+        ],
+        [
+          "WriteBackDoneEvent",
+          84
+        ],
+        [
+          "WriteBackDoneEvent",
+          88
+        ],
+        [
+          "WriteBackDoneEvent",
+          90
+        ],
+        [
+          "WriteBackDoneEvent",
+          92
+        ],
+        [
+          "WriteBackDoneEvent",
+          97
+        ],
+        [
+          "WriteBackDoneEvent",
+          100
+        ],
+        [
+          "WriteBackDoneEvent",
+          109
+        ],
+        [
+          "WriteBackDoneEvent",
+          112
+        ],
+        [
+          "WriteBackDoneEvent",
+          113
+        ],
+        [
+          "WriteBackDoneEvent",
+          114
+        ],
+        [
+          "WriteBackDoneEvent",
+          115
+        ],
+        [
+          "WriteBackDoneEvent",
+          116
+        ],
+        [
+          "WriteBackDoneEvent",
+          118
+        ],
+        [
+          "WriteBackDoneEvent",
+          122
+        ],
+        [
+          "WriteBackDoneEvent",
+          124
+        ],
+        [
+          "WriteBackDoneEvent",
+          132
+        ],
+        [
+          "WriteBackDoneEvent",
+          134
+        ],
+        [
+          "WriteBackDoneEvent",
+          142
+        ],
+        [
+          "WriteBackDoneEvent",
+          144
+        ],
+        [
+          "WriteBackDoneEvent",
+          148
+        ],
+        [
+          "WriteBackDoneEvent",
+          150
+        ],
+        [
+          "WriteBackDoneEvent",
+          154
+        ],
+        [
+          "WriteBackDoneEvent",
+          156
+        ],
+        [
+          "WriteBackDoneEvent",
+          160
+        ],
+        [
+          "WriteBackDoneEvent",
+          162
+        ],
+        [
+          "WriteBackDoneEvent",
+          167
+        ],
+        [
+          "WriteBackDoneEvent",
+          171
+        ],
+        [
+          "WriteBackDoneEvent",
+          173
+        ],
+        [
+          "WriteBackDoneEvent",
+          177
+        ],
+        [
+          "WriteBackDoneEvent",
+          179
+        ],
+        [
+          "WriteBackDoneEvent",
+          187
+        ],
+        [
+          "WriteBackDoneEvent",
+          189
+        ],
+        [
+          "WriteBackDoneEvent",
+          198
+        ],
+        [
+          "WriteBackDoneEvent",
+          200
+        ],
+        [
+          "WriteBackDoneEvent",
+          203
+        ],
+        [
+          "WriteBackDoneEvent",
+          206
+        ],
+        [
+          "WriteBackDoneEvent",
+          211
+        ],
+        [
+          "WriteBackDoneEvent",
+          212
+        ],
+        [
+          "WriteBackDoneEvent",
+          213
+        ],
+        [
+          "WriteBackDoneEvent",
+          214
+        ],
+        [
+          "WriteBackDoneEvent",
+          216
+        ],
+        [
+          "WriteBackDoneEvent",
+          221
+        ],
+        [
+          "WriteBackDoneEvent",
+          226
+        ],
+        [
+          "WriteBackDoneEvent",
+          239
+        ],
+        [
+          "WriteBackDoneEvent",
+          243
+        ],
+        [
+          "WriteBackDoneEvent",
+          245
+        ],
+        [
+          "WriteBackDoneEvent",
+          249
+        ],
+        [
+          "WriteBackDoneEvent",
+          251
+        ],
+        [
+          "WriteBackDoneEvent",
+          255
+        ],
+        [
+          "WriteBackDoneEvent",
+          257
+        ],
+        [
+          "WriteBackDoneEvent",
+          261
+        ],
+        [
+          "WriteBackDoneEvent",
+          263
+        ],
+        [
+          "WriteBackDoneEvent",
+          271
+        ],
+        [
+          "WriteBackDoneEvent",
+          273
+        ],
+        [
+          "WriteBackDoneEvent",
+          281
+        ],
+        [
+          "WriteBackDoneEvent",
+          283
+        ],
+        [
+          "WriteBackDoneEvent",
+          287
+        ],
+        [
+          "WriteBackDoneEvent",
+          289
+        ],
+        [
+          "WriteBackDoneEvent",
+          294
+        ],
+        [
+          "WriteBackDoneEvent",
+          298
+        ],
+        [
+          "WriteBackDoneEvent",
+          300
+        ],
+        [
+          "WriteBackDoneEvent",
+          314
+        ],
+        [
+          "WriteBackDoneEvent",
+          317
+        ],
+        [
+          "WriteBackDoneEvent",
+          324
+        ],
+        [
+          "WriteBackDoneEvent",
+          329
+        ],
+        [
+          "WriteBackDoneEvent",
+          332
+        ],
+        [
+          "WriteBackDoneEvent",
+          335
+        ],
+        [
+          "WriteBackDoneEvent",
+          336
+        ],
+        [
+          "WriteBackDoneEvent",
+          337
+        ],
+        [
+          "WriteBackDoneEvent",
+          338
+        ],
+        [
+          "WriteBackDoneEvent",
+          339
+        ],
+        [
+          "WriteBackDoneEvent",
+          340
+        ],
+        [
+          "WriteBackDoneEvent",
+          342
+        ],
+        [
+          "WriteBackDoneEvent",
+          358
+        ],
+        [
+          "WriteBackDoneEvent",
+          360
+        ],
+        [
+          "WriteBackDoneEvent",
+          365
+        ],
+        [
+          "WriteBackDoneEvent",
+          369
+        ],
+        [
+          "WriteBackDoneEvent",
+          371
+        ],
+        [
+          "WriteBackDoneEvent",
+          379
+        ],
+        [
+          "WriteBackDoneEvent",
+          381
+        ],
+        [
+          "WriteBackDoneEvent",
+          385
+        ],
+        [
+          "WriteBackDoneEvent",
+          387
+        ],
+        [
+          "WriteBackDoneEvent",
+          395
+        ],
+        [
+          "WriteBackDoneEvent",
+          397
+        ],
+        [
+          "WriteBackDoneEvent",
+          401
+        ],
+        [
+          "WriteBackDoneEvent",
+          403
+        ],
+        [
+          "WriteBackDoneEvent",
+          407
+        ],
+        [
+          "WriteBackDoneEvent",
+          409
+        ],
+        [
+          "WriteBackDoneEvent",
+          414
+        ],
+        [
+          "WriteBackDoneEvent",
+          418
+        ],
+        [
+          "WriteBackDoneEvent",
+          420
+        ],
+        [
+          "WriteBackDoneEvent",
+          425
+        ],
+        [
+          "WriteBackDoneEvent",
+          429
+        ],
+        [
+          "WriteBackDoneEvent",
+          431
+        ],
+        [
+          "WriteBackDoneEvent",
+          433
+        ],
+        [
+          "WriteBackDoneEvent",
+          436
+        ],
+        [
+          "WriteBackDoneEvent",
+          443
+        ],
+        [
+          "WriteBackDoneEvent",
+          448
+        ],
+        [
+          "WriteBackDoneEvent",
+          451
+        ]
+      ],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-641536.jsonl": "abe3572296753b03ab91d2697ffcf16f2a6788876f1ee2e7994f18a8cd41642e"
+  },
+  "rank_completion_agreement": true,
+  "d2h_bytes": 2659318992,
+  "h2d_bytes": 3483303120,
+  "full_assignment_verified": false
+}

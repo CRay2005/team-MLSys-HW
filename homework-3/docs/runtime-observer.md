@@ -30,6 +30,8 @@ Control-plane records expose device active/empty/available LCM blocks, Host cach
 and pinned entries, snapshot free LCM blocks, and waiting/retracted counts. Host
 cached entries are per-group index entries, not LCM blocks: do not multiply them
 by an LCM byte size. Report allocation bytes and occupancy counts separately.
+Allocation byte counts describe logical tensor storage plus slot blobs; they do
+not measure pinned-allocator reserved memory or process RSS.
 Per-forward block tables, prefix positions, replay lengths and snapshot/restore
 frontiers are retained. The checker rejects unequal stored/restored frontiers.
 Replica-agreed completion IDs are separate from rank-local ACKs.
