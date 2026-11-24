@@ -152,7 +152,7 @@ def main():
             common = [sys.executable, "homework-3/scripts/run_offloading.py", "--action", "run",
                       "--model", str(model), "--model-config", str(config), "--seed-cases", "homework-2/cases.json",
                       "--tp", "1", "--physical-devices", str(args.device), "--memory-fraction", "0.12",
-                      "--device-tokens", "1024", "--port", str(port), "--dtype", "bfloat16",
+                      "--device-tokens", "16384", "--port", str(port), "--dtype", "bfloat16",
                       "--head-dtype", "native", "--pattern", "high", "--repeats", "2",
                       "--working-set", "4", "--revisit-suffix-tokens", "8"]
             for name, mode, ratio, force in [("off", "off", "0", "0"),

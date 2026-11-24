@@ -83,7 +83,9 @@ The detached suite runs the original 32 harness tests, then three 0.8B TP1 cases
 off, forced decode suspension (`2`), and forced prefill suspension (`-2`), checking
 all generated tokens against off. Each model invocation has a ten-minute limit;
 failures stop the sequence. Four sessions and two cycles provide an initial smoke,
-not a calibrated memory-pressure benchmark. Only this launcher's child process
+not a calibrated memory-pressure benchmark. All three runs use the HW2-tested
+16,384-token cap: the initial 1,024-token trial produced only two hybrid-cache
+pages and could not admit even one request. Only this launcher's child process
 groups are cleaned up. Available engine/HCCL ports are selected and rechecked
 before each run. A per-account lock prevents overlapping smoke launchers.
 
