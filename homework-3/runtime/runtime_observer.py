@@ -74,6 +74,7 @@ class Observer:
         self.lock = threading.RLock()
         self.ledger = Ledger(self.emit)
         self.previous_stats = None
+        self.last_idle_ns = 0
         self.emit("observer_start", timing="call-entry to ACK; includes queueing/polling", version=1)
 
     def emit(self, event, **values):
@@ -202,6 +203,12 @@ def instrument_event_loop(cls):
         if stats != trace.previous_stats:
             trace.emit("scheduler", **stats)
             trace.previous_stats = stats
+        now = time.perf_counter_ns()
+        if (result is None and not trace.ledger.pending and not any(stats[key] for key in
+                ("device_active", "host_pinned", "waiting", "retracted", "decoding", "prefilling"))
+                and now - trace.last_idle_ns >= 200_000_000):
+            trace.emit("scheduler_quiescent", **stats, pending_operations=0)
+            trace.last_idle_ns = now
         for op in plan.cache:
             kind = type(op).__name__
             if kind not in ("WriteBackOp", "LoadBackOp", "SnapshotOp", "RestoreOp"):

@@ -1,7 +1,7 @@
 {
   "date": "2026-11-24",
   "scope": "CPU harness only; no hardware execution",
-  "unittest_passed": 44,
+  "unittest_passed": 46,
   "plan_cli": "passed: explicit eight-session working set, two cycles, 256/264-token inputs; no generation",
   "comparison_cli": "passed: complete synthetic provenance, eight requests, lifecycle proof false",
   "python_ast": "passed",
@@ -10,14 +10,14 @@
   "source_sha256": {
     "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
     "homework-3/scripts/launch_smoke.py": "f83932adeaec149bdc3f54a2724cadab92f3eadeab3089b9d588910b225879e4",
-    "homework-3/scripts/run_offloading.py": "ddcb113174afd6a6b4f4bfa465922c6e1e542b108a09f79f4ce4ee0f9d1dfd0c",
+    "homework-3/scripts/run_offloading.py": "b8711acee6771f21990d1ffe0f497a8e2772b615c79638ef5f3499c464a01a0e",
     "homework-3/scripts/server_smoke.py": "96acf89abee0961ade18bafbf7606c004bf8cdab4b24fea6ab8158dbbe5f71e8",
-    "homework-3/scripts/summarize_trace.py": "17e802c1f9b0ae07c502569179e99b597fa03917a53e5436e0b9b34ca3932f7a",
+    "homework-3/scripts/summarize_trace.py": "45e260a2839b4e47f41ae909e845197cf46587e495a4c3a7d0c84aacd59e96f6",
     "homework-3/tests/test_host_budget_contract.py": "2b4af4575a3e3661ee457a227286e6c14213907d728e614d29ce253a474708df",
-    "homework-3/tests/test_observer.py": "34b69c1c3d56ce22d9dc07d4edbd15512b64e71da3d47f2972c9e80906afcc45",
+    "homework-3/tests/test_observer.py": "4def1a70e0f9fa805e4d6825cdccab2da5d2a24a3d1c97dbb095dc4ea7b1b277",
     "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c",
     "homework-3/tests/test_smoke_launcher.py": "e677857263da3c6797f3d2d025adc2c810fff791242aef342a69c462c45e95b7",
-    "homework-3/runtime/runtime_observer.py": "7c9bc21745872c01251c7f63492c46275d87263ff3a9b1af1ab2161f4321324e",
+    "homework-3/runtime/runtime_observer.py": "86a8a22f68534ebbabb995703ae519712e407e9c1f41cd5d27649bb775a29fb7",
     "homework-3/runtime/sitecustomize.py": "eeaf5f449a4b96777d8a49beab3a82971b4bcbd28f0667a247f95111778fd8a5"
   },
   "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
@@ -25,5 +25,5 @@
   "launcher_validation": "Seven CPU launcher checks passed including real timeout cleanup, occupied-port refusal and selection of an alternate range. Port test requires socket permissions.",
   "server_preflight": "Source/model hashes and original32CPUtests passed. Three failed setup/calibration trials retained. Fourth suite passed with16384token cap and available lower HCCL range.",
   "launcher_gemini_review": "Attempt failed: agy rejected gemini-4-neon-high as unrecognized; no launcher review or signoff received.",
-  "observer_validation": "Five new ledger/frontier CPU tests pass; hardware observer run pending."
+  "observer_validation": "Seven observer tests pass, including fresh all-rank idle barrier. First instrumented baseline generated correctly but lacked graceful close record; barrier added for Engine forceful child teardown; hardware rerun pending."
 }

@@ -39,9 +39,9 @@ def harness_fingerprints():
 
 def observer_fingerprints():
     enabled = bool(os.environ.get("HW3_TRACE_DIR"))
-    files = ("sitecustomize.py", "runtime_observer.py") if enabled else ()
-    return {"enabled": enabled, "files": {name: hashlib.sha256((ROOT / "homework-3/runtime" / name).read_bytes()).hexdigest()
-                                          for name in files}}
+    paths = [ROOT / "homework-3/runtime/sitecustomize.py", ROOT / "homework-3/runtime/runtime_observer.py",
+             ROOT / "homework-3/scripts/summarize_trace.py"] if enabled else []
+    return {"enabled": enabled, "files": {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}}
 
 
 def validate_source_locations(locations):
@@ -86,7 +86,7 @@ def validate_provenance(result):
         observer = result["observer"]
         if (not isinstance(observer, dict) or set(observer) != {"enabled", "files"}
                 or type(observer["enabled"]) is not bool or not isinstance(observer["files"], dict)
-                or set(observer["files"]) != ({"sitecustomize.py", "runtime_observer.py"} if observer["enabled"] else set())
+                or set(observer["files"]) != ({"sitecustomize.py", "runtime_observer.py", "summarize_trace.py"} if observer["enabled"] else set())
                 or not all(valid_sha256(v) for v in observer["files"].values())):
             raise ValueError("invalid observer provenance")
     harness = result.get("harness_fingerprints")
@@ -369,6 +369,9 @@ def main():
                                    "output_tokens_per_second": 2 * workload["new_tokens"] / elapsed})
             save()
         hw2.snapshot(args.output_dir / "npu-after-workload.txt")
+        if result["observer"]["enabled"]:
+            from summarize_trace import wait_for_quiescence
+            wait_for_quiescence(os.environ["HW3_TRACE_DIR"], args.tp)
         result["status"] = "generation_completed_unverified"
     except BaseException as exc:
         result.update(status="failed", error=f"{type(exc).__name__}: {exc}")

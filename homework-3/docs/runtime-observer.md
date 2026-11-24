@@ -13,6 +13,14 @@ operation ID receives an ACK. A successful existing shutdown device synchronizat
 can account for final discarded ACKs, recorded as a separate completion basis.
 Unknown/duplicate completions and unfinished submissions fail validation.
 
+The existing Engine shutdown kills child processes rather than guaranteeing the
+event-loop close hook runs. Instrumented runs therefore wait for a **fresh** idle
+snapshot from every rank after the final generation: no active request, pinned
+Host entry or outstanding observed transfer. The final device capacity must be
+fully reclaimable and all snapshot-pool blocks free. Old idle samples cannot
+satisfy this barrier. This measures quiescence before teardown, not a fabricated
+graceful-shutdown event.
+
 Latency measures host-observed method-entry to ACK time, including queueing,
 polling and observation overhead. It is not isolated DMA device time. Overlapping
 durations must not be summed as end-to-end wall time. Request/batch timings stay

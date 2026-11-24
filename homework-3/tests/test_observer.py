@@ -2,6 +2,10 @@
 import importlib.util
 from pathlib import Path
 import unittest
+import json
+import tempfile
+import threading
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,6 +22,26 @@ summary = load("hw3_summary_test", ROOT / "scripts/summarize_trace.py")
 
 
 class ObserverTests(unittest.TestCase):
+    def test_old_idle_sample_cannot_satisfy_fresh_barrier(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "old.jsonl").write_text(json.dumps({"event": "scheduler_quiescent", "rank": 0, "monotonic_ns": 0}) + "\n")
+            with self.assertRaises(RuntimeError):
+                summary.wait_for_quiescence(tmp, 1, timeout=0.02)
+
+    def test_barrier_waits_for_all_fresh_ranks(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            def write():
+                time.sleep(0.02)
+                for rank in (1, 0):
+                    (Path(tmp) / f"{rank}.jsonl").write_text(json.dumps({"event": "scheduler_quiescent", "rank": rank,
+                                                                      "monotonic_ns": time.perf_counter_ns()}) + "\n")
+            thread = threading.Thread(target=write)
+            thread.start()
+            try:
+                summary.wait_for_quiescence(tmp, 2, timeout=2)
+            finally:
+                thread.join()
+
     def test_batch_counts_bytes_once_after_all_acks(self):
         events = []
         ledger = observer.Ledger(lambda event, **values: events.append(dict(event=event, **values)))

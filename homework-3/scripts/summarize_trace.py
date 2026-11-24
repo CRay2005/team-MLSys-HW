@@ -4,6 +4,7 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+import time
 
 
 def summarize(events):
@@ -43,7 +44,7 @@ def summarize(events):
             byte_counts[event["kind"]] += event["payload_bytes"]
             durations[event["kind"]] += event["observed_seconds"]
             operations[event["kind"]] += len(event["op_ids"])
-        elif kind in ("scheduler", "scheduler_before_close"):
+        elif kind in ("scheduler", "scheduler_before_close", "scheduler_quiescent"):
             for key in ("device_active", "host_cached", "host_pinned", "retracted", "tail_cap_evictions"):
                 peaks[key] = max(peaks[key], event[key])
             final_stats = event
@@ -85,10 +86,15 @@ def summarize(events):
                         device_owners[key] = rid
     if set(begins) != completed:
         raise ValueError(f"{len(set(begins) - completed)} transfers lack observed completion")
-    if final_stats is None or final_stats["event"] != "scheduler_before_close":
-        raise ValueError("missing final scheduler snapshot")
+    if final_stats is None or final_stats["event"] not in ("scheduler_before_close", "scheduler_quiescent"):
+        raise ValueError("missing final quiescent scheduler snapshot")
     if any(item["stored"] != item["restored"] for item in restore_checks):
         raise ValueError("snapshot/restore frontier mismatch")
+    if final_stats["event"] == "scheduler_quiescent":
+        if final_stats["device_available"] != final_stats["device_total"]:
+            raise ValueError("not all device blocks reclaimable at quiescence")
+        if allocation and final_stats["snapshot_free"] != allocation["snapshot_blocks"]:
+            raise ValueError("snapshot blocks remain held at quiescence")
     return dict(rank=events[0]["rank"], allocation=allocation, peaks=dict(peaks), final_scheduler=final_stats,
                 completed_payload_bytes=dict(byte_counts), completed_operations=dict(operations),
                 observed_completion_seconds_sum=dict(durations),
@@ -105,6 +111,32 @@ def summarize(events):
                 owner_note="Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
                 replay_tokens=replay_tokens, prefill_ranges=request_ranges,
                 rank_agreed_operations=sorted(agreement), complete_assignment_verified=False)
+
+
+def wait_for_quiescence(directory, ranks, *, timeout=30):
+    """Observe fresh idle/ACK-complete ranks before Engine.shutdown kills workers."""
+    started = time.perf_counter_ns()
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        ready = set()
+        for file in Path(directory).glob("*.jsonl"):
+            with file.open("rb") as stream:
+                stream.seek(0, 2)
+                length = stream.tell()
+                stream.seek(max(0, length - 131072))
+                lines = stream.read().splitlines()
+            for line in reversed(lines):
+                try:
+                    event = json.loads(line)
+                except (ValueError, UnicodeDecodeError):
+                    continue  # Boundary fragment or concurrent last-line write.
+                if event.get("event") == "scheduler_quiescent" and event["monotonic_ns"] >= started:
+                    ready.add(event["rank"])
+                    break
+        if ready == set(range(ranks)):
+            return
+        time.sleep(0.1)
+    raise RuntimeError("No fresh quiescent/ACK-complete snapshot from every rank before shutdown")
 
 
 def main():
