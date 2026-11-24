@@ -1,7 +1,8 @@
 # MLSys-HW
 
 - [Homework 3: HBM/Host offloading](homework-3/README.md) — initial source audit,
-  paired experiment harness and local tests; hardware validation pending.
+  paired experiment harness and local tests; initial 0.8B TP1 forced-restore smoke
+  passed, full HW3 validation pending. [Steven's HW3 contribution and progress](homework-3/report.md).
 
 **Confirmed contributors: Zhuoxi Zeng (2501213387) and Steven Walxim (2501112130).** Each report records their respective work; HW2's third-member details remain unconfirmed. Report sources and package-building tools are retained; generated PDFs/ZIPs are local outputs, not GitHub downloads. No teaching-platform submission has been performed by this project. Start with the [submission guide](SUBMISSION.md) and [generated-file instructions](submissions/README.md).
 

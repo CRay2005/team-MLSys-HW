@@ -5,6 +5,9 @@ tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
+[Contribution statement and report draft](report.md) credits Steven's new HW3
+tooling and experiments and distinguishes the reused upstream/group runtime.
+
 ## Assessment
 
 This requires real offload → device-block reuse → restore, correct hybrid state,
