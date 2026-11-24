@@ -1,5 +1,8 @@
 # MLSys-HW
 
+- [Homework 3: HBM/Host offloading](homework-3/README.md) — initial source audit,
+  paired experiment harness and local tests; hardware validation pending.
+
 **Confirmed contributors: Zhuoxi Zeng (2501213387) and Steven Walxim (2501112130).** Each report records their respective work; HW2's third-member details remain unconfirmed. Report sources and package-building tools are retained; generated PDFs/ZIPs are local outputs, not GitHub downloads. No teaching-platform submission has been performed by this project. Start with the [submission guide](SUBMISSION.md) and [generated-file instructions](submissions/README.md).
 
 - [Homework 1: single-chip Qwen3.5-0.8B adaptation](homework-1/README.md) — single-chip inference, reference checks and the 2×2 performance baseline completed. The report includes a self-contained operator matrix and the required contribution statement.

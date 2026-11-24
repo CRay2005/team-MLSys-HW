@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-24",
+  "scope": "CPU harness only; no hardware execution",
+  "unittest_passed": 10,
+  "plan_cli": "passed: four two-request batches; no generation",
+  "comparison_cli": "passed using synthetic fixture; eight requests, lifecycle proof false",
+  "python_ast": "passed",
+  "original_assignment_sha256": "e66c6769a94417c46d40857e97e77c912bc8b12ad3cdfe319e08c60fa7cc70df",
+  "hardware_validation": "pending",
+  "source_sha256": {
+    "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
+    "homework-3/scripts/run_offloading.py": "6ca9ccab46f25c9538d209ad0bc53ee407ea7d79d6d7870310b60e30898b1014",
+    "homework-3/tests/test_offloading.py": "c19839de208740337f3283369885b2ad818481b98154860834c69caac4c858f7"
+  }
+}
