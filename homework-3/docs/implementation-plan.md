@@ -122,7 +122,7 @@ measurements and exclude artificial forced retractions from normal performance.
    replacements and tail-cap metadata evictions have narrower, explicit scopes.
    Review the requirement matrix and finalize the report after missing evidence.
 4. Keep the larger-budget throughput observation exploratory until repeated;
-   the original18-run matrix remains a valid zero-hit result. GitHub publishing
-   and course submission have not been performed.
+   the original18-run matrix remains a valid zero-hit result. This branch is being
+   submitted as a draft PR for team review; course submission has not been performed.
 
 Continuity: [active transcript](../../../chat-history/ASCEND_HOMEWORK_TRANSCRIPT.md).
