@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 53 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 55 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -222,3 +222,16 @@ phases separate. Throughput is generated tokens divided by total batch time with
 each phase. It reports three independent run values and paired ratios, discloses
 fixed execution order and observer overhead, and rejects incomplete suites.
 Four CPU tests cover aggregation and incomplete/invalid timing input.
+
+For checksum-verified evidence retrieval after a suite finishes or fails:
+
+```bash
+.venv/bin/python homework-3/scripts/collect_evidence.py \
+  --host YOUR_COURSE_USER@YOUR_COURSE_HOST --run PRINTED_RUN_LABEL \
+  --output .local-review/NEW_EVIDENCE_DIRECTORY
+```
+
+This refuses running suites, streams result/log evidence without making a server
+archive, verifies every file against its manifest before extraction, and removes
+the temporary local archive after verification. It does not download model weights
+or the copied runtime. Two tests cover valid/tampered payloads and unsafe paths.
