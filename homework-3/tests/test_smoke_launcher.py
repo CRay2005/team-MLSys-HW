@@ -26,6 +26,23 @@ server = load("server_smoke")
 
 
 class SmokeLauncherTests(unittest.TestCase):
+    def test_queue_requires_successful_predecessor(self):
+        label = "hw3-smoke-20261124T111450Z-b3d422e4"
+        with tempfile.TemporaryDirectory() as tmp, patch.object(server, "BASE", Path(tmp)):
+            root = Path(tmp) / label
+            root.mkdir()
+            (root / "status.json").write_text(json.dumps(dict(status="suite_passed")))
+            server.wait_for_run(label, timeout=0)
+            for status in ("failed", "blocked"):
+                (root / "status.json").write_text(json.dumps(dict(status=status)))
+                with self.assertRaisesRegex(RuntimeError, "cancelled"):
+                    server.wait_for_run(label, timeout=0)
+            (root / "status.json").write_text(json.dumps(dict(status="running")))
+            with self.assertRaises(TimeoutError):
+                server.wait_for_run(label, timeout=0)
+            with self.assertRaises(ValueError):
+                server.wait_for_run("../outside", timeout=0)
+
     def test_performance_matrix_uses_normal_scheduling_and_matched_references(self):
         jobs = server.experiment_jobs("matrix")
         self.assertEqual(len(jobs), 18)

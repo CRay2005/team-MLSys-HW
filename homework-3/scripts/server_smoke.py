@@ -7,6 +7,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import signal
 import socket
@@ -139,15 +140,41 @@ def assert_free(device, ports=(), tp=1):
     return result.stdout
 
 
+def wait_for_run(label, timeout=1800):
+    """Wait for a named successful predecessor without holding the device lock."""
+    if not re.fullmatch(r"hw3-smoke-\d{8}T\d{6}Z-[a-f0-9]{8}", label):
+        raise ValueError("invalid predecessor label")
+    deadline = time.monotonic() + timeout
+    while True:
+        path = BASE / label / "status.json"
+        status = json.loads(path.read_text()) if path.exists() else {}
+        state = status.get("status")
+        if state in ("suite_passed", "smoke_passed"):
+            return
+        if state in ("failed", "blocked"):
+            raise RuntimeError(f"Predecessor {label} ended {state}; queued experiment cancelled")
+        if time.monotonic() >= deadline:
+            raise TimeoutError(f"Predecessor {label} did not finish within {timeout}s")
+        time.sleep(10)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--device", type=int, choices=range(8), required=True)
     parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress"), required=True)
     parser.add_argument("--tp", type=int, choices=(1, 2), required=True)
     parser.add_argument("--model-size", choices=("0.8B", "4B"), required=True)
+    parser.add_argument("--after-run", help="Optional successful predecessor; wait at most 30 minutes")
     args = parser.parse_args()
     devices = physical_devices(args.device, args.tp)
     traced = args.suite != "smoke"
+    if args.after_run:
+        save_status(status="waiting", predecessor=args.after_run)
+        try:
+            wait_for_run(args.after_run)
+        except Exception as exc:
+            save_status(status="blocked", error=f"{type(exc).__name__}: {exc}")
+            return 1
     # Coordinates our launchers only; this cannot reserve a shared-server chip.
     with (BASE / ".hw3-smoke.lock").open("a") as lock:
         try:

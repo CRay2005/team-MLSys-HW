@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 55 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 56 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -235,3 +235,10 @@ This refuses running suites, streams result/log evidence without making a server
 archive, verifies every file against its manifest before extraction, and removes
 the temporary local archive after verification. It does not download model weights
 or the copied runtime. Two tests cover valid/tampered payloads and unsafe paths.
+
+`--after-run PRINTED_RUN_LABEL` queues a suite behind a named successful suite.
+The detached controller waits at most 30 minutes without holding the per-account
+lock. A failed/blocked predecessor cancels the queued suite. Source/model hashes,
+ports and free-chip occupancy are still checked before actual execution; queuing
+does not reserve a chip. The queue transition test covers success, failure,
+timeout and invalid predecessor paths.
