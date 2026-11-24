@@ -1,0 +1,4031 @@
+{
+  "runs": {
+    "high-r0-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.106794299557805,
+          "median_batch_seconds": 4.106794299557805,
+          "output_tokens_per_second": 7.791965622297072
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.325962790288031,
+          "median_batch_seconds": 3.101380900479853,
+          "output_tokens_per_second": 10.293843344514894
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.309380560182035,
+          "median_batch_seconds": 3.3467933000065386,
+          "output_tokens_per_second": 9.617277034134887
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 642751,
+          "monotonic_ns": 4509140726254980,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "high-r0-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.9570181304588914,
+          "median_batch_seconds": 3.9570181304588914,
+          "output_tokens_per_second": 8.086897493261926
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.336946059949696,
+          "median_batch_seconds": 3.1107680397108197,
+          "output_tokens_per_second": 10.281734454029523
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.306759340688586,
+          "median_batch_seconds": 3.3440851201303303,
+          "output_tokens_per_second": 9.619171484420667
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 643428,
+          "monotonic_ns": 4509248260870570,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 643428,
+          "monotonic_ns": 4509283760175980,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 830521344,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 102,
+      "replay_tokens": 0
+    },
+    "high-r0-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.149394950829446,
+          "median_batch_seconds": 4.149394950829446,
+          "output_tokens_per_second": 7.711967739682947
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.617668700404465,
+          "median_batch_seconds": 3.2060028295964003,
+          "output_tokens_per_second": 9.981628915535714
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.693583300337195,
+          "median_batch_seconds": 3.438650520052761,
+          "output_tokens_per_second": 9.347443776593384
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 643046,
+          "monotonic_ns": 4509176874308580,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 643046,
+          "monotonic_ns": 4509212678792210,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 889135104,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 121,
+      "replay_tokens": 0
+    },
+    "high-r1-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.167158840224147,
+          "median_batch_seconds": 4.167158840224147,
+          "output_tokens_per_second": 7.679092932843125
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.30302606895566,
+          "median_batch_seconds": 3.1060863295570016,
+          "output_tokens_per_second": 10.319222937615264
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.419519170187414,
+          "median_batch_seconds": 3.373340225312859,
+          "output_tokens_per_second": 9.538344733272018
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 643813,
+          "monotonic_ns": 4509354756415920,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "high-r1-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.8595261508598924,
+          "median_batch_seconds": 3.8595261508598924,
+          "output_tokens_per_second": 8.2911732552636
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.212900599464774,
+          "median_batch_seconds": 3.081114719621837,
+          "output_tokens_per_second": 10.42017103772694
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.25975045002997,
+          "median_batch_seconds": 3.3191937152296305,
+          "output_tokens_per_second": 9.653273678292392
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 644326,
+          "monotonic_ns": 4509461483575960,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 644326,
+          "monotonic_ns": 4509496432394760,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 830521344,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 102,
+      "replay_tokens": 0
+    },
+    "high-r1-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.2090825997292995,
+          "median_batch_seconds": 4.2090825997292995,
+          "output_tokens_per_second": 7.602606801315334
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 10.030388730578125,
+          "median_batch_seconds": 3.344111740589142,
+          "output_tokens_per_second": 9.570915203649024
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 14.413526608608663,
+          "median_batch_seconds": 3.630436529405415,
+          "output_tokens_per_second": 8.880546966455134
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 644041,
+          "monotonic_ns": 4509389473750390,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 644041,
+          "monotonic_ns": 4509426754747640,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 889135104,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 121,
+      "replay_tokens": 0
+    },
+    "high-r2-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.362268050201237,
+          "median_batch_seconds": 4.362268050201237,
+          "output_tokens_per_second": 7.335633581371461
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 10.25704655982554,
+          "median_batch_seconds": 3.4168434301391244,
+          "output_tokens_per_second": 9.359419345526774
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.242240929044783,
+          "median_batch_seconds": 3.312976144719869,
+          "output_tokens_per_second": 9.666037696025604
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 644555,
+          "monotonic_ns": 4509567767772030,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "high-r2-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.0919620199128985,
+          "median_batch_seconds": 4.0919620199128985,
+          "output_tokens_per_second": 7.820209436030189
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.82795222941786,
+          "median_batch_seconds": 3.2921282099559903,
+          "output_tokens_per_second": 9.768057247230471
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 14.19745109975338,
+          "median_batch_seconds": 3.5799798448570073,
+          "output_tokens_per_second": 9.015702825856076
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 645110,
+          "monotonic_ns": 4509672260146550,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 645110,
+          "monotonic_ns": 4509708658527100,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 830521344,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 102,
+      "replay_tokens": 0
+    },
+    "high-r2-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.942330970428884,
+          "median_batch_seconds": 3.942330970428884,
+          "output_tokens_per_second": 8.117025242180196
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.129262570291758,
+          "median_batch_seconds": 3.028742080554366,
+          "output_tokens_per_second": 10.51563576585047
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.058340949937701,
+          "median_batch_seconds": 3.2800111495889723,
+          "output_tokens_per_second": 9.802164033755808
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 644831,
+          "monotonic_ns": 4509602491361900,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 644831,
+          "monotonic_ns": 4509636935560550,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 889135104,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 47
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 121,
+      "replay_tokens": 0
+    },
+    "low-r0-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.8821042897179723,
+          "median_batch_seconds": 3.8821042897179723,
+          "output_tokens_per_second": 8.242952175384433
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.082071150653064,
+          "median_batch_seconds": 3.0198559407144785,
+          "output_tokens_per_second": 10.570276141593201
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 12.842334160581231,
+          "median_batch_seconds": 3.2172433552332222,
+          "output_tokens_per_second": 9.967035462516485
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 645350,
+          "monotonic_ns": 4509777665678350,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "low-r0-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.9924762500450015,
+          "median_batch_seconds": 3.9924762500450015,
+          "output_tokens_per_second": 8.015075856653953
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.309012030251324,
+          "median_batch_seconds": 3.101663399487734,
+          "output_tokens_per_second": 10.312587381779139
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.033575779758394,
+          "median_batch_seconds": 3.262064029928297,
+          "output_tokens_per_second": 9.820789180417284
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 645857,
+          "monotonic_ns": 4509884112677130,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 645857,
+          "monotonic_ns": 4509919265849320,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 90,
+      "replay_tokens": 0
+    },
+    "low-r0-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.211446739733219,
+          "median_batch_seconds": 4.211446739733219,
+          "output_tokens_per_second": 7.598338997877744
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.935568501241505,
+          "median_batch_seconds": 3.2085906602442265,
+          "output_tokens_per_second": 9.66225535941947
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 12.914768539369106,
+          "median_batch_seconds": 3.2291514300741255,
+          "output_tokens_per_second": 9.911133878226893
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 645625,
+          "monotonic_ns": 4509812727685420,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 645625,
+          "monotonic_ns": 4509848187006830,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 105,
+      "replay_tokens": 0
+    },
+    "low-r1-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.349021810106933,
+          "median_batch_seconds": 4.349021810106933,
+          "output_tokens_per_second": 7.357976436364018
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 10.115455700084567,
+          "median_batch_seconds": 3.3547615902498364,
+          "output_tokens_per_second": 9.49042760369139
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.675027840770781,
+          "median_batch_seconds": 3.4320147898979485,
+          "output_tokens_per_second": 9.360127196112925
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 646145,
+          "monotonic_ns": 4509991236697540,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "low-r1-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.8891670303419232,
+          "median_batch_seconds": 3.8891670303419232,
+          "output_tokens_per_second": 8.227982946051732
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.282591849565506,
+          "median_batch_seconds": 3.125334709882736,
+          "output_tokens_per_second": 10.341939143267783
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.113044931553304,
+          "median_batch_seconds": 3.2779270601458848,
+          "output_tokens_per_second": 9.761272127726766
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 646666,
+          "monotonic_ns": 4510098422499330,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 646666,
+          "monotonic_ns": 4510133118466700,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 90,
+      "replay_tokens": 0
+    },
+    "low-r1-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.8747528307139874,
+          "median_batch_seconds": 3.8747528307139874,
+          "output_tokens_per_second": 8.258591295513286
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.169346630573273,
+          "median_batch_seconds": 3.066296680830419,
+          "output_tokens_per_second": 10.46966636422142
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 12.830574289895594,
+          "median_batch_seconds": 3.209575760178268,
+          "output_tokens_per_second": 9.97617075494456
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 646425,
+          "monotonic_ns": 4510027334085180,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 646425,
+          "monotonic_ns": 4510062043396220,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 105,
+      "replay_tokens": 0
+    },
+    "low-r2-off": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 3.8817546404898167,
+          "median_batch_seconds": 3.8817546404898167,
+          "output_tokens_per_second": 8.243694659681555
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.066384399309754,
+          "median_batch_seconds": 3.0369077995419502,
+          "output_tokens_per_second": 10.588564941864666
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 12.819656460545957,
+          "median_batch_seconds": 3.2008364000357687,
+          "output_tokens_per_second": 9.984666936585663
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 647057,
+          "monotonic_ns": 4510204007666240,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0
+    },
+    "low-r2-on-large": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.293154640123248,
+          "median_batch_seconds": 4.293154640123248,
+          "output_tokens_per_second": 7.453726381279697
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.779254528693855,
+          "median_batch_seconds": 3.1668480494990945,
+          "output_tokens_per_second": 9.81669918891272
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 12.79813110921532,
+          "median_batch_seconds": 3.208704854827374,
+          "output_tokens_per_second": 10.001460284137373
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 648079,
+          "monotonic_ns": 4510311359561830,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 201326592,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 648079,
+          "monotonic_ns": 4510346577706330,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 8,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 90,
+      "replay_tokens": 0
+    },
+    "low-r2-on-small": {
+      "phases": {
+        "cold_256": {
+          "batches": 1,
+          "seconds": 4.053686460480094,
+          "median_batch_seconds": 4.053686460480094,
+          "output_tokens_per_second": 7.894049111092355
+        },
+        "initial_256": {
+          "batches": 3,
+          "seconds": 9.713994400575757,
+          "median_batch_seconds": 3.2505084900185466,
+          "output_tokens_per_second": 9.882649303803387
+        },
+        "revisit_264": {
+          "batches": 4,
+          "seconds": 13.517468389123678,
+          "median_batch_seconds": 3.3802264146506786,
+          "output_tokens_per_second": 9.469228727990988
+        }
+      },
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 647279,
+          "monotonic_ns": 4510239432429380,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 100663296,
+          "host_snapshot_bytes": 201326592,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 8,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 36864
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 1048576
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 1048576
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 131072
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 131072
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 647279,
+          "monotonic_ns": 4510275595826330,
+          "device_total": 16,
+          "device_empty": 1,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 15,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 6,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "completed_operations": {
+        "writeback": 44
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "observed_host_key_replacements": 105,
+      "replay_tokens": 0
+    }
+  },
+  "comparisons": {
+    "high-r0-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "high-r0-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "high-r1-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "high-r1-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "high-r2-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "high-r2-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r0-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r0-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r1-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r1-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r2-on-small": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    },
+    "low-r2-on-large": {
+      "exact_token_agreement_requests": 16,
+      "offload_lifecycle_verified": false,
+      "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+    }
+  },
+  "aggregate": {
+    "high-off": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          7.791965622297072,
+          7.679092932843125,
+          7.335633581371461
+        ],
+        "median_tokens_per_second": 7.679092932843125,
+        "min_tokens_per_second": 7.335633581371461,
+        "max_tokens_per_second": 7.791965622297072,
+        "median_paired_throughput_ratio_to_off": 1.0
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          10.293843344514894,
+          10.319222937615264,
+          9.359419345526774
+        ],
+        "median_tokens_per_second": 10.293843344514894,
+        "min_tokens_per_second": 9.359419345526774,
+        "max_tokens_per_second": 10.319222937615264,
+        "median_paired_throughput_ratio_to_off": 1.0
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.617277034134887,
+          9.538344733272018,
+          9.666037696025604
+        ],
+        "median_tokens_per_second": 9.617277034134887,
+        "min_tokens_per_second": 9.538344733272018,
+        "max_tokens_per_second": 9.666037696025604,
+        "median_paired_throughput_ratio_to_off": 1.0
+      }
+    },
+    "high-on-small": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          7.711967739682947,
+          7.602606801315334,
+          8.117025242180196
+        ],
+        "median_tokens_per_second": 7.711967739682947,
+        "min_tokens_per_second": 7.602606801315334,
+        "max_tokens_per_second": 8.117025242180196,
+        "median_paired_throughput_ratio_to_off": 0.9900396919015443
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.981628915535714,
+          9.570915203649024,
+          10.51563576585047
+        ],
+        "median_tokens_per_second": 9.981628915535714,
+        "min_tokens_per_second": 9.570915203649024,
+        "max_tokens_per_second": 10.51563576585047,
+        "median_paired_throughput_ratio_to_off": 0.9696697901328035
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.347443776593384,
+          8.880546966455134,
+          9.802164033755808
+        ],
+        "median_tokens_per_second": 9.347443776593384,
+        "min_tokens_per_second": 8.880546966455134,
+        "max_tokens_per_second": 9.802164033755808,
+        "median_paired_throughput_ratio_to_off": 0.9719428631842697
+      }
+    },
+    "high-on-large": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          8.086897493261926,
+          8.2911732552636,
+          7.820209436030189
+        ],
+        "median_tokens_per_second": 8.086897493261926,
+        "min_tokens_per_second": 7.820209436030189,
+        "max_tokens_per_second": 8.2911732552636,
+        "median_paired_throughput_ratio_to_off": 1.0660578052711478
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          10.281734454029523,
+          10.42017103772694,
+          9.768057247230471
+        ],
+        "median_tokens_per_second": 10.281734454029523,
+        "min_tokens_per_second": 9.768057247230471,
+        "max_tokens_per_second": 10.42017103772694,
+        "median_paired_throughput_ratio_to_off": 1.0097825292390674
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.619171484420667,
+          9.653273678292392,
+          9.015702825856076
+        ],
+        "median_tokens_per_second": 9.619171484420667,
+        "min_tokens_per_second": 9.015702825856076,
+        "max_tokens_per_second": 9.653273678292392,
+        "median_paired_throughput_ratio_to_off": 1.0001969840609828
+      }
+    },
+    "low-off": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          8.242952175384433,
+          7.357976436364018,
+          8.243694659681555
+        ],
+        "median_tokens_per_second": 8.242952175384433,
+        "min_tokens_per_second": 7.357976436364018,
+        "max_tokens_per_second": 8.243694659681555,
+        "median_paired_throughput_ratio_to_off": 1.0
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          10.570276141593201,
+          9.49042760369139,
+          10.588564941864666
+        ],
+        "median_tokens_per_second": 10.570276141593201,
+        "min_tokens_per_second": 9.49042760369139,
+        "max_tokens_per_second": 10.588564941864666,
+        "median_paired_throughput_ratio_to_off": 1.0
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.967035462516485,
+          9.360127196112925,
+          9.984666936585663
+        ],
+        "median_tokens_per_second": 9.967035462516485,
+        "min_tokens_per_second": 9.360127196112925,
+        "max_tokens_per_second": 9.984666936585663,
+        "median_paired_throughput_ratio_to_off": 1.0
+      }
+    },
+    "low-on-small": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          7.598338997877744,
+          8.258591295513286,
+          7.894049111092355
+        ],
+        "median_tokens_per_second": 7.894049111092355,
+        "min_tokens_per_second": 7.598338997877744,
+        "max_tokens_per_second": 8.258591295513286,
+        "median_paired_throughput_ratio_to_off": 0.9575863052886645
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.66225535941947,
+          10.46966636422142,
+          9.882649303803387
+        ],
+        "median_tokens_per_second": 9.882649303803387,
+        "min_tokens_per_second": 9.66225535941947,
+        "max_tokens_per_second": 10.46966636422142,
+        "median_paired_throughput_ratio_to_off": 0.9333322653317961
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.911133878226893,
+          9.97617075494456,
+          9.469228727990988
+        ],
+        "median_tokens_per_second": 9.911133878226893,
+        "min_tokens_per_second": 9.469228727990988,
+        "max_tokens_per_second": 9.97617075494456,
+        "median_paired_throughput_ratio_to_off": 0.9943913529253685
+      }
+    },
+    "low-on-large": {
+      "cold_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          8.015075856653953,
+          8.227982946051732,
+          7.453726381279697
+        ],
+        "median_tokens_per_second": 8.015075856653953,
+        "min_tokens_per_second": 7.453726381279697,
+        "max_tokens_per_second": 8.227982946051732,
+        "median_paired_throughput_ratio_to_off": 0.972355011422852
+      },
+      "initial_256": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          10.312587381779139,
+          10.341939143267783,
+          9.81669918891272
+        ],
+        "median_tokens_per_second": 10.312587381779139,
+        "min_tokens_per_second": 9.81669918891272,
+        "max_tokens_per_second": 10.341939143267783,
+        "median_paired_throughput_ratio_to_off": 0.9756213786317202
+      },
+      "revisit_264": {
+        "independent_runs": 3,
+        "tokens_per_second": [
+          9.820789180417284,
+          9.761272127726766,
+          10.001460284137373
+        ],
+        "median_tokens_per_second": 9.820789180417284,
+        "min_tokens_per_second": 9.761272127726766,
+        "max_tokens_per_second": 10.001460284137373,
+        "median_paired_throughput_ratio_to_off": 1.0016819136440271
+      }
+    }
+  },
+  "limits": [
+    "Instrumented synthetic greedy-token workloads; timing includes observation and replay.",
+    "Cold first batch, remaining initial prompts and extended revisits remain separate.",
+    "Three sequential fresh Engine repetitions; order is not randomized and shared-server contention may drift.",
+    "Prefix hits span all cache tiers; physical Host slot replacements are not all logical eviction events.",
+    "Logical Host tensor allocations do not measure physical pinned reserved memory or RSS.",
+    "A workload described as high reuse may still miss if both cache budgets are too small."
+  ],
+  "full_assignment_verified": false
+}

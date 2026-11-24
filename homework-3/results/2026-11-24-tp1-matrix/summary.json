@@ -1,0 +1,50 @@
+{
+  "scope": "0.8B TP1 normal-scheduling performance matrix; no Host-cache reuse observed",
+  "run": "hw3-smoke-20261124T111450Z-b3d422e4",
+  "launcher_commit": "a2a30d8",
+  "analysis_commit": "38c9159",
+  "downloaded_files_verified": 193,
+  "independent_raw_trace_checks": 18,
+  "independent_token_comparisons": 12,
+  "exact_token_agreement_requests": 192,
+  "exact_output_token_comparisons": 3072,
+  "device_arena_bytes_by_run": {
+    "high-r0-off": 213909504,
+    "high-r0-on-large": 213909504,
+    "high-r0-on-small": 213909504,
+    "high-r1-off": 213909504,
+    "high-r1-on-large": 213909504,
+    "high-r1-on-small": 213909504,
+    "high-r2-off": 213909504,
+    "high-r2-on-large": 213909504,
+    "high-r2-on-small": 213909504,
+    "low-r0-off": 213909504,
+    "low-r0-on-large": 213909504,
+    "low-r0-on-small": 213909504,
+    "low-r1-off": 213909504,
+    "low-r1-on-large": 213909504,
+    "low-r1-on-small": 213909504,
+    "low-r2-off": 213909504,
+    "low-r2-on-large": 213909504,
+    "low-r2-on-small": 213909504
+  },
+  "full_assignment_verified": false,
+  "findings": [
+    "All 18 runs passed and ended quiescent; actual device arena and 16 usable device blocks match across modes.",
+    "Every run had 16 first-admission prefix misses and zero prefix hits; all on runs had writebacks but no completed H2D loadbacks.",
+    "The temporally high-reuse workload did not produce cache reuse with L2 budgets 8 or 16 LCM blocks. These results do not establish an offloading speed benefit.",
+    "Off recomputed and completed successfully at the same device budget; no off-mode capacity failure is claimed.",
+    "High-reuse extended-phase median paired throughput ratios were 0.972 (L2 ratio0.5) and1.000 (ratio1); low-reuse ratios0.994 and1.002. Small variations are not a statistically established effect.",
+    "Host physical destination replacements demonstrate churn but are not a complete logical eviction count."
+  ],
+  "limits": [
+    "Instrumented synthetic greedy-token workloads; timing includes observation and replay.",
+    "Cold first batch, remaining initial prompts and extended revisits remain separate.",
+    "Three sequential fresh Engine repetitions; order is not randomized and shared-server contention may drift.",
+    "Prefix hits span all cache tiers; physical Host slot replacements are not all logical eviction events.",
+    "Logical Host tensor allocations do not measure physical pinned reserved memory or RSS.",
+    "A workload described as high reuse may still miss if both cache budgets are too small."
+  ],
+  "raw_evidence_local": ".local-review/hw3-matrix-evidence-20261124",
+  "raw_evidence_server": "/home/u2501112130/MLSys-HW/hw3-smoke-20261124T111450Z-b3d422e4"
+}

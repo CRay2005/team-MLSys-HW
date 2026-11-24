@@ -242,3 +242,10 @@ lock. A failed/blocked predecessor cancels the queued suite. Source/model hashes
 ports and free-chip occupancy are still checked before actual execution; queuing
 does not reserve a chip. The queue transition test covers success, failure,
 timeout and invalid predecessor paths.
+
+November 24 matrix result: all 18 normal-scheduling TP1 runs and 12 output pairs
+passed. All modes had the same 204 MiB device arena and 16 usable LCM blocks.
+The 8- and 16-block L2 budgets produced writebacks/churn but **zero Host loadbacks**
+and zero prefix hits in both patterns. This is a valid negative result, not
+an offloading speedup. Cold/initial/extended timings remain separate; see the
+[matrix analysis](results/2026-11-24-tp1-matrix/analysis.json) and [report](report.md).

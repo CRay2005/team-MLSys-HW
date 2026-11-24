@@ -26,7 +26,7 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 | Host 容量、淘汰、未命中 | 显式 L2/snapshot 预算配置；尚未校准淘汰压力 | 待验证 |
 | 重复恢复无持续泄漏 | 2 周期后无活跃请求、无 pending transfer、snapshot 全部释放 | 静止状态检查通过；长周期待验证 |
 | 0.8B 与更大模型，覆盖 TP2 | 已完成 0.8B TP1；目前只有单 chip 空闲 | TP2 与较大模型待验证 |
-| 高/低复用、两种 Host 预算、吞吐/恢复代价 | 18 次独立 Engine 对照正在运行，force interval 0 | 结果待复核 |
+| 高/低复用、两种 Host 预算、吞吐/恢复代价 | 18 次独立 Engine 对照及 12 组 token/trace 复核通过，force interval 0 | 已完成所测配置；未观察 Host 复用收益 |
 
 ## 已确认的首次硬件实验
 
@@ -90,3 +90,40 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 测试以模拟执行事件/ACK 驱动真实 native scheduler，不是 NPU DMA 或模型
 数值测试，不能代替 TP2/大模型验证。
 [记录与测试源码哈希](results/2026-11-24-scheduler-contracts/summary.json)。
+
+## 正常调度下的容量与性能对照
+
+0.8B TP1，8 会话、2 周期，高/低复用各执行 off、L2 ratio 0.5、L2 ratio 1，
+每种配置 3 次独立 Engine，共 18 次运行。force interval 固定 0；on 的
+snapshot ratio 固定 1。193 个下载证据文件逐一 SHA256 校验，18 份原始 trace
+在本地重新计算，12 组输出对照再次通过：192 个请求、3,072 个输出 token。
+所有模式实际 device arena 都为 204 MiB、16 可用 LCM blocks。
+
+Host 小预算为 96 MiB 逻辑 L2 + 192 MiB snapshot，大预算为 192 MiB L2 +
+192 MiB snapshot，on 均另有 432-byte slot blob。snapshot 池在正常调度本轮
+没有使用；物理 pinned allocator reserved memory / RSS 不在这些数字内。
+
+每个运行的 16 个请求都首次接纳未命中：**0 prefix hits、0 completed H2D
+loadbacks**。on 产生 writeback 和 Host 物理位置换键，但所测“高复用”访问
+模式在这些预算下仍未成功命中。off 在相同设备预算下通过重算完成，不能
+声称 off 容量不足，也不能声称本轮观察到 offloading 加速。
+
+下表仅列 264-token 后续访问阶段；低复用阶段是同长度的新会话。首次冷启动
+与其他 256-token 初访分别记录在 analysis.json，未混合计时。
+
+| 访问模式 | Host L2 ratio | 三次运行输出吞吐中位数（tokens/s） | 对 off 的配对吞吐比中位数 |
+| --- | ---: | ---: | ---: |
+| 高复用 | off | 9.617 | 1.000 |
+| 高复用 | 0.5 | 9.347 | 0.972 |
+| 高复用 | 1 | 9.619 | 1.000 |
+| 低复用 | off | 9.967 | 1.000 |
+| 低复用 | 0.5 | 9.911 | 0.994 |
+| 低复用 | 1 | 9.821 | 1.002 |
+
+每个 phase 的吞吐 = 该 phase 输出 token 总数 / batch 耗时总和。
+配对比先对每次独立运行计算，再取中位数，因此不等于表中两列中位数之比。
+三次运行执行顺序固定、共享服务器负载可能漂移，且含观测器开销；这些小
+幅变化不能解释为统计确定的改善或退化。要展示适用条件，下一步需选更大
+Host 预算或调整工作集，并先确认实际 Host 命中，再评价传输与重算的权衡。
+[完整分析](results/2026-11-24-tp1-matrix/analysis.json)；
+[校验摘要](results/2026-11-24-tp1-matrix/summary.json)。

@@ -1,0 +1,708 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": {
+        "event": "allocation",
+        "rank": 0,
+        "pid": 646425,
+        "monotonic_ns": 4510027334085180,
+        "device_lcm_blocks": 16,
+        "host_l2_bytes": 100663296,
+        "host_snapshot_bytes": 201326592,
+        "slot_blob_bytes": 432,
+        "snapshot_blocks": 16,
+        "host_blocks": 8,
+        "groups": [
+          {
+            "name": "linear_attention_0",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.0.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.2.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.0.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.10.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.13.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.16.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.18.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.2.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.21.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.8.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.8.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.10.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.13.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.16.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.18.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.21.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "linear_attention_1",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.1.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.4.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.1.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.12.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.14.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.17.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.20.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.22.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.4.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.9.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.9.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.12.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.14.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.17.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.20.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.22.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "full_attention",
+            "blocks_per_lcm": 8,
+            "fields": [
+              {
+                "name": "layer.3.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.3.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.v",
+                "bytes": 131072
+              }
+            ]
+          }
+        ]
+      },
+      "peaks": {
+        "device_active": 11,
+        "host_cached": 15,
+        "host_pinned": 0,
+        "retracted": 0,
+        "tail_cap_evictions": 0
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 646425,
+        "monotonic_ns": 4510062043396220,
+        "device_total": 16,
+        "device_empty": 1,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 15,
+        "host_pinned": 0,
+        "snapshot_free": 16,
+        "tail_entries": 6,
+        "tail_cap_evictions": 0,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {
+        "writeback": 713293824
+      },
+      "completed_operations": {
+        "writeback": 44
+      },
+      "observed_completion_seconds_sum": {
+        "writeback": 12.14122575
+      },
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 713293824,
+      "h2d_bytes": 0,
+      "transfer_batches": 36,
+      "frontier_checks": [],
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 105,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 147,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "e4c8b88d21b24cb99652bc8ed77d7550",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e4c8b88d21b24cb99652bc8ed77d7550",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "23b120404b0b425b8da340cfca40e176",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "23b120404b0b425b8da340cfca40e176",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5870ae220f9745999b8d9dfd5522cedb",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5870ae220f9745999b8d9dfd5522cedb",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "ae7135890d4d43c9b2fbf41a48f5fe63",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "ae7135890d4d43c9b2fbf41a48f5fe63",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0fd545ebd6d441cb864f2f7038ecfab3",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0fd545ebd6d441cb864f2f7038ecfab3",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fee68a6905c14f898785c2bfa6be8e94",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fee68a6905c14f898785c2bfa6be8e94",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "df9beb10d22543139581d2f929c70810",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "df9beb10d22543139581d2f929c70810",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "63a7c931e5b14b92a1ef5727546027ed",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "63a7c931e5b14b92a1ef5727546027ed",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "baea4ea8320143e1bdca71c9e9150c84",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "baea4ea8320143e1bdca71c9e9150c84",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "baea4ea8320143e1bdca71c9e9150c84",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "60632e3b1a304ac1aef3791e20b03331",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "60632e3b1a304ac1aef3791e20b03331",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "60632e3b1a304ac1aef3791e20b03331",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "13b535bda9ca4a9e87e50a8c1598a1c7",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "13b535bda9ca4a9e87e50a8c1598a1c7",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "13b535bda9ca4a9e87e50a8c1598a1c7",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "98d376f772d347e0a1460427eafc48b1",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "98d376f772d347e0a1460427eafc48b1",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "98d376f772d347e0a1460427eafc48b1",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "08c08044055e41849440f28712b44e74",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "08c08044055e41849440f28712b44e74",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "08c08044055e41849440f28712b44e74",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d57d738e90df4a59b99e9bd2ae8f25f5",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d57d738e90df4a59b99e9bd2ae8f25f5",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d57d738e90df4a59b99e9bd2ae8f25f5",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6b1d7b90f8f8480c932c7e21e0cd6c9c",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6b1d7b90f8f8480c932c7e21e0cd6c9c",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6b1d7b90f8f8480c932c7e21e0cd6c9c",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "a1f4913d7ef5453f9063dbdb74da8adb",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "a1f4913d7ef5453f9063dbdb74da8adb",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "a1f4913d7ef5453f9063dbdb74da8adb",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [
+        [
+          "WriteBackDoneEvent",
+          0
+        ],
+        [
+          "WriteBackDoneEvent",
+          1
+        ],
+        [
+          "WriteBackDoneEvent",
+          2
+        ],
+        [
+          "WriteBackDoneEvent",
+          3
+        ],
+        [
+          "WriteBackDoneEvent",
+          4
+        ],
+        [
+          "WriteBackDoneEvent",
+          5
+        ],
+        [
+          "WriteBackDoneEvent",
+          6
+        ],
+        [
+          "WriteBackDoneEvent",
+          7
+        ],
+        [
+          "WriteBackDoneEvent",
+          8
+        ],
+        [
+          "WriteBackDoneEvent",
+          9
+        ],
+        [
+          "WriteBackDoneEvent",
+          10
+        ],
+        [
+          "WriteBackDoneEvent",
+          11
+        ],
+        [
+          "WriteBackDoneEvent",
+          12
+        ],
+        [
+          "WriteBackDoneEvent",
+          13
+        ],
+        [
+          "WriteBackDoneEvent",
+          14
+        ],
+        [
+          "WriteBackDoneEvent",
+          15
+        ],
+        [
+          "WriteBackDoneEvent",
+          16
+        ],
+        [
+          "WriteBackDoneEvent",
+          17
+        ],
+        [
+          "WriteBackDoneEvent",
+          18
+        ],
+        [
+          "WriteBackDoneEvent",
+          19
+        ],
+        [
+          "WriteBackDoneEvent",
+          20
+        ],
+        [
+          "WriteBackDoneEvent",
+          21
+        ],
+        [
+          "WriteBackDoneEvent",
+          22
+        ],
+        [
+          "WriteBackDoneEvent",
+          23
+        ],
+        [
+          "WriteBackDoneEvent",
+          24
+        ],
+        [
+          "WriteBackDoneEvent",
+          25
+        ],
+        [
+          "WriteBackDoneEvent",
+          26
+        ],
+        [
+          "WriteBackDoneEvent",
+          27
+        ],
+        [
+          "WriteBackDoneEvent",
+          28
+        ],
+        [
+          "WriteBackDoneEvent",
+          29
+        ],
+        [
+          "WriteBackDoneEvent",
+          30
+        ],
+        [
+          "WriteBackDoneEvent",
+          31
+        ],
+        [
+          "WriteBackDoneEvent",
+          32
+        ],
+        [
+          "WriteBackDoneEvent",
+          33
+        ],
+        [
+          "WriteBackDoneEvent",
+          34
+        ],
+        [
+          "WriteBackDoneEvent",
+          35
+        ],
+        [
+          "WriteBackDoneEvent",
+          36
+        ],
+        [
+          "WriteBackDoneEvent",
+          37
+        ],
+        [
+          "WriteBackDoneEvent",
+          38
+        ],
+        [
+          "WriteBackDoneEvent",
+          39
+        ],
+        [
+          "WriteBackDoneEvent",
+          40
+        ],
+        [
+          "WriteBackDoneEvent",
+          41
+        ],
+        [
+          "WriteBackDoneEvent",
+          42
+        ],
+        [
+          "WriteBackDoneEvent",
+          43
+        ]
+      ],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-646425.jsonl": "d888934fe2678a14785a8e4a01bf1680c93444f286ad01c2e3d8647cdfc8be67"
+  },
+  "rank_completion_agreement": true,
+  "d2h_bytes": 713293824,
+  "h2d_bytes": 0,
+  "full_assignment_verified": false
+}

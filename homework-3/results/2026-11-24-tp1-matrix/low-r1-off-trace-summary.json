@@ -1,0 +1,302 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": null,
+      "peaks": {
+        "device_active": 11,
+        "host_cached": 0,
+        "host_pinned": 0,
+        "retracted": 0,
+        "tail_cap_evictions": 0
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 646145,
+        "monotonic_ns": 4509991236697540,
+        "device_total": 16,
+        "device_empty": 1,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 0,
+        "host_pinned": 0,
+        "snapshot_free": 0,
+        "tail_entries": 6,
+        "tail_cap_evictions": 0,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {},
+      "completed_operations": {},
+      "observed_completion_seconds_sum": {},
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "transfer_batches": 0,
+      "frontier_checks": [],
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 0,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 147,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "34e8a352fced4cf0b5060806935a852e",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "34e8a352fced4cf0b5060806935a852e",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c660a513a332458486f4ea65a61e78e2",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c660a513a332458486f4ea65a61e78e2",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0a396b31dcb14b97bcd8a836fb73cfc0",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0a396b31dcb14b97bcd8a836fb73cfc0",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "4e73d12c4b9f4df4957c3eb758daa292",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "4e73d12c4b9f4df4957c3eb758daa292",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "f6b3dd3094584626b2c000481105421e",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "f6b3dd3094584626b2c000481105421e",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "62251a79968c48e8899db02fcfc63787",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "62251a79968c48e8899db02fcfc63787",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5892a8b030814f478f15a5613437e69d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "5892a8b030814f478f15a5613437e69d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d5e8dde729ad4fa29ca8f72b0985f20d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d5e8dde729ad4fa29ca8f72b0985f20d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e2e466f6fa3d4b7eb1996296d59ae1a4",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e2e466f6fa3d4b7eb1996296d59ae1a4",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e2e466f6fa3d4b7eb1996296d59ae1a4",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "dd7ea7bc54314e5096e7848531347249",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "dd7ea7bc54314e5096e7848531347249",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "dd7ea7bc54314e5096e7848531347249",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3b784e2cc8834b188ef11d2b684e1e97",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3b784e2cc8834b188ef11d2b684e1e97",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3b784e2cc8834b188ef11d2b684e1e97",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d1ac8115708948998d0b65171340a8bd",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d1ac8115708948998d0b65171340a8bd",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d1ac8115708948998d0b65171340a8bd",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "576e43aa77fc44deb0b48105751ce0f8",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "576e43aa77fc44deb0b48105751ce0f8",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "576e43aa77fc44deb0b48105751ce0f8",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3067f14956414d2dba78e00d9d8cf0eb",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3067f14956414d2dba78e00d9d8cf0eb",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "3067f14956414d2dba78e00d9d8cf0eb",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c4dd3219fa8e495d8cbb37892a33ec90",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c4dd3219fa8e495d8cbb37892a33ec90",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c4dd3219fa8e495d8cbb37892a33ec90",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "eeaa059a7257474e9ceb30049c903d55",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "eeaa059a7257474e9ceb30049c903d55",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "eeaa059a7257474e9ceb30049c903d55",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-646145.jsonl": "6f3548ae7b01e02d577badf2e2dea317e6db31546d26ae7aea589e6ac524de2b"
+  },
+  "rank_completion_agreement": true,
+  "d2h_bytes": 0,
+  "h2d_bytes": 0,
+  "full_assignment_verified": false
+}
