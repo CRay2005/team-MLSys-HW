@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 39 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 44 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -133,6 +133,12 @@ server preflight passed source/model verification and all 32 harness tests, then
 stopped on a port conflict before NPU use; automatic port selection was added.
 A successful smoke does **not** certify actual offload completion,
 eviction, leak freedom, TP2, larger models or performance; those experiments remain.
+
+`--suite trace` repeats the smoke with optional completed-transfer and scheduler
+observation. See [measurement definitions and limitations](docs/runtime-observer.md).
+Five additional CPU tests validate completion accounting and reject incomplete
+transfers or restoration-frontier mismatches. Hardware validation of the new
+observer is pending; earlier smoke evidence remains separately preserved.
 
 From the repository root:
 

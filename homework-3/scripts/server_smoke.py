@@ -117,6 +117,7 @@ def assert_free(device, ports=()):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--device", type=int, choices=range(8), required=True)
+    parser.add_argument("--suite", choices=("smoke", "trace"), required=True)
     args = parser.parse_args()
     # Coordinates our launchers only; this cannot reserve a shared-server chip.
     with (BASE / ".hw3-smoke.lock").open("a") as lock:
@@ -129,6 +130,8 @@ def main():
             (ROOT / "results").mkdir()
             save_status(status="running", stage="preflight", device=args.device)
             prepare_source()
+            if args.suite == "trace":
+                os.environ["PYTHONPATH"] = str(ROOT / "homework-3/runtime") + os.pathsep + os.environ["PYTHONPATH"]
             model = BASE / "models/Qwen3.5-0.8B"
             config = ROOT / "homework-2/metadata/Qwen3.5-0.8B/config.json"
             if (model / "config.json").read_bytes() != config.read_bytes():
@@ -161,9 +164,14 @@ def main():
                 snapshot = assert_free(args.device, [port, *hccl_ports])
                 (ROOT / "results" / f"{name}-preflight.txt").write_text(snapshot)
                 save_status(status="running", stage=name, device=args.device)
+                if args.suite == "trace":
+                    os.environ["HW3_TRACE_DIR"] = str(ROOT / "results" / name / "trace")
                 bounded([*common, "--offloading", mode, "--host-ratio", ratio,
                          "--snapshot-ratio", ratio, "--force-interval", force,
                          "--output-dir", f"results/{name}"], name)
+                if args.suite == "trace":
+                    bounded([sys.executable, "homework-3/scripts/summarize_trace.py", "--run-dir", f"results/{name}"],
+                            f"trace-{name}", 60)
                 if mode == "on":
                     bounded([sys.executable, "homework-3/scripts/compare_results.py",
                              "--reference", "results/off/result.json", "--candidate", f"results/{name}/result.json",

@@ -37,6 +37,13 @@ def harness_fingerprints():
             for path in paths}
 
 
+def observer_fingerprints():
+    enabled = bool(os.environ.get("HW3_TRACE_DIR"))
+    files = ("sitecustomize.py", "runtime_observer.py") if enabled else ()
+    return {"enabled": enabled, "files": {name: hashlib.sha256((ROOT / "homework-3/runtime" / name).read_bytes()).hexdigest()
+                                          for name in files}}
+
+
 def validate_source_locations(locations):
     """Reject installed packages outside the source trees recorded in the result."""
     base = ROOT / "homework-1/tokenspeed"
@@ -75,6 +82,13 @@ def validate_provenance(result):
     for key in ("model_config_sha256", "model_manifest_sha256"):
         if not valid_sha256(result.get(key)):
             raise ValueError(f"invalid {key}")
+    if "observer" in result:
+        observer = result["observer"]
+        if (not isinstance(observer, dict) or set(observer) != {"enabled", "files"}
+                or type(observer["enabled"]) is not bool or not isinstance(observer["files"], dict)
+                or set(observer["files"]) != ({"sitecustomize.py", "runtime_observer.py"} if observer["enabled"] else set())
+                or not all(valid_sha256(v) for v in observer["files"].values())):
+            raise ValueError("invalid observer provenance")
     harness = result.get("harness_fingerprints")
     if (not isinstance(harness, dict) or set(harness) != set(HARNESS_FILES)
             or not all(valid_sha256(v) for v in harness.values())):
@@ -238,6 +252,8 @@ def compare_runs(reference, candidate):
                 "source_fingerprints", "harness_fingerprints", "runtime_versions", "physical_devices"):
         if reference[key] != candidate[key]:
             raise ValueError(f"unmatched {key}")
+    if reference.get("observer") != candidate.get("observer"):
+        raise ValueError("unmatched observer instrumentation")
     checked = 0
     for a, b, batch in zip(reference["runs"], candidate["runs"], reference["workload"]["batches"]):
         for row in (a, b):
@@ -288,6 +304,7 @@ def main():
                              working_set=args.working_set, revisit_suffix_tokens=args.revisit_suffix_tokens)
     result = {"status": "planned_not_run", "config": config, "workload": workload,
               "harness_fingerprints": harness_fingerprints(),
+              "observer": observer_fingerprints(),
               "physical_devices": args.physical_devices, "workload_sha256": digest(workload),
               "model_config_sha256": hashlib.sha256(config_bytes).hexdigest(), "runs": [],
               "missing_evidence": ["per-rank device block use/free/reallocation", "Host pool use/evictions",
