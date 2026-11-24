@@ -79,3 +79,14 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 本轮为强制恢复正确性实验，不声称吞吐提升；完整作业标志仍为 false。
 详见 [完成事件证据](results/2026-11-24-tp1-trace/summary.json) 与
 [观测口径](docs/runtime-observer.md)。
+
+## 补充调度器契约测试
+
+服务器现有 native scheduler bindings 上执行上游
+`test_retraction_image.py` 与 `test_kv_cache.py`，共 **63 passed**。
+测试文件及 conftest 与本地源码逐一 SHA256 一致；涉及 L2 前缀与 slot blob
+分腿完成、ACK 前禁止恢复、结束请求释放 pin，以及混合 cache groups 的
+快照恢复。这些是复用的上游测试，由 Steven 执行及归档，不计为新增实现。
+测试以模拟执行事件/ACK 驱动真实 native scheduler，不是 NPU DMA 或模型
+数值测试，不能代替 TP2/大模型验证。
+[记录与测试源码哈希](results/2026-11-24-scheduler-contracts/summary.json)。
