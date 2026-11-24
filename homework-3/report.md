@@ -24,7 +24,7 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 | 多会话隔离 | 4 个不同前缀，交替运行、重复访问、扩展前缀，逐请求输出一致 | 初步通过 |
 | 实际卸载、HBM 块回收及复用 | 完成 ACK、双向 payload 字节数、最终 16/16 device blocks 可回收；各模式 arena 204 MiB | TP1 已观测；私有块复用因果证明仍待补 |
 | Host 容量、淘汰、未命中 | 显式 L2/snapshot 预算配置；尚未校准淘汰压力 | 待验证 |
-| 重复恢复无持续泄漏 | 2 周期后无活跃请求、无 pending transfer、snapshot 全部释放 | 静止状态检查通过；长周期待验证 |
+| 重复恢复无持续泄漏 | 8 会话 × 8 周期，64 请求/模式，最终设备/snapshot 资源全部可回收 | 有限长周期检查通过；不外推无限期无泄漏 |
 | 0.8B 与更大模型，覆盖 TP2 | 已完成 0.8B 与 4B TP1；目前只有单 chip 可用 | TP2 待验证 |
 | 高/低复用、两种 Host 预算、吞吐/恢复代价 | 18 次独立 Engine 对照及 12 组 token/trace 复核通过，force interval 0 | 已完成所测配置；未观察 Host 复用收益 |
 
@@ -147,3 +147,22 @@ blocks 归还，且无活跃请求、pinned entries 或 pending transfers。时�
 仍为 Host 入口至 ACK，包含排队与观测，不能当成纯 DMA 或吞吐实验。
 这是较大模型 TP1 的端到端通过，**不能代替 TP2 验证**。
 [4B 独立复核证据](results/2026-11-24-4B-tp1-trace/summary.json)。
+
+## 重复卸载/恢复与资源归还
+
+0.8B TP1 将每种模式扩大为 8 会话 × 8 周期，共 64 请求、32 batches。
+off、强制 decode 和强制 prefill 全部完成；两组对照的 128 请求、2,048 个
+输出 token 全部匹配。38 个下载文件 SHA256 验证通过，三个原始 trace 与
+两个 token 对照在本地再次验证。各模式仍为204 MiB device arena、16 LCM。
+
+| 模式 | 完成 D2H bytes | 完成 H2D bytes | 相同 frontier 的 snapshot/restore 次数 |
+| --- | ---: | ---: | ---: |
+| off | 0 | 0 | 0 |
+| on-decode | 20,119,255,392 | 29,175,302,496 | 1382 |
+| on-prefill | 6,446,843,184 | 3,848,987,952 | 123 |
+
+最终均 16/16 device blocks 可回收；两个 on 模式 snapshot 16/16 blocks
+空闲，无活跃请求、pinned Host entries 或 pending transfers。缓存中仍保留
+的 Host entries 可淘汰，不是请求资源未归还。本轮支持这8周期内未出现
+错误释放或最终持有资源残留，**不能证明无限期无泄漏，也不测 RSS 增长**。
+[完整压力测试与峰值统计](results/2026-11-24-tp1-stress/summary.json)。

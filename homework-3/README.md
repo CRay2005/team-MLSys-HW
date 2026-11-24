@@ -264,3 +264,9 @@ The 4B TP1 trace suite also passed off/decode/prefill exact-output comparisons,
 final quiescence. All modes use the same544 MiB device arena/16LCM blocks.
 See [4B evidence](results/2026-11-24-4B-tp1-trace/summary.json). These forced runs
 are correctness evidence, not performance results; TP2 remains outstanding.
+
+The 0.8B TP1 stress suite passed8sessions×8cycles (64requests per mode), with
+128 exact request comparisons/2,048 output tokens and final device/snapshot
+resource reclamation. See [finite-cycle stress evidence](results/2026-11-24-tp1-stress/summary.json).
+This supports the tested workload only; it does not establish unlimited-cycle
+leak freedom or stable process RSS.
