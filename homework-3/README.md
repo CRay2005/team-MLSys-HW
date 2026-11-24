@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 57 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 61 local
 tests implemented. **0.8B and 4B TP1 baseline/forced restoration passed on Ascend; the 18-run
 0.8B performance matrix passed with zero Host prefix hits. TP2 and complete
 offload lifecycle validation remain pending.**
@@ -270,3 +270,18 @@ The 0.8B TP1 stress suite passed8sessions×8cycles (64requests per mode), with
 resource reclamation. See [finite-cycle stress evidence](results/2026-11-24-tp1-stress/summary.json).
 This supports the tested workload only; it does not establish unlimited-cycle
 leak freedom or stable process RSS.
+
+The larger retention probe passed: L2ratio8 produced8 completed loadbacks and8
+prefix hits, versus zero for ratio1/off. All outputs match; the device arena stays
+204MiB. This is one exploratory run per budget, not a repeated performance claim.
+See [capacity evidence](results/2026-11-24-tp1-capacity/summary.json).
+`analyze_reuse.py` verifies18 block reuse chains across7 resumed requests from
+completed writebacks, different-prefix block-table reuse, Host loadback and final
+ACK evidence. Its four tests exclude missing ACKs, shared prefixes and overwritten
+Host slots. CPU forward-plan records are not kernel timestamps; existing stream
+fences retain responsibility for execution ordering.
+
+```bash
+.venv/bin/python homework-3/scripts/analyze_reuse.py \
+  --run-dir /path/to/capacity/results/on-large --output /path/to/new-witnesses.json
+```

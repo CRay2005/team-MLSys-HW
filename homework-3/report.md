@@ -22,8 +22,8 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 | --- | --- | --- |
 | 同一请求暂停/恢复正确 | 0.8B TP1，decode 与 prefill 各 8 请求，逐 token 对照通过 | 初步通过；新增 172 次 snapshot/restore frontier 一致性检查 |
 | 多会话隔离 | 4 个不同前缀，交替运行、重复访问、扩展前缀，逐请求输出一致 | 初步通过 |
-| 实际卸载、HBM 块回收及复用 | 完成 ACK、双向 payload 字节数、最终 16/16 device blocks 可回收；各模式 arena 204 MiB | TP1 已观测；私有块复用因果证明仍待补 |
-| Host 容量、淘汰、未命中 | 显式 L2/snapshot 预算配置；尚未校准淘汰压力 | 待验证 |
+| 实际卸载、HBM 块回收及复用 | 完成 ACK、双向 payload 字节数、最终 16/16 device blocks 可回收；各模式 arena 204 MiB | TP1 已观测；容量探针补充18条跨会话块复用链 |
+| Host 容量、淘汰、未命中 | 小预算物理替换/未命中、大预算8次Host loadback，输出一致 | TP1部分通过；完整Host逻辑淘汰计数仍待补 |
 | 重复恢复无持续泄漏 | 8 会话 × 8 周期，64 请求/模式，最终设备/snapshot 资源全部可回收 | 有限长周期检查通过；不外推无限期无泄漏 |
 | 0.8B 与更大模型，覆盖 TP2 | 已完成 0.8B 与 4B TP1；目前只有单 chip 可用 | TP2 待验证 |
 | 高/低复用、两种 Host 预算、吞吐/恢复代价 | 18 次独立 Engine 对照及 12 组 token/trace 复核通过，force interval 0 | 已完成所测配置；未观察 Host 复用收益 |
@@ -166,3 +166,33 @@ off、强制 decode 和强制 prefill 全部完成；两组对照的 128 请求�
 的 Host entries 可淘汰，不是请求资源未归还。本轮支持这8周期内未出现
 错误释放或最终持有资源残留，**不能证明无限期无泄漏，也不测 RSS 增长**。
 [完整压力测试与峰值统计](results/2026-11-24-tp1-stress/summary.json)。
+
+## 增大 Host 预算后的实际复用
+
+追加一个探索性探针：固定相同 0.8B TP1 device arena204 MiB/16LCM、8会话
+2周期、正常调度，对比 off、L2 ratio1、L2 ratio8。snapshot ratio保持1。
+三个运行及32请求/512输出token对照全部通过，38文件校验及原始trace复核通过。
+ratio8的逻辑L2为1.5GiB（128LCM），另有192MiB snapshot和432-byte slot blob。
+
+| 模式 | prefix hits / misses | completed loadbacks | D2H bytes | H2D bytes | 后续264-token阶段 tokens/s |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| off | 0 / 16 | 0 | 0 | 0 | 9.217 |
+| on-small | 0 / 16 | 0 | 830,521,344 | 0 | 9.476 |
+| on-large | 8 / 8 | 8 | 688,128,000 | 181,469,184 | 23.690 |
+
+小预算仍全未命中；大预算出现8次完成的loadback、8次prefix hit，全部是后续
+访问，说明这组工作集需更多Host保留容量才能观察到复用。这里只各运行一次，
+因此吞吐仅作描述，不能把这一探针当成三次重复的性能结论。
+
+进一步复核18条块级链（覆盖7个后续请求）：某请求的块完成writeback后，
+同一设备块被不同首token的另一会话forward计划使用；随后原前缀从同一Host
+位置发起loadback、进入prefix continuation，且loadback实际ACK已记录、最终
+输出与off一致。Host位置被覆盖则丢弃旧关联，排除同前缀共享导致的owner变化。
+**forward记录是CPU计划，不是NPU kernel时间戳**；部分loadback ACK出现在
+计划记录之后，实际执行顺序仍由原executor的stream fences保证，不能将CPU
+日志顺序伪装成设备时间线。
+
+[容量与行为统计](results/2026-11-24-tp1-capacity/summary.json)；
+[可复算的块复用链](results/2026-11-24-tp1-capacity/reuse-plan-witnesses.json)。
+剩余主要硬件缺口是TP2；完整Host逻辑淘汰计数与最终验收仍需补齐，不能据此
+将作业全部标为完成。
