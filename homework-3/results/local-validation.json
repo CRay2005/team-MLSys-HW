@@ -1,7 +1,7 @@
 {
   "date": "2026-11-24",
   "scope": "CPU harness only; no hardware execution",
-  "unittest_passed": 32,
+  "unittest_passed": 37,
   "plan_cli": "passed: explicit eight-session working set, two cycles, 256/264-token inputs; no generation",
   "comparison_cli": "passed: complete synthetic provenance, eight requests, lifecycle proof false",
   "python_ast": "passed",
@@ -9,10 +9,14 @@
   "hardware_validation": "pending",
   "source_sha256": {
     "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
+    "homework-3/scripts/launch_smoke.py": "d0e1a61348af823e94c5939d114e2064d30691be2c30b42e34decbace58044fe",
     "homework-3/scripts/run_offloading.py": "48a83e38976d04bf6c0c6a7a78efcb050ed2c8bb5946077bcf30a72112d6a0da",
+    "homework-3/scripts/server_smoke.py": "4029730b81049c24ada4b2af60bcfe92a7eef96b10ce6007a3e89b97f8c4774f",
     "homework-3/tests/test_host_budget_contract.py": "2b4af4575a3e3661ee457a227286e6c14213907d728e614d29ce253a474708df",
-    "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c"
+    "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c",
+    "homework-3/tests/test_smoke_launcher.py": "1b9568a326922187efa0008bc081a17205a4fe03209b857200c0bdfff0356b45"
   },
   "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
-  "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md"
+  "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md",
+  "launcher_validation": "Five added CPU checks: archive hashes, failure propagation, real process-group timeout cleanup, occupied/unknown device refusal. No server integration result yet."
 }

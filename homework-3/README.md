@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 32 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 37 local
 tests implemented. **No HW3 Ascend execution or end-to-end offload result yet.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
@@ -60,6 +60,45 @@ numerical validation remain pending. Even the larger working set may fit entirel
 in HBM; calibrate pressure before claiming a Host-cache benefit.
 
 ## Local checks
+
+### Run the first server experiments independently of chat
+
+After connecting iSecSP, run from this Mac's Terminal:
+
+```bash
+cd ~/Projects/MLSys-HW
+python3 homework-3/scripts/launch_smoke.py --host YOUR_COURSE_USER@YOUR_COURSE_HOST
+```
+
+Uses the existing SSH key and known-host entry on port 2222. The default physical
+chip is 1; `--device N` selects another previously verified course chip. It stops
+if the chip is occupied or occupancy cannot be parsed. This is not a reservation.
+The launcher uploads a small checksummed harness into a unique server directory,
+copies the existing HW2 runtime into that directory and verifies all three Python
+source trees against local hashes. Existing HW1/HW2 runs are preserved. It reuses
+the server's private environment, CANN and 0.8B model; missing or different files
+stop the suite rather than trigger installation or download.
+
+The detached suite runs the original 32 harness tests, then three 0.8B TP1 cases:
+off, forced decode suspension (`2`), and forced prefill suspension (`-2`), checking
+all generated tokens against off. Each model invocation has a ten-minute limit;
+failures stop the sequence. Four sessions and two cycles provide an initial smoke,
+not a calibrated memory-pressure benchmark. Only this launcher's child process
+groups are cleaned up. A per-account lock prevents overlapping smoke launchers.
+
+Wait for the printed **Started independently** confirmation before closing the
+Terminal. Once started, server jobs survive VPN/chat loss. The command prints
+exact status and result-download commands, and keeps a local launch receipt in
+`.local-review/hw3-smoke-*`. If connection is lost during launch, inspect the
+printed server directory before retrying: launch may have succeeded without its
+acknowledgment reaching the Mac. `suite.log`, `status.json`, and `results/` remain
+on the server. Missing status can mean the environment setup failed; read the log.
+
+`--prepare-only` builds the package without contacting the server. The five new
+local launcher tests check packaging, occupied/unknown device refusal, failure
+propagation and real subprocess timeout cleanup. Server integration is still
+unvalidated. A successful smoke does **not** certify actual offload completion,
+eviction, leak freedom, TP2, larger models or performance; those experiments remain.
 
 From the repository root:
 
