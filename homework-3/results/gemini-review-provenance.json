@@ -1,0 +1,18 @@
+{
+  "model": "gemini-4-neon-high",
+  "reviewed_code_commit": "ab43a85",
+  "requests": {
+    "run-review": {
+      "prompt_sha256": "5ebfac3428bc2556073ae67bac240cf938956a17832d52b9a493a621cfc7b713",
+      "response_sha256": "41a1afd7f3475c3ab12e505d42c128201b05e7b4931acda3383d431dd76f4598",
+      "exit_code": 0
+    },
+    "checker-review": {
+      "prompt_sha256": "977d91ea26c7f7cfcd4ce8ee5e69078dfe9b97d6c8ec44b317163e57090a459c",
+      "response_sha256": "3ddfe42a34f02bdc1c8cd3a5fb9290acf729d2b9d170e38116dfc2cfe460daee",
+      "exit_code": 0
+    }
+  },
+  "hardware_validation": "not performed",
+  "post_fix_gemini_review": "not performed"
+}

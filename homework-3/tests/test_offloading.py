@@ -1,6 +1,7 @@
 """Local behavioral tests; no claim of NPU execution."""
 
 import copy
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -23,12 +24,18 @@ def config(**changes):
 
 
 def result_pair():
-    workload = hw3.make_workload(list(range(256)), vocab_size=1000, pattern="high", repeats=1)
+    workload = hw3.make_workload(list(range(256)), vocab_size=1000, pattern="high", repeats=1,
+                                 working_set=8, revisit_suffix_tokens=8)
+    files = {"module.py": "a" * 64}
+    tree = {"root": "/test/source", "files": files,
+            "sha256": hashlib.sha256(json.dumps(files, sort_keys=True, separators=(",", ":")).encode()).hexdigest()}
     base = dict(status="generation_completed_unverified", config=config(), workload=workload,
-                workload_sha256=hw3.digest(workload), model_config_sha256="config",
-                model_manifest_sha256="manifest", source_fingerprints={"python": "hash"},
+                workload_sha256=hw3.digest(workload), model_config_sha256="b" * 64,
+                model_manifest_sha256="c" * 64,
+                source_fingerprints={name: copy.deepcopy(tree) for name in hw3.SOURCE_TREES},
                 harness_fingerprints=hw3.harness_fingerprints(),
-                runtime_versions={"torch": "test"}, physical_devices=[1], runs=[])
+                runtime_versions={"torch": "2.9.0", "torch_npu": "2.9.0", "triton": "unavailable"},
+                physical_devices=[1], runs=[])
     for batch in workload["batches"]:
         base["runs"].append(dict(repeat=batch["repeat"], batch=batch["batch"], outputs=[
             {"output_ids": [s] * 16, "meta_info": {"prompt_tokens": 256,
@@ -67,18 +74,20 @@ class OffloadTests(unittest.TestCase):
         self.assertEqual(c["mamba_ssm_dtype"], "float32")
 
     def test_reuse_patterns_equal_size_different_reuse(self):
-        high, low = [hw3.make_workload([10] * 256, vocab_size=1000, pattern=p, repeats=3)
+        high, low = [hw3.make_workload([10] * 256, vocab_size=1000, pattern=p, repeats=3,
+                                      working_set=8, revisit_suffix_tokens=8)
                      for p in ("high", "low")]
         markers = lambda w: [ids[0] for b in w["batches"] for ids in b["input_ids"]]
         self.assertEqual(len(markers(high)), 24)
-        self.assertEqual(len(set(markers(high))), 2)
+        self.assertEqual(len(set(markers(high))), 8)
         self.assertEqual(len(set(markers(low))), 24)
         self.assertNotEqual(high["batches"][0]["sessions"], high["batches"][1]["sessions"])
 
     def test_invalid_seed_rejected(self):
         for seed in ([], [True], [-1], [1000], [1] * 500):
             with self.assertRaises(ValueError):
-                hw3.make_workload(seed, vocab_size=1000, pattern="high", repeats=1)
+                hw3.make_workload(seed, vocab_size=1000, pattern="high", repeats=1,
+                                  working_set=8, revisit_suffix_tokens=8)
 
     def test_agreement_never_claims_offload_proof(self):
         result = hw3.compare_runs(*result_pair())
@@ -172,7 +181,7 @@ class OffloadTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, name):
                     hw3.validate_source_locations(modified)
 
-    def cli(self, folder, action):
+    def cli(self, folder, action, *, overrides=()):
         return subprocess.run([
             sys.executable, str(SPEC.origin), "--action", action,
             "--model", str(folder / "missing-model"),
@@ -182,7 +191,8 @@ class OffloadTests(unittest.TestCase):
             "--device-tokens", "1024", "--port", "31893", "--offloading", "off",
             "--host-ratio", "0", "--snapshot-ratio", "0", "--force-interval", "0",
             "--dtype", "bfloat16", "--head-dtype", "native", "--pattern", "high",
-            "--repeats", "1", "--output-dir", str(folder / "result")],
+            "--repeats", "1", "--working-set", "8", "--revisit-suffix-tokens", "8",
+            "--output-dir", str(folder / "result"), *overrides],
             capture_output=True, text=True, timeout=10)
 
     def test_plan_cli_does_not_run_and_refuses_result_overwrite(self):
@@ -208,6 +218,113 @@ class OffloadTests(unittest.TestCase):
             self.assertEqual(result["status"], "failed")
             self.assertIn("source-manifest.json", result["error"])
             self.assertEqual(result["runs"], [])
+
+    def test_revisits_extend_prefix_and_displace_idle_sessions(self):
+        high, low = [hw3.make_workload(list(range(256)), vocab_size=1024, pattern=p,
+                                      repeats=2, working_set=6, revisit_suffix_tokens=8)
+                     for p in ("high", "low")]
+        first = {s: ids for b in high["batches"] if b["repeat"] == 0
+                 for s, ids in zip(b["sessions"], b["input_ids"])}
+        self.assertEqual(len(first), 6)
+        self.assertTrue(set(high["batches"][0]["sessions"]).isdisjoint(high["batches"][1]["sessions"]))
+        for batch in high["batches"][3:]:
+            for session, ids in zip(batch["sessions"], batch["input_ids"]):
+                self.assertEqual(ids[:256], first[session])
+                self.assertEqual(len(ids), 264)
+        lengths = lambda w: [len(ids) for b in w["batches"] for ids in b["input_ids"]]
+        self.assertEqual(lengths(high), lengths(low))
+        self.assertEqual(len({ids[0] for b in low["batches"] for ids in b["input_ids"]}), 12)
+
+    def test_working_set_and_suffix_bounds(self):
+        for key, values in (("working_set", (0, 3, 66, True)),
+                            ("revisit_suffix_tokens", (-1, 241, True))):
+            for value in values:
+                args = dict(vocab_size=1024, pattern="high", repeats=2,
+                            working_set=6, revisit_suffix_tokens=8)
+                args[key] = value
+                with self.assertRaises(ValueError):
+                    hw3.make_workload([1] * 256, **args)
+
+    def test_invalid_topology_fails_before_creating_plan_output(self):
+        for overrides in (("--tp", "2", "--physical-devices", "0,2"),
+                          ("--physical-devices", "8")):
+            with tempfile.TemporaryDirectory() as temp:
+                folder = Path(temp)
+                self.assertNotEqual(self.cli(folder, "plan", overrides=overrides).returncode, 0)
+                self.assertFalse((folder / "result").exists())
+
+    def test_candidate_budgets_and_reference_boolean_zero_rejected(self):
+        for key in ("kvstore_ratio", "retraction_snapshot_ratio"):
+            for value in (0, -1, float("nan"), float("inf"), True, None):
+                a, b = result_pair()
+                if value is None:
+                    del b["config"][key]
+                else:
+                    b["config"][key] = value
+                with self.assertRaises(ValueError):
+                    hw3.compare_runs(a, b)
+        a, b = result_pair()
+        a["config"]["kvstore_ratio"] = False
+        with self.assertRaises(ValueError):
+            hw3.compare_runs(a, b)
+
+    def test_signed_prefill_retraction_interval_is_valid(self):
+        self.assertEqual(config(force_interval=-2)["debug_force_retraction_interval"], -2)
+        a, b = result_pair()
+        b["config"]["debug_force_retraction_interval"] = -2
+        self.assertEqual(hw3.compare_runs(a, b)["exact_token_agreement_requests"], 8)
+        for value in (True, 2.0, None):
+            b["config"]["debug_force_retraction_interval"] = value
+            with self.assertRaises(ValueError):
+                hw3.compare_runs(a, b)
+
+    def test_equal_incomplete_provenance_rejected(self):
+        mutations = [lambda r, k=key, v=value: r.update({k: v})
+                     for key in ("model_config_sha256", "model_manifest_sha256",
+                                 "source_fingerprints", "harness_fingerprints", "runtime_versions")
+                     for value in (None, "", {})]
+        mutations += [lambda r, v=devices: r.update(physical_devices=v)
+                      for devices in ([], [True], [1, 1], [-1])]
+        mutations += [lambda r: r["source_fingerprints"].pop("python"),
+                      lambda r: r["source_fingerprints"]["python"].update(files={}),
+                      lambda r: r["source_fingerprints"]["python"].update(sha256="e" * 64),
+                      lambda r: r["runtime_versions"].pop("torch_npu"),
+                      lambda r: r["runtime_versions"].update(torch_npu="unavailable"),
+                      lambda r: r["harness_fingerprints"].pop(hw3.HARNESS_FILES[0])]
+        for mutate in mutations:
+            a, b = result_pair()
+            mutate(a); mutate(b)
+            with self.assertRaises(ValueError):
+                hw3.compare_runs(a, b)
+
+    def test_same_or_reversed_modes_rejected(self):
+        a, b = result_pair()
+        for left, right in ((a, a), (b, b), (b, a)):
+            with self.assertRaises(ValueError):
+                hw3.compare_runs(left, right)
+
+    def test_each_provenance_mismatch_is_rejected(self):
+        for key, value in (("model_config_sha256", "d" * 64),
+                           ("model_manifest_sha256", "d" * 64),
+                           ("physical_devices", [0]), ("workload_sha256", "d" * 64),
+                           ("runtime_versions", {"torch": "3.0", "torch_npu": "3.0", "triton": "unavailable"})):
+            a, b = result_pair()
+            b[key] = value
+            with self.assertRaises(ValueError):
+                hw3.compare_runs(a, b)
+
+    def test_output_count_metadata_and_token_types_rejected(self):
+        mutations = [lambda o: o[0]["meta_info"].update(prompt_tokens=255),
+                     lambda o: o[0]["meta_info"].update(cached_tokens=-1),
+                     lambda o: o[0]["meta_info"].update(cached_tokens=True),
+                     lambda o: o[0]["output_ids"].__setitem__(0, -1),
+                     lambda o: o[0]["output_ids"].__setitem__(0, True),
+                     lambda o: o.pop(), lambda o: o.append(copy.deepcopy(o[0]))]
+        for mutate in mutations:
+            a, b = result_pair()
+            mutate(b["runs"][0]["outputs"])
+            with self.assertRaises(ValueError):
+                hw3.compare_runs(a, b)
 
 
 if __name__ == "__main__":

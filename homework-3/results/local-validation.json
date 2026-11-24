@@ -1,17 +1,18 @@
 {
   "date": "2026-11-24",
   "scope": "CPU harness only; no hardware execution",
-  "unittest_passed": 23,
-  "plan_cli": "passed in unittest; no generation, overwrite refused; missing model run fails before NPU import",
-  "comparison_cli": "passed with current harness fingerprints and synthetic fixture; eight requests, lifecycle proof false",
+  "unittest_passed": 32,
+  "plan_cli": "passed: explicit eight-session working set, two cycles, 256/264-token inputs; no generation",
+  "comparison_cli": "passed: complete synthetic provenance, eight requests, lifecycle proof false",
   "python_ast": "passed",
   "original_assignment_sha256": "e66c6769a94417c46d40857e97e77c912bc8b12ad3cdfe319e08c60fa7cc70df",
   "hardware_validation": "pending",
   "source_sha256": {
     "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
-    "homework-3/scripts/run_offloading.py": "7ef86b684521e85bd202d5d59c74a019b2f61b6d4a1a8a94759ed51060e79713",
+    "homework-3/scripts/run_offloading.py": "48a83e38976d04bf6c0c6a7a78efcb050ed2c8bb5946077bcf30a72112d6a0da",
     "homework-3/tests/test_host_budget_contract.py": "2b4af4575a3e3661ee457a227286e6c14213907d728e614d29ce253a474708df",
-    "homework-3/tests/test_offloading.py": "5b8903bf51aa3276490503dcf47ca1be3c94040f864917fee40ca54c8d00c217"
+    "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c"
   },
-  "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35"
+  "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
+  "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md"
 }

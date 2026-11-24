@@ -10,6 +10,9 @@ from pathlib import Path
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
+SOURCE_TREES = ("python", "tokenspeed-kernel/python", "tokenspeed-kernel-npu/python")
+HARNESS_FILES = ("homework-3/scripts/run_offloading.py", "homework-2/scripts/run_model.py",
+                 "homework-2/scripts/npu_occupancy.py")
 
 
 def load_helper(name, filename):
@@ -29,8 +32,7 @@ def digest(value):
 
 def harness_fingerprints():
     """Bind measurements to this runner and the HW2 code it actually imports."""
-    paths = (Path(__file__).resolve(), ROOT / "homework-2/scripts/run_model.py",
-             ROOT / "homework-2/scripts/npu_occupancy.py")
+    paths = tuple(ROOT / name for name in HARNESS_FILES)
     return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
             for path in paths}
 
@@ -54,10 +56,57 @@ def save_result(path, result):
     temporary.replace(path)
 
 
+def validate_devices(tp, devices):
+    """Validate the previously recorded course-server topology, even for plans."""
+    if (type(tp) is not int or tp not in (1, 2) or not isinstance(devices, list)
+            or len(devices) != tp or any(type(d) is not int or d not in range(8) for d in devices)
+            or len(set(devices)) != len(devices)):
+        raise ValueError("expected one/two distinct devices in the recorded 0..7 topology")
+    if tp == 2 and devices[0] // 2 != devices[1] // 2:
+        raise ValueError("TP2 requires the recorded same-card pair")
+
+
+def valid_sha256(value):
+    return isinstance(value, str) and len(value) == 64 and set(value) <= set("0123456789abcdef")
+
+
+def validate_provenance(result):
+    """Equal missing evidence is not evidence; validate the recorded schema first."""
+    for key in ("model_config_sha256", "model_manifest_sha256"):
+        if not valid_sha256(result.get(key)):
+            raise ValueError(f"invalid {key}")
+    harness = result.get("harness_fingerprints")
+    if (not isinstance(harness, dict) or set(harness) != set(HARNESS_FILES)
+            or not all(valid_sha256(v) for v in harness.values())):
+        raise ValueError("incomplete harness_fingerprints")
+    trees = result.get("source_fingerprints")
+    if not isinstance(trees, dict) or set(trees) != set(SOURCE_TREES):
+        raise ValueError("incomplete source_fingerprints")
+    for name, tree in trees.items():
+        if (not isinstance(tree, dict) or not isinstance(tree.get("root"), str) or not tree["root"]
+                or not valid_sha256(tree.get("sha256")) or "error" in tree):
+            raise ValueError(f"invalid source_fingerprints: {name}")
+        files = tree.get("files")
+        if (not isinstance(files, dict) or not files
+                or any(not isinstance(p, str) or not p or not valid_sha256(sha)
+                       for p, sha in files.items())):
+            raise ValueError(f"incomplete source file hashes: {name}")
+        canonical = json.dumps(files, sort_keys=True, separators=(",", ":")).encode()
+        if hashlib.sha256(canonical).hexdigest() != tree["sha256"]:
+            raise ValueError(f"source tree digest mismatch: {name}")
+    versions = result.get("runtime_versions")
+    if (not isinstance(versions, dict) or set(versions) != {"torch", "torch_npu", "triton"}
+            or any(not isinstance(v, str) or not v.strip() for v in versions.values())
+            or any(versions[k] == "unavailable" for k in ("torch", "torch_npu"))):
+        raise ValueError("incomplete runtime_versions")
+    validate_devices(result["config"].get("world_size"), result.get("physical_devices"))
+
+
 def build_config(model, *, tp, devices, memory_fraction, port, offloading,
                  host_ratio, snapshot_ratio, force_interval, device_tokens, dtype,
                  head_dtype):
     """Use the existing scheduler/L2 path; explicitly size both Host pools."""
+    validate_devices(tp, devices)
     if offloading not in ("off", "on"):
         raise ValueError("offloading must be off or on")
     if dtype not in ("bfloat16", "float16") or head_dtype not in ("native", "float32"):
@@ -88,7 +137,7 @@ def build_config(model, *, tp, devices, memory_fraction, port, offloading,
     return config
 
 
-def make_workload(seed_ids, *, vocab_size, pattern, repeats):
+def make_workload(seed_ids, *, vocab_size, pattern, repeats, working_set, revisit_suffix_tokens):
     """Synthetic valid-token stress cases; different first tokens isolate prefixes."""
     if (type(vocab_size) is not int or vocab_size < 16 or not seed_ids
             or len(seed_ids) + 16 > 512
@@ -96,21 +145,30 @@ def make_workload(seed_ids, *, vocab_size, pattern, repeats):
         raise ValueError("invalid seed tokens or vocabulary")
     if pattern not in ("high", "low") or type(repeats) is not int or not 1 <= repeats <= 20:
         raise ValueError("invalid pattern or repeats")
-    # Both patterns issue eight requests per repeat with the same lengths.
-    # High revisits two prefixes; low never revisits a prefix in this run.
-    if vocab_size < 8 * repeats:
+    if type(working_set) is not int or not 2 <= working_set <= 64 or working_set % 2:
+        raise ValueError("working set must be an even integer in 2..64")
+    if (type(revisit_suffix_tokens) is not int or revisit_suffix_tokens < 0
+            or len(seed_ids) + revisit_suffix_tokens + 16 > 512):
+        raise ValueError("invalid revisit suffix or context length")
+    # Same request counts and lengths across patterns; low never revisits a prefix.
+    if vocab_size < working_set * repeats:
         raise ValueError("vocabulary too small for distinct low-reuse markers")
     batches = []
     for repeat in range(repeats):
-        for batch in range(4):
-            sessions = [0, 1] if pattern == "high" else [repeat * 8 + batch * 2 + i for i in range(2)]
-            if pattern == "high" and batch % 2:
+        suffix = ([seed_ids[i % len(seed_ids)] for i in range(revisit_suffix_tokens)]
+                  if repeat else [])
+        for batch in range(working_set // 2):
+            sessions = ([(repeat * 2 + batch * 2 + i) % working_set for i in range(2)]
+                        if pattern == "high" else [repeat * working_set + batch * 2 + i for i in range(2)])
+            if (batch + repeat) % 2:
                 sessions.reverse()
             batches.append({"repeat": repeat, "batch": batch,
+                            "phase": "initial" if repeat == 0 else "extended",
                             "sessions": sessions,
-                            "input_ids": [[(seed_ids[0] + s) % vocab_size, *seed_ids[1:]]
+                            "input_ids": [[(seed_ids[0] + s) % vocab_size, *seed_ids[1:], *suffix]
                                           for s in sessions]})
     return {"pattern": pattern, "new_tokens": 16, "batches": batches,
+            "working_set": working_set, "repeats": repeats, "revisit_suffix_tokens": revisit_suffix_tokens,
             "input_kind": "synthetic token stress workload; not a language-quality benchmark"}
 
 
@@ -136,6 +194,7 @@ def compare_runs(reference, candidate):
     for result in (reference, candidate):
         if result["status"] != "generation_completed_unverified":
             raise ValueError("both runs must complete")
+        validate_provenance(result)
         workload = result["workload"]
         if (not isinstance(workload["batches"], list) or not workload["batches"]
                 or type(workload["new_tokens"]) is not int or workload["new_tokens"] <= 0):
@@ -160,8 +219,16 @@ def compare_runs(reference, candidate):
     for key in ("kvstore_ratio", "kvstore_size", "retraction_snapshot_host_gb",
                 "retraction_snapshot_ratio", "retraction_snapshot_max_requests",
                 "debug_force_retraction_interval"):
-        if reference["config"][key] != 0:
+        value = reference["config"].get(key)
+        if type(value) not in (int, float) or value != 0:
             raise ValueError(f"off reference must disable {key}")
+    for key in ("kvstore_ratio", "retraction_snapshot_ratio"):
+        value = candidate["config"].get(key)
+        if type(value) not in (int, float) or not math.isfinite(value) or value <= 0:
+            raise ValueError(f"on candidate needs a finite positive {key}")
+    # Negative intervals deliberately force prefill suspension; positive ones decode.
+    if type(candidate["config"].get("debug_force_retraction_interval")) is not int:
+        raise ValueError("candidate retraction interval must be an integer")
     allowed = {"disable_kvstore", "kvstore_ratio", "retraction_snapshot_ratio",
                "debug_force_retraction_interval", "port"}
     if ({k: v for k, v in reference["config"].items() if k not in allowed}
@@ -204,6 +271,8 @@ def main():
     parser.add_argument("--head-dtype", choices=("native", "float32"), required=True)
     parser.add_argument("--pattern", choices=("high", "low"), required=True)
     parser.add_argument("--repeats", type=int, required=True)
+    parser.add_argument("--working-set", type=int, required=True)
+    parser.add_argument("--revisit-suffix-tokens", type=int, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
     config = build_config(args.model, tp=args.tp, devices=args.physical_devices,
@@ -215,7 +284,8 @@ def main():
     vocab = json.loads(config_bytes)["text_config"]["vocab_size"]
     seed = next(c["input_ids"] for c in json.loads(args.seed_cases.read_text())["cases"]
                 if len(c["input_ids"]) == 256)
-    workload = make_workload(seed, vocab_size=vocab, pattern=args.pattern, repeats=args.repeats)
+    workload = make_workload(seed, vocab_size=vocab, pattern=args.pattern, repeats=args.repeats,
+                             working_set=args.working_set, revisit_suffix_tokens=args.revisit_suffix_tokens)
     result = {"status": "planned_not_run", "config": config, "workload": workload,
               "harness_fingerprints": harness_fingerprints(),
               "physical_devices": args.physical_devices, "workload_sha256": digest(workload),
@@ -248,10 +318,8 @@ def main():
         devices = args.physical_devices
         # Course server's previously recorded 4-card/2-chip mapping. Reverify
         # topology manually before use on a different machine; this is no lock.
-        if any(d not in range(8) or (d // 2, d % 2) in used for d in devices):
-            raise RuntimeError("requested chip occupied or outside recorded topology")
-        if args.tp == 2 and devices[0] // 2 != devices[1] // 2:
-            raise ValueError("TP2 requires the recorded same-card pair")
+        if any((d // 2, d % 2) in used for d in devices):
+            raise RuntimeError("requested chip occupied")
         os.environ["ASCEND_RT_VISIBLE_DEVICES"] = ",".join(map(str, devices))
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
         import torch

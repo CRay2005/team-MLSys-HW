@@ -67,6 +67,18 @@ from real group byte geometry and available Host RAM. Enlarge the working set or
 reduce Host capacity until eviction actually occurs. A two-prefix workload that
 fits on device cannot establish a Host benefit.
 
+After Gemini Neon review, the harness accepts an explicit even working set
+(2..64; use >=4 for displacement) and a bounded revisit suffix. High-reuse cycles
+now leave sessions idle between visits and extend their prompts after the first
+cycle. Low reuse has matching request counts/lengths and fresh prefixes. Separate
+initial versus extended requests in analysis and repeat whole runs independently.
+This improves coverage; observed eviction/restore events are still required.
+
+The 32 CPU checks now include actual upstream pool sizing, strict provenance and
+Host-mode validation, early static topology rejection, and negative force intervals
+for prefill. [Gemini review and disposition](gemini-neon-review-20261124.md) records
+which suggestions were accepted and why the interval restriction was rejected.
+
 Missing instrumentation: per-rank device total/used/free blocks and reallocation;
 Host allocated/used L2/snapshot/blob bytes; hits/misses/evictions; completed
 D2H/H2D payload bytes and elapsed transfer time; request/operation IDs; restored

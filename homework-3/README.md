@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 23 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 32 local
 tests implemented. **No HW3 Ascend execution or end-to-end offload result yet.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
@@ -30,25 +30,34 @@ Plan-only operation needs no torch; hardware execution is explicitly selected.
   stays enabled in both modes, isolating the effect of Host storage.
 - On uses the existing direct/DMA transport and explicit L2/snapshot ratios.
   Device token and memory budgets stay fixed across each comparison.
-- High reuse revisits two distinct prefixes and reverses batch order. Low reuse
-  uses eight unique prefixes per repeat. Both use synthetic valid-token inputs
-  derived from the saved HW2 seed, not a language-quality benchmark.
+- High reuse cycles pairs through an explicit working set, rotating session order
+  on repeat visits and optionally extending their prefixes. Low reuse uses fresh
+  session prefixes throughout, with matched request counts and length changes.
+  Both use synthetic valid-token inputs from the HW2 seed, not a language-quality
+  benchmark. Use at least four sessions for displacement experiments; two is
+  supported only as a small smoke configuration.
 - Records raw outputs, batch latency, configuration/source hashes, device/process
   snapshots, and an explicit list of missing lifecycle metrics.
 - `compare_results.py` checks every generated token under matched configurations.
   It never treats cached-token metadata or token agreement as proof of a Host hit.
 
 The checker also rejects empty/duplicate workloads, mismatched harness/helper
-versions and an off baseline with an absolute snapshot allocation. Hardware runs
+versions, incomplete provenance, invalid on-mode budgets and an off baseline with
+an absolute snapshot allocation. Hardware runs
 must import the exact source roots fingerprinted in the result. Each save replaces
 a complete JSON file, preserving the previous record if serialization fails.
 Five tests exercise the actual upstream Host-pool sizing implementation without
 torch or accelerator mocks; the remaining tests cover the harness and its CLI.
 
-This first milestone adds a harness, not a new transport implementation. NPU
+Gemini 4 Neon independently reviewed the runner and checker. See the
+[findings and dispositions](docs/gemini-neon-review-20261124.md); recommendations
+were checked against source, including rejection of an incorrect negative-interval
+restriction. The review is not hardware certification.
+
+This milestone adds a harness, not a new transport implementation. NPU
 Engine execution, eviction, real suspension/resumption, leak freedom and full
-numerical validation remain pending. The two-prefix workload may fit entirely in
-HBM; calibrate pressure before claiming a Host-cache benefit.
+numerical validation remain pending. Even the larger working set may fit entirely
+in HBM; calibrate pressure before claiming a Host-cache benefit.
 
 ## Local checks
 
@@ -62,7 +71,8 @@ From the repository root:
   --seed-cases homework-2/cases.json --tp 1 --physical-devices 1 \
   --memory-fraction 0.12 --device-tokens 1024 --port 31893 \
   --offloading on --host-ratio 1 --snapshot-ratio 1 --force-interval 2 \
-  --dtype bfloat16 --head-dtype native --pattern high --repeats 1 \
+  --dtype bfloat16 --head-dtype native --pattern high --repeats 2 \
+  --working-set 8 --revisit-suffix-tokens 8 \
   --output-dir .local-review/hw3-first-plan
 ```
 
@@ -93,4 +103,9 @@ a retraction occurred. Require completed snapshot/restore events. Use interval
 `max_total_tokens` is a requested cap. Record actual allocated block budgets on
 each rank before claiming equal HBM capacity. Batch timings include replay but
 do not isolate restore latency. The first batch is cold; keep it separate from
-steady-state performance and run at least three fresh repetitions.
+steady-state performance and run at least three fresh repetitions. All first-cycle
+sessions are new, and extension changes prompt length: report 256-token initial
+and 264-token extended requests separately for the example above. Do not pool
+them into one latency comparison. Identical schedule/lengths must be used for off
+and on. `--repeats` cycles within one Engine instance; independent repetitions
+require separate fresh invocations and output directories.
