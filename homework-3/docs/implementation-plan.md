@@ -50,15 +50,19 @@ restore sources owned until required transfers/rank acknowledgements complete.
 Record block IDs and successive owners to prove reuse when preallocated HBM stays
 constant in `npu-smi`.
 
-## Required experiments — initial TP1 smoke complete
+## Required experiments — verified TP1 results and remaining gaps
 
 November 24 update: the baseline and forced decode/prefill runs on 0.8B TP1
 completed, with eight requests each and exact token agreement for both candidates.
 The logs show suspension, writeback and restore starts. Both comparisons were
 reverified after checksum-verified download; chip 1 was released. See
 [the evidence summary](../results/2026-11-24-tp1-smoke/summary.json).
-Completed-copy bytes/timing, state-frontier instrumentation, eviction, leakage,
-TP2 and performance acceptance below remain pending. The initial 1,024-token
+Follow-up instrumented 0.8B and 4B TP1 suites now verify completed payload bytes,
+snapshot/restore frontiers and final quiescence. The18-run normal-scheduling
+0.8B matrix also passed, but both Host budgets produced zero prefix hits and
+zero loadbacks. See the current [report](../report.md) for measurements and scope.
+Long-cycle stress and a larger-Host retention probe are active; TP2 and complete
+logical-eviction/private-block-reuse evidence remain outstanding. The initial 1,024-token
 budget could not admit a request; the successful smoke used a fixed 16,384-token
 cap in all three modes. Do not interpret this as calibrated Host-cache pressure.
 
@@ -89,10 +93,14 @@ Host-mode validation, early static topology rejection, and negative force interv
 for prefill. [Gemini review and disposition](gemini-neon-review-20261124.md) records
 which suggestions were accepted and why the interval restriction was rejected.
 
-Missing instrumentation: per-rank device total/used/free blocks and reallocation;
-Host allocated/used L2/snapshot/blob bytes; hits/misses/evictions; completed
-D2H/H2D payload bytes and elapsed transfer time; request/operation IDs; restored
-T and replay range/time. Record Host RSS separately from configured cache bytes.
+The optional observer now records device total/active/available blocks, logical
+Host pool bytes and cached/pinned entry counts, completed D2H/H2D payloads and
+host-observed ACK timing, request/operation IDs and restore/prefill positions.
+Prefix hits are across tiers; physical Host destination replacements are not a
+complete logical-eviction counter. Private-block reuse causality and physical Host
+RSS/reserved allocation remain unproven. The replay-length field denotes explicit
+state replay, not every token recomputed after a prefix miss; a miss starting at
+zero recomputes the prompt and its time is included in batch latency.
 Aggregate bytes across ranks, but do not sum overlapping rank latencies as wall
 time. Keep transfer duration separate from end-to-end restoration/admission.
 
@@ -102,14 +110,15 @@ measurements and exclude artificial forced retractions from normal performance.
 
 ## Next steps
 
-1. Initial server access, isolated verified deployment and 0.8B TP1 forced-restore
-   token smoke are complete. Recheck connectivity and device occupancy before
-   each additional run; only one chip was free during the initial smoke.
-2. Inspect actual state payloads and copy completion; the initial logs show starts
-   and correct final tokens, not complete lifecycle measurements.
-3. Add missing instrumentation in existing scheduler/transfer owners, with an
-   HW3-only incremental patch and focused regressions.
-4. Complete TP2, 4B, eviction/leak cases and performance matrix; write the report
-   only from actual evidence.
+1. Finish and independently verify the queued repeated-restoration stress test
+   and the larger-Host retention probe; retain negative outcomes.
+2. If the larger Host budget yields actual loadbacks, connect cache replacement,
+   later restore/admission and exact output evidence without equating raw owner
+   changes with private-block reuse.
+3. Run TP2 after a same-card pair is free, checking both-rank transfer completion
+   and restoration frontiers. The checker now fails cross-rank disagreement;
+   this is not itself a hardware TP2 pass.
+4. Close remaining evidence gaps and finalize the report against the assignment.
+   Existing transport/runtime mechanisms retain upstream/group attribution.
 
 Continuity: [active transcript](../../../chat-history/ASCEND_HOMEWORK_TRANSCRIPT.md).

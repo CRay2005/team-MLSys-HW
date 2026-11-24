@@ -82,8 +82,9 @@ These forced runs are correctness probes, not performance comparisons.
 All 49 downloaded evidence files passed checksum verification, including three
 failed setup/calibration trials. The final NPU snapshot confirms chip 1 was free
 again. Source/model checks and 32 core CPU tests also passed on the server.
-TP2, larger models, Host eviction/misses, repeated-cycle leak checks and the full
-performance matrix remain outstanding.
+At that initial milestone, TP2, larger models, Host eviction/misses, repeated-cycle
+checks and the performance matrix were outstanding. Later sections record the
+subsequent 4B and matrix results; TP2 and full lifecycle coverage remain open.
 
 Gemini reviewed the original harness earlier. The new launcher review attempt
 failed when the CLI rejected the previously working Neon model identifier and
@@ -109,7 +110,7 @@ source trees against local hashes. Existing HW1/HW2 runs are preserved. It reuse
 the server's private environment, CANN and 0.8B model; missing or different files
 stop the suite rather than trigger installation or download.
 
-The detached suite runs the original 32 harness tests, then three 0.8B TP1 cases:
+The detached suite runs 40 core/observer tests, then three 0.8B TP1 cases:
 off, forced decode suspension (`2`), and forced prefill suspension (`-2`), checking
 all generated tokens against off. Each model invocation has a ten-minute limit;
 failures stop the sequence. Four sessions and two cycles provide an initial smoke,
@@ -127,8 +128,8 @@ printed server directory before retrying: launch may have succeeded without its
 acknowledgment reaching the Mac. `suite.log`, `status.json`, and `results/` remain
 on the server. Missing status can mean the environment setup failed; read the log.
 
-`--prepare-only` builds the package without contacting the server. The seven new
-local launcher tests check packaging, occupied/unknown device refusal, failure
+`--prepare-only` builds the package without contacting the server. The eleven
+local launcher tests cover suite plans, bounded queue transitions, packaging, occupied/unknown device refusal, failure
 propagation, port conflict handling and real subprocess timeout cleanup. Initial
 server preflight passed source/model verification and all 32 harness tests, then
 stopped on a port conflict before NPU use; automatic port selection was added.
