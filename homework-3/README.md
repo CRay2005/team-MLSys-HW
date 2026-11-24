@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 10 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 23 local
 tests implemented. **No HW3 Ascend execution or end-to-end offload result yet.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
@@ -37,6 +37,13 @@ Plan-only operation needs no torch; hardware execution is explicitly selected.
   snapshots, and an explicit list of missing lifecycle metrics.
 - `compare_results.py` checks every generated token under matched configurations.
   It never treats cached-token metadata or token agreement as proof of a Host hit.
+
+The checker also rejects empty/duplicate workloads, mismatched harness/helper
+versions and an off baseline with an absolute snapshot allocation. Hardware runs
+must import the exact source roots fingerprinted in the result. Each save replaces
+a complete JSON file, preserving the previous record if serialization fails.
+Five tests exercise the actual upstream Host-pool sizing implementation without
+torch or accelerator mocks; the remaining tests cover the harness and its CLI.
 
 This first milestone adds a harness, not a new transport implementation. NPU
 Engine execution, eviction, real suspension/resumption, leak freedom and full

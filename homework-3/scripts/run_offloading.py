@@ -27,6 +27,33 @@ def digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False).encode()).hexdigest()
 
 
+def harness_fingerprints():
+    """Bind measurements to this runner and the HW2 code it actually imports."""
+    paths = (Path(__file__).resolve(), ROOT / "homework-2/scripts/run_model.py",
+             ROOT / "homework-2/scripts/npu_occupancy.py")
+    return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in paths}
+
+
+def validate_source_locations(locations):
+    """Reject installed packages outside the source trees recorded in the result."""
+    base = ROOT / "homework-1/tokenspeed"
+    expected = {"tokenspeed": base / "python/tokenspeed",
+                "tokenspeed_kernel": base / "tokenspeed-kernel/python/tokenspeed_kernel",
+                "tokenspeed_kernel_npu": base / "tokenspeed-kernel-npu/python/tokenspeed_kernel_npu"}
+    for name, directory in expected.items():
+        if (name not in locations or len(locations[name]) != 1
+                or Path(locations[name][0]).resolve() != directory.resolve()):
+            raise ValueError(f"runtime source location differs from fingerprinted tree: {name}")
+
+
+def save_result(path, result):
+    """Replace a complete JSON record; interruption cannot truncate the last save."""
+    temporary = path.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+    temporary.replace(path)
+
+
 def build_config(model, *, tp, devices, memory_fraction, port, offloading,
                  host_ratio, snapshot_ratio, force_interval, device_tokens, dtype,
                  head_dtype):
@@ -92,7 +119,10 @@ def validate_outputs(outputs, batch, new_tokens):
         raise ValueError("missing request output")
     for output, ids in zip(outputs, batch):
         tokens, meta = output["output_ids"], output["meta_info"]
-        if (len(tokens) != new_tokens or any(type(t) is not int or t < 0 for t in tokens)
+        if (not isinstance(tokens, list) or len(tokens) != new_tokens
+                or any(type(t) is not int or t < 0 for t in tokens)
+                or type(meta["completion_tokens"]) is not int
+                or type(meta["prompt_tokens"]) is not int
                 or meta["completion_tokens"] != new_tokens
                 or meta["prompt_tokens"] != len(ids)):
             raise ValueError("incomplete or malformed generation")
@@ -106,21 +136,39 @@ def compare_runs(reference, candidate):
     for result in (reference, candidate):
         if result["status"] != "generation_completed_unverified":
             raise ValueError("both runs must complete")
+        workload = result["workload"]
+        if (not isinstance(workload["batches"], list) or not workload["batches"]
+                or type(workload["new_tokens"]) is not int or workload["new_tokens"] <= 0):
+            raise ValueError("empty or malformed workload")
+        identifiers = []
+        for batch in workload["batches"]:
+            if (type(batch["repeat"]) is not int or batch["repeat"] < 0
+                    or type(batch["batch"]) is not int or batch["batch"] < 0
+                    or len(batch["input_ids"]) != 2
+                    or any(not ids or any(type(i) is not int or i < 0 for i in ids)
+                           for ids in batch["input_ids"])):
+                raise ValueError("malformed workload batch")
+            identifiers.append((batch["repeat"], batch["batch"]))
+        if len(set(identifiers)) != len(identifiers):
+            raise ValueError("duplicate workload batch")
         if result["workload_sha256"] != digest(result["workload"]):
             raise ValueError("workload digest mismatch")
         if len(result["runs"]) != len(result["workload"]["batches"]):
             raise ValueError("incomplete workload")
     if reference["config"]["disable_kvstore"] is not True or candidate["config"]["disable_kvstore"] is not False:
         raise ValueError("compare off reference against on candidate")
-    if reference["config"]["retraction_snapshot_ratio"] != 0:
-        raise ValueError("reference still has a Host snapshot pool")
+    for key in ("kvstore_ratio", "kvstore_size", "retraction_snapshot_host_gb",
+                "retraction_snapshot_ratio", "retraction_snapshot_max_requests",
+                "debug_force_retraction_interval"):
+        if reference["config"][key] != 0:
+            raise ValueError(f"off reference must disable {key}")
     allowed = {"disable_kvstore", "kvstore_ratio", "retraction_snapshot_ratio",
                "debug_force_retraction_interval", "port"}
     if ({k: v for k, v in reference["config"].items() if k not in allowed}
             != {k: v for k, v in candidate["config"].items() if k not in allowed}):
         raise ValueError("unmatched device budget/model/precision/configuration")
     for key in ("workload_sha256", "model_config_sha256", "model_manifest_sha256",
-                "source_fingerprints", "runtime_versions", "physical_devices"):
+                "source_fingerprints", "harness_fingerprints", "runtime_versions", "physical_devices"):
         if reference[key] != candidate[key]:
             raise ValueError(f"unmatched {key}")
     checked = 0
@@ -169,6 +217,7 @@ def main():
                 if len(c["input_ids"]) == 256)
     workload = make_workload(seed, vocab_size=vocab, pattern=args.pattern, repeats=args.repeats)
     result = {"status": "planned_not_run", "config": config, "workload": workload,
+              "harness_fingerprints": harness_fingerprints(),
               "physical_devices": args.physical_devices, "workload_sha256": digest(workload),
               "model_config_sha256": hashlib.sha256(config_bytes).hexdigest(), "runs": [],
               "missing_evidence": ["per-rank device block use/free/reallocation", "Host pool use/evictions",
@@ -178,7 +227,7 @@ def main():
     args.output_dir.mkdir(parents=True, exist_ok=False)
 
     def save():
-        (args.output_dir / "result.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
+        save_result(args.output_dir / "result.json", result)
 
     save()
     if args.action == "plan":
@@ -207,6 +256,12 @@ def main():
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
         import torch
         import torch_npu  # noqa: F401
+        locations = {}
+        for name in ("tokenspeed", "tokenspeed_kernel", "tokenspeed_kernel_npu"):
+            spec = importlib.util.find_spec(name)
+            locations[name] = list(spec.submodule_search_locations or ()) if spec else []
+        validate_source_locations(locations)
+        result["runtime_source_locations"] = locations
         from tokenspeed.runtime.entrypoints.engine import Engine
         if not torch.npu.is_available() or torch.npu.device_count() != args.tp:
             raise RuntimeError("NPU availability/count mismatch")
