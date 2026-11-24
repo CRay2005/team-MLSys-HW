@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 56 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 57 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -249,3 +249,10 @@ The 8- and 16-block L2 budgets produced writebacks/churn but **zero Host loadbac
 and zero prefix hits in both patterns. This is a valid negative result, not
 an offloading speedup. Cold/initial/extended timings remain separate; see the
 [matrix analysis](results/2026-11-24-tp1-matrix/analysis.json) and [report](report.md).
+
+`--suite capacity` is a short follow-up to the zero-hit matrix: three high-reuse
+runs with off/L2 ratio1/L2 ratio8, eight sessions and two cycles, normal scheduling
+and the same device budget. Snapshot ratio remains1. This tests whether a larger
+Host retention budget enables actual loadbacks; one run per budget is exploratory,
+not a three-repetition performance result. Its maximum logical L2 pool is about
+1.5 GiB for the 0.8B geometry, plus the separate192 MiB snapshot pool.

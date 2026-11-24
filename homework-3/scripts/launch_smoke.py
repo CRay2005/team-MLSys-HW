@@ -49,7 +49,7 @@ def main():
     parser.add_argument("--device", type=int, choices=range(8), default=1,
                         help="Previously verified course physical chip ID; refuses occupied chip")
     parser.add_argument("--prepare-only", action="store_true")
-    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress"), default="smoke")
+    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress", "capacity"), default="smoke")
     parser.add_argument("--tp", type=int, choices=(1, 2), default=1)
     parser.add_argument("--model-size", choices=("0.8B", "4B"), default="0.8B")
     parser.add_argument("--after-run", help="Queue behind this successful run; waits at most 30 minutes")

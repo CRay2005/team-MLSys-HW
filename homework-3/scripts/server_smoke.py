@@ -118,12 +118,15 @@ def experiment_jobs(suite):
         for repetition in range(3 if suite == "matrix" else 1):
             prefix = f"{pattern}-r{repetition}-" if suite == "matrix" else ""
             cases = [("off", "off", "0", "0")]
-            cases += ([("on-small", "on", "0.5", "0"), ("on-large", "on", "1", "0")]
-                      if suite == "matrix" else [("on-decode", "on", "1", "2"), ("on-prefill", "on", "1", "-2")])
+            if suite in ("matrix", "capacity"):
+                small, large = ("0.5", "1") if suite == "matrix" else ("1", "8")
+                cases += [("on-small", "on", small, "0"), ("on-large", "on", large, "0")]
+            else:
+                cases += [("on-decode", "on", "1", "2"), ("on-prefill", "on", "1", "-2")]
             for name, mode, ratio, force in cases:
                 jobs.append(dict(name=prefix + name, mode=mode, ratio=ratio, force=force,
                                  pattern=pattern, reference=prefix + "off", repetition=repetition,
-                                 working_set=8 if suite in ("matrix", "stress") else 4,
+                                 working_set=8 if suite in ("matrix", "stress", "capacity") else 4,
                                  cycles=8 if suite == "stress" else 2))
     return jobs
 
@@ -161,7 +164,7 @@ def wait_for_run(label, timeout=1800):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--device", type=int, choices=range(8), required=True)
-    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress"), required=True)
+    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress", "capacity"), required=True)
     parser.add_argument("--tp", type=int, choices=(1, 2), required=True)
     parser.add_argument("--model-size", choices=("0.8B", "4B"), required=True)
     parser.add_argument("--after-run", help="Optional successful predecessor; wait at most 30 minutes")

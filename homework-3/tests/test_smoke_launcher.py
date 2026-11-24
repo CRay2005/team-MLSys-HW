@@ -26,6 +26,14 @@ server = load("server_smoke")
 
 
 class SmokeLauncherTests(unittest.TestCase):
+    def test_capacity_probe_changes_host_budget_without_forced_retraction(self):
+        jobs = server.experiment_jobs("capacity")
+        self.assertEqual(len(jobs), 3)
+        self.assertEqual({job["ratio"] for job in jobs}, {"0", "1", "8"})
+        self.assertTrue(all(job["force"] == "0" and job["pattern"] == "high"
+                            and job["working_set"] == 8 and job["cycles"] == 2
+                            and job["reference"] == "off" for job in jobs))
+
     def test_queue_requires_successful_predecessor(self):
         label = "hw3-smoke-20261124T111450Z-b3d422e4"
         with tempfile.TemporaryDirectory() as tmp, patch.object(server, "BASE", Path(tmp)):
