@@ -1,0 +1,613 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": {
+        "event": "allocation",
+        "rank": 0,
+        "pid": 649658,
+        "monotonic_ns": 4510559668242700,
+        "device_lcm_blocks": 16,
+        "host_l2_bytes": 536870912,
+        "host_snapshot_bytes": 536870912,
+        "slot_blob_bytes": 432,
+        "snapshot_blocks": 16,
+        "host_blocks": 16,
+        "groups": [
+          {
+            "name": "linear_attention_0",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.0.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.2.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.26.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.29.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.0.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.10.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.13.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.16.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.18.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.2.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.21.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.24.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.26.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.29.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.5.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.8.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.5.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.8.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.10.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.13.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.16.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.18.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.21.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.24.ssm",
+                "bytes": 2097152
+              }
+            ]
+          },
+          {
+            "name": "linear_attention_1",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.1.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.4.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.28.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.30.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.1.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.12.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.14.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.17.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.20.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.22.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.25.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.28.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.30.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.4.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.6.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.9.conv",
+                "bytes": 49152
+              },
+              {
+                "name": "layer.6.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.9.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.12.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.14.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.17.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.20.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.22.ssm",
+                "bytes": 2097152
+              },
+              {
+                "name": "layer.25.ssm",
+                "bytes": 2097152
+              }
+            ]
+          },
+          {
+            "name": "full_attention",
+            "blocks_per_lcm": 8,
+            "fields": [
+              {
+                "name": "layer.3.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.3.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.23.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.23.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.27.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.27.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.31.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.31.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.7.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.7.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.11.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.11.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.15.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.15.v",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.19.k",
+                "bytes": 262144
+              },
+              {
+                "name": "layer.19.v",
+                "bytes": 262144
+              }
+            ]
+          }
+        ]
+      },
+      "peaks": {
+        "device_active": 10,
+        "host_cached": 30,
+        "host_pinned": 7,
+        "retracted": 2,
+        "tail_cap_evictions": 0
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 649658,
+        "monotonic_ns": 4510585182194810,
+        "device_total": 16,
+        "device_empty": 0,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 30,
+        "host_pinned": 0,
+        "snapshot_free": 16,
+        "tail_entries": 10,
+        "tail_cap_evictions": 0,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {
+        "writeback": 1178206208,
+        "snapshot": 257557200,
+        "restore": 515113680
+      },
+      "completed_operations": {
+        "writeback": 22,
+        "snapshot": 5,
+        "restore": 5
+      },
+      "observed_completion_seconds_sum": {
+        "writeback": 6.183360830000001,
+        "snapshot": 2.1673868799999996,
+        "restore": 0.9242753300000001
+      },
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 1435763408,
+      "h2d_bytes": 515113680,
+      "transfer_batches": 31,
+      "frontier_checks": [
+        {
+          "request_id": "25dbb477faf646a7b70001a2d44d181d",
+          "stored": 256,
+          "restored": 256
+        },
+        {
+          "request_id": "6d4ba1ed57db493a91aaec3422051626",
+          "stored": 256,
+          "restored": 256
+        },
+        {
+          "request_id": "b5f8da717c69434d912a6f586814ddd4",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "77bffdd816394a019469f7364f9ce592",
+          "stored": 264,
+          "restored": 264
+        },
+        {
+          "request_id": "b5f8da717c69434d912a6f586814ddd4",
+          "stored": 264,
+          "restored": 264
+        }
+      ],
+      "first_admission_prefix_hits": 2,
+      "first_admission_prefix_misses": 6,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 35,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 55,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "25dbb477faf646a7b70001a2d44d181d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fdb20afc05b440b99f23a73ae1659839",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fdb20afc05b440b99f23a73ae1659839",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "25dbb477faf646a7b70001a2d44d181d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6d4ba1ed57db493a91aaec3422051626",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "23b107afadce44c5b32e1399d3d6458b",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "23b107afadce44c5b32e1399d3d6458b",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6d4ba1ed57db493a91aaec3422051626",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "8754a6a7163940219aa1a8e3682d036c",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "14c8d07128ad415999a828926c5b248a",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b5f8da717c69434d912a6f586814ddd4",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "77bffdd816394a019469f7364f9ce592",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "77bffdd816394a019469f7364f9ce592",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b5f8da717c69434d912a6f586814ddd4",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "77bffdd816394a019469f7364f9ce592",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b5f8da717c69434d912a6f586814ddd4",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [
+        [
+          "RestoreDoneEvent",
+          4
+        ],
+        [
+          "RestoreDoneEvent",
+          12
+        ],
+        [
+          "RestoreDoneEvent",
+          23
+        ],
+        [
+          "RestoreDoneEvent",
+          24
+        ],
+        [
+          "RestoreDoneEvent",
+          28
+        ],
+        [
+          "SnapshotDoneEvent",
+          1
+        ],
+        [
+          "SnapshotDoneEvent",
+          9
+        ],
+        [
+          "SnapshotDoneEvent",
+          20
+        ],
+        [
+          "SnapshotDoneEvent",
+          22
+        ],
+        [
+          "SnapshotDoneEvent",
+          26
+        ],
+        [
+          "WriteBackDoneEvent",
+          0
+        ],
+        [
+          "WriteBackDoneEvent",
+          2
+        ],
+        [
+          "WriteBackDoneEvent",
+          3
+        ],
+        [
+          "WriteBackDoneEvent",
+          5
+        ],
+        [
+          "WriteBackDoneEvent",
+          6
+        ],
+        [
+          "WriteBackDoneEvent",
+          7
+        ],
+        [
+          "WriteBackDoneEvent",
+          8
+        ],
+        [
+          "WriteBackDoneEvent",
+          10
+        ],
+        [
+          "WriteBackDoneEvent",
+          11
+        ],
+        [
+          "WriteBackDoneEvent",
+          13
+        ],
+        [
+          "WriteBackDoneEvent",
+          14
+        ],
+        [
+          "WriteBackDoneEvent",
+          15
+        ],
+        [
+          "WriteBackDoneEvent",
+          16
+        ],
+        [
+          "WriteBackDoneEvent",
+          17
+        ],
+        [
+          "WriteBackDoneEvent",
+          18
+        ],
+        [
+          "WriteBackDoneEvent",
+          19
+        ],
+        [
+          "WriteBackDoneEvent",
+          21
+        ],
+        [
+          "WriteBackDoneEvent",
+          25
+        ],
+        [
+          "WriteBackDoneEvent",
+          27
+        ],
+        [
+          "WriteBackDoneEvent",
+          29
+        ],
+        [
+          "WriteBackDoneEvent",
+          30
+        ],
+        [
+          "WriteBackDoneEvent",
+          31
+        ]
+      ],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-649658.jsonl": "119874e8add9796aa2d8c4eeeedf5731f4cf7b9b77ed580a104dd1cff9f2147c"
+  },
+  "rank_completion_agreement": true,
+  "rank_restore_frontier_agreement": true,
+  "d2h_bytes": 1435763408,
+  "h2d_bytes": 515113680,
+  "full_assignment_verified": false
+}

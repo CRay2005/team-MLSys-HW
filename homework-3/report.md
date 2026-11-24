@@ -4,8 +4,8 @@
 
 **Steven Walxim（2501112130）**负责本分支的作业三需求分析、实验设计、
 off/on 对照运行器、逐请求 token 与来源一致性复核器、独立后台实验启动器、
-本地回归测试、完成事件/调度状态观测器、本人账户下的 Ascend 实验和证据归档。已完成 0.8B TP1 的
-baseline、强制 decode 恢复及强制 prefill 恢复 smoke；两组对照共核对
+本地回归测试、完成事件/调度状态观测器、本人账户下的 Ascend 实验和证据归档。已完成 0.8B 与 4B TP1 的
+baseline、强制 decode 恢复及强制 prefill 恢复 smoke；每个模型两组对照均核对
 16 个请求、256 个输出 token，全部一致。新增脚本与实验记录属于 Steven
 本阶段的贡献，具体代码和证据可由本分支提交记录复核。
 
@@ -25,7 +25,7 @@ HW1/HW2 已有的 Ascend/模型适配继续沿用；不将这些已有机制计�
 | 实际卸载、HBM 块回收及复用 | 完成 ACK、双向 payload 字节数、最终 16/16 device blocks 可回收；各模式 arena 204 MiB | TP1 已观测；私有块复用因果证明仍待补 |
 | Host 容量、淘汰、未命中 | 显式 L2/snapshot 预算配置；尚未校准淘汰压力 | 待验证 |
 | 重复恢复无持续泄漏 | 2 周期后无活跃请求、无 pending transfer、snapshot 全部释放 | 静止状态检查通过；长周期待验证 |
-| 0.8B 与更大模型，覆盖 TP2 | 已完成 0.8B TP1；目前只有单 chip 空闲 | TP2 与较大模型待验证 |
+| 0.8B 与更大模型，覆盖 TP2 | 已完成 0.8B 与 4B TP1；目前只有单 chip 可用 | TP2 待验证 |
 | 高/低复用、两种 Host 预算、吞吐/恢复代价 | 18 次独立 Engine 对照及 12 组 token/trace 复核通过，force interval 0 | 已完成所测配置；未观察 Host 复用收益 |
 
 ## 已确认的首次硬件实验
@@ -127,3 +127,23 @@ loadbacks**。on 产生 writeback 和 Host 物理位置换键，但所测“高�
 Host 预算或调整工作集，并先确认实际 Host 命中，再评价传输与重算的权衡。
 [完整分析](results/2026-11-24-tp1-matrix/analysis.json)；
 [校验摘要](results/2026-11-24-tp1-matrix/summary.json)。
+
+## 4B TP1 端到端恢复验证
+
+4B 使用既有 HW2 固定 manifest（所有模型文件在启动前重新验证 SHA256），
+FP16 权重/KV、FP32 递归状态和 final projection，physical chip1、TP1。
+off、decode 强制恢复、prefill 强制恢复均完成 8 请求；两组对照全部 token
+一致，另行下载的 38 文件完成 SHA256 验证，原始 trace 与 token 比较本地复算
+通过。各模式实际 device arena 均 570,425,344 bytes（544 MiB），16 LCM blocks。
+
+| 模式 | 完成 D2H bytes | 完成 H2D bytes | snapshot/restore 各完成次数 | 恢复 batch 观测中位数 |
+| --- | ---: | ---: | ---: | ---: |
+| off | 0 | 0 | 0 | 不适用 |
+| decode | 6,794,925,008 | 8,300,155,856 | 149 | 8.916 ms |
+| prefill | 1,435,763,408 | 515,113,680 | 5 | 93.874 ms |
+
+154 次 snapshot/restore frontier 均匹配，最终所有设备块可回收、snapshot
+blocks 归还，且无活跃请求、pinned entries 或 pending transfers。时间口径
+仍为 Host 入口至 ACK，包含排队与观测，不能当成纯 DMA 或吞吐实验。
+这是较大模型 TP1 的端到端通过，**不能代替 TP2 验证**。
+[4B 独立复核证据](results/2026-11-24-4B-tp1-trace/summary.json)。

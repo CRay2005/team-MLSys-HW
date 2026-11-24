@@ -1,0 +1,730 @@
+{
+  "scope": "4B TP1 forced decode/prefill restoration and final quiescence; partial HW3 coverage",
+  "run": "hw3-smoke-20261124T113417Z-c87190a5",
+  "launcher_commit": "0b5ede5",
+  "model_manifest_sha256": "54cf8d7ef4431d619e8fb7b69bdb9234f03538efec8dd2f31dab394eb83c56e3",
+  "configuration": "FP16 weights/KV, FP32 recurrent state and final projection, TP1 physical chip1, fixed16384-token cap",
+  "downloaded_files_verified": 38,
+  "independent_raw_trace_checks": 3,
+  "exact_token_agreement_requests": 16,
+  "exact_output_token_comparisons": 256,
+  "runs": {
+    "off": {
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        null
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 648377,
+          "monotonic_ns": 4510448830913760,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 0,
+          "host_pinned": 0,
+          "snapshot_free": 0,
+          "tail_entries": 4,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "completed_operations": {},
+      "first_admission_prefix_hits": 2,
+      "first_admission_prefix_misses": 6,
+      "observed_host_key_replacements": 0,
+      "replay_tokens": 0,
+      "restore_frontiers_checked": 0,
+      "restore_batch_observed_median_ms": null,
+      "device_arena_bytes": [
+        570425344
+      ]
+    },
+    "on-decode": {
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 649375,
+          "monotonic_ns": 4510487316822860,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 536870912,
+          "host_snapshot_bytes": 536870912,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.26.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.29.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.24.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.26.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.29.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.24.ssm",
+                  "bytes": 2097152
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.28.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.30.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.25.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.28.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.30.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.25.ssm",
+                  "bytes": 2097152
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.27.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.27.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.31.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.31.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 262144
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 649375,
+          "monotonic_ns": 4510521010454660,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 14,
+          "tail_cap_evictions": 16,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 6794925008,
+      "h2d_bytes": 8300155856,
+      "completed_operations": {
+        "writeback": 119,
+        "snapshot": 149,
+        "restore": 149
+      },
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 8,
+      "observed_host_key_replacements": 346,
+      "replay_tokens": 0,
+      "restore_frontiers_checked": 149,
+      "restore_batch_observed_median_ms": 8.91551,
+      "device_arena_bytes": [
+        570425344
+      ]
+    },
+    "on-prefill": {
+      "device_blocks_per_rank": [
+        16
+      ],
+      "allocation_per_rank": [
+        {
+          "event": "allocation",
+          "rank": 0,
+          "pid": 649658,
+          "monotonic_ns": 4510559668242700,
+          "device_lcm_blocks": 16,
+          "host_l2_bytes": 536870912,
+          "host_snapshot_bytes": 536870912,
+          "slot_blob_bytes": 432,
+          "snapshot_blocks": 16,
+          "host_blocks": 16,
+          "groups": [
+            {
+              "name": "linear_attention_0",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.0.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.2.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.26.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.29.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.0.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.10.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.13.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.16.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.18.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.2.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.21.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.24.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.26.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.29.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.5.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.8.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.5.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.8.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.10.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.13.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.16.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.18.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.21.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.24.ssm",
+                  "bytes": 2097152
+                }
+              ]
+            },
+            {
+              "name": "linear_attention_1",
+              "blocks_per_lcm": 1,
+              "fields": [
+                {
+                  "name": "layer.1.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.4.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.28.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.30.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.1.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.12.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.14.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.17.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.20.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.22.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.25.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.28.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.30.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.4.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.6.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.9.conv",
+                  "bytes": 49152
+                },
+                {
+                  "name": "layer.6.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.9.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.12.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.14.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.17.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.20.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.22.ssm",
+                  "bytes": 2097152
+                },
+                {
+                  "name": "layer.25.ssm",
+                  "bytes": 2097152
+                }
+              ]
+            },
+            {
+              "name": "full_attention",
+              "blocks_per_lcm": 8,
+              "fields": [
+                {
+                  "name": "layer.3.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.3.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.23.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.23.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.27.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.27.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.31.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.31.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.7.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.7.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.11.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.11.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.15.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.15.v",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.19.k",
+                  "bytes": 262144
+                },
+                {
+                  "name": "layer.19.v",
+                  "bytes": 262144
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "final_scheduler_per_rank": [
+        {
+          "event": "scheduler_quiescent",
+          "rank": 0,
+          "pid": 649658,
+          "monotonic_ns": 4510585182194810,
+          "device_total": 16,
+          "device_empty": 0,
+          "device_available": 16,
+          "device_active": 0,
+          "host_cached": 30,
+          "host_pinned": 0,
+          "snapshot_free": 16,
+          "tail_entries": 10,
+          "tail_cap_evictions": 0,
+          "waiting": 0,
+          "retracted": 0,
+          "decoding": 0,
+          "prefilling": 0,
+          "pending_operations": 0
+        }
+      ],
+      "d2h_bytes": 1435763408,
+      "h2d_bytes": 515113680,
+      "completed_operations": {
+        "writeback": 22,
+        "snapshot": 5,
+        "restore": 5
+      },
+      "first_admission_prefix_hits": 2,
+      "first_admission_prefix_misses": 6,
+      "observed_host_key_replacements": 35,
+      "replay_tokens": 0,
+      "restore_frontiers_checked": 5,
+      "restore_batch_observed_median_ms": 93.87396000000001,
+      "device_arena_bytes": [
+        570425344
+      ]
+    }
+  },
+  "full_assignment_verified": false,
+  "limits": [
+    "Forced-restoration correctness probe, not performance comparison.",
+    "Host-observed method-entry to ACK latency includes queueing, polling and recording; not isolated DMA time.",
+    "Final quiescence supports no held-resource residue for this finite run, not unlimited-cycle leak freedom.",
+    "Logical Host tensor allocation is not allocator reserved memory or RSS.",
+    "TP2 still requires a free same-card pair."
+  ],
+  "raw_evidence_local": ".local-review/hw3-4B-trace-evidence-20261124"
+}

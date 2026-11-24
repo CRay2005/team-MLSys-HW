@@ -1,8 +1,9 @@
 # Homework 3 — HBM/Host cache offloading
 
 Status, 2026-11-24: assignment evaluated; initial experiment runner and 57 local
-tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
-passed on Ascend; complete offload lifecycle validation remains pending.**
+tests implemented. **0.8B and 4B TP1 baseline/forced restoration passed on Ascend; the 18-run
+0.8B performance matrix passed with zero Host prefix hits. TP2 and complete
+offload lifecycle validation remain pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
 [Contribution statement and report draft](report.md) credits Steven's new HW3
@@ -256,3 +257,9 @@ and the same device budget. Snapshot ratio remains1. This tests whether a larger
 Host retention budget enables actual loadbacks; one run per budget is exploratory,
 not a three-repetition performance result. Its maximum logical L2 pool is about
 1.5 GiB for the 0.8B geometry, plus the separate192 MiB snapshot pool.
+
+The 4B TP1 trace suite also passed off/decode/prefill exact-output comparisons,
+149 decode plus5 prefill restoration-frontier checks, transfer completion and
+final quiescence. All modes use the same544 MiB device arena/16LCM blocks.
+See [4B evidence](results/2026-11-24-4B-tp1-trace/summary.json). These forced runs
+are correctness evidence, not performance results; TP2 remains outstanding.

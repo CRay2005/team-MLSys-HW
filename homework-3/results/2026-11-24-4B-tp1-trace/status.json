@@ -1,0 +1,10 @@
+{
+  "status": "suite_passed",
+  "suite": "trace",
+  "model_size": "4B",
+  "tp": 1,
+  "jobs_completed": 3,
+  "offload_lifecycle_verified": false,
+  "limitation": "Individual suite completed; full assignment acceptance requires evidence across all requirements",
+  "updated_unix": 1795520353.3457644
+}
