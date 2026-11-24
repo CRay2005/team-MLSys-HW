@@ -196,3 +196,10 @@ ratio8的逻辑L2为1.5GiB（128LCM），另有192MiB snapshot和432-byte slot b
 [可复算的块复用链](results/2026-11-24-tp1-capacity/reuse-plan-witnesses.json)。
 剩余主要硬件缺口是TP2；完整Host逻辑淘汰计数与最终验收仍需补齐，不能据此
 将作业全部标为完成。
+
+## 本批次结束状态
+
+本批次全部已启动/排队的矩阵、4B、压力与容量实验均为`suite_passed`，
+结果独立复核后已按阶段本地提交。最终确认 physical chip1已释放；只有chip1
+空闲，没有可用同卡pair，因此未启动TP2。尚未推送GitHub、尚未提交教学网。
+成员贡献与复用边界见开头，不能把当前TP1证据写成完整作业通过。

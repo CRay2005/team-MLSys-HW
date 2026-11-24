@@ -61,8 +61,10 @@ Follow-up instrumented 0.8B and 4B TP1 suites now verify completed payload bytes
 snapshot/restore frontiers and final quiescence. The18-run normal-scheduling
 0.8B matrix also passed, but both Host budgets produced zero prefix hits and
 zero loadbacks. See the current [report](../report.md) for measurements and scope.
-Long-cycle stress and a larger-Host retention probe are active; TP2 and complete
-logical-eviction/private-block-reuse evidence remain outstanding. The initial 1,024-token
+The8-cycle stress and larger-Host retention probe now also pass. L2ratio8
+produced8completed loadbacks and8prefix hits, with18 cross-session device-block
+reuse witnesses across7resumed requests. TP2 and complete Host logical-eviction
+accounting remain outstanding; CPU plan timestamps are not kernel timestamps. The initial 1,024-token
 budget could not admit a request; the successful smoke used a fixed 16,384-token
 cap in all three modes. Do not interpret this as calibrated Host-cache pressure.
 
@@ -110,15 +112,17 @@ measurements and exclude artificial forced retractions from normal performance.
 
 ## Next steps
 
-1. Finish and independently verify the queued repeated-restoration stress test
-   and the larger-Host retention probe; retain negative outcomes.
-2. If the larger Host budget yields actual loadbacks, connect cache replacement,
-   later restore/admission and exact output evidence without equating raw owner
-   changes with private-block reuse.
-3. Run TP2 after a same-card pair is free, checking both-rank transfer completion
-   and restoration frontiers. The checker now fails cross-rank disagreement;
-   this is not itself a hardware TP2 pass.
-4. Close remaining evidence gaps and finalize the report against the assignment.
-   Existing transport/runtime mechanisms retain upstream/group attribution.
+1. TP1 smoke, instrumented restoration on0.8B/4B, the18-run normal-scheduling
+   matrix,8-cycle stress and larger-Host capacity probe are verified and locally
+   committed. All scheduled suites finished and physical chip1 was released.
+2. Run TP2 when a same-card pair is free. The final occupancy check found only
+   chip1 free, so none of0/1,2/3,4/5,6/7 was available. Validate both-rank copy
+   completions, matching restore frontiers and exact output comparisons.
+3. Close the full Host logical-eviction accounting gap; existing physical slot
+   replacements and tail-cap metadata evictions have narrower, explicit scopes.
+   Review the requirement matrix and finalize the report after missing evidence.
+4. Keep the larger-budget throughput observation exploratory until repeated;
+   the original18-run matrix remains a valid zero-hit result. GitHub publishing
+   and course submission have not been performed.
 
 Continuity: [active transcript](../../../chat-history/ASCEND_HOMEWORK_TRANSCRIPT.md).
