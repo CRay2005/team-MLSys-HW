@@ -26,6 +26,27 @@ server = load("server_smoke")
 
 
 class SmokeLauncherTests(unittest.TestCase):
+    def test_performance_matrix_uses_normal_scheduling_and_matched_references(self):
+        jobs = server.experiment_jobs("matrix")
+        self.assertEqual(len(jobs), 18)
+        by_name = {job["name"]: job for job in jobs}
+        self.assertEqual(len(by_name), 18)
+        self.assertEqual({job["pattern"] for job in jobs}, {"high", "low"})
+        self.assertEqual({job["repetition"] for job in jobs}, {0, 1, 2})
+        self.assertEqual({job["ratio"] for job in jobs if job["mode"] == "on"}, {"0.5", "1"})
+        for job in jobs:
+            self.assertEqual(job["force"], "0")
+            reference = by_name[job["reference"]]
+            self.assertEqual(reference["mode"], "off")
+            for key in ("pattern", "working_set", "cycles", "repetition"):
+                self.assertEqual(job[key], reference[key])
+
+    def test_stress_extends_cycles_and_tp2_stays_on_one_card(self):
+        self.assertTrue(all(job["cycles"] == 8 and job["working_set"] == 8 for job in server.experiment_jobs("stress")))
+        self.assertEqual(server.physical_devices(2, 2), [2, 3])
+        with self.assertRaises(ValueError):
+            server.physical_devices(1, 2)
+
     def test_occupied_port_is_not_reused(self):
         with socket.socket() as sock:
             sock.bind(("0.0.0.0", 0))

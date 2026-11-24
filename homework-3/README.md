@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 46 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 48 local
 tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
 passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
@@ -139,6 +139,22 @@ observation. See [measurement definitions and limitations](docs/runtime-observer
 Seven additional CPU tests validate completion accounting and reject incomplete
 transfers or restoration-frontier mismatches. Hardware validation of the new
 observer is pending; earlier smoke evidence remains separately preserved.
+
+Additional suites use the same verified deployment, occupancy checks and bounded
+process supervision:
+
+- `--suite matrix`: 18 fresh Engine runs: high/low reuse, off/on L2 ratio 0.5/on
+  L2 ratio 1, three independent repetitions. Snapshot ratio stays 1 for both on
+  cases. Eight sessions, two cycles, force interval 0; timing includes observer
+  overhead and separates 256-token and 264-token batches during analysis.
+- `--suite stress`: eight sessions over eight cycles, off/decode/prefill probes,
+  with fresh-quiescence and exact-output checks after each run.
+- `--model-size 4B`: requires the pinned model already downloaded and verified in
+  the server workspace; uses FP16 weights/KV and FP32 recurrent state/LM head.
+- `--tp 2 --device 0` (or first chip 2/4/6): checks both chips of the recorded
+  same-card pair. It stops if either is occupied; it does not wait or evict users.
+
+These are runnable experiment plans, not evidence until their results pass.
 
 From the repository root:
 

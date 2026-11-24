@@ -104,11 +104,36 @@ def choose_ports():
     raise RuntimeError("No available engine/HCCL port range; no existing process was modified")
 
 
-def assert_free(device, ports=()):
+def physical_devices(device, tp):
+    if tp not in (1, 2) or device not in range(8) or (tp == 2 and device % 2):
+        raise ValueError("TP2 requires an even first physical chip on the recorded course topology")
+    return list(range(device, device + tp))
+
+
+def experiment_jobs(suite):
+    jobs = []
+    patterns = ("high", "low") if suite == "matrix" else ("high",)
+    for pattern in patterns:
+        for repetition in range(3 if suite == "matrix" else 1):
+            prefix = f"{pattern}-r{repetition}-" if suite == "matrix" else ""
+            cases = [("off", "off", "0", "0")]
+            cases += ([("on-small", "on", "0.5", "0"), ("on-large", "on", "1", "0")]
+                      if suite == "matrix" else [("on-decode", "on", "1", "2"), ("on-prefill", "on", "1", "-2")])
+            for name, mode, ratio, force in cases:
+                jobs.append(dict(name=prefix + name, mode=mode, ratio=ratio, force=force,
+                                 pattern=pattern, reference=prefix + "off", repetition=repetition,
+                                 working_set=8 if suite in ("matrix", "stress") else 4,
+                                 cycles=8 if suite == "stress" else 2))
+    return jobs
+
+
+def assert_free(device, ports=(), tp=1):
+    devices = physical_devices(device, tp)
     result = subprocess.run(["npu-smi", "info"], check=True, capture_output=True, text=True, timeout=15)
     occupancy = load("smoke_occupancy", ROOT / "homework-2/scripts/npu_occupancy.py")
-    if (device // 2, device % 2) in occupancy.occupied_chips(result.stdout):
-        raise RuntimeError(f"Physical chip {device} is occupied; no job started on it")
+    occupied = occupancy.occupied_chips(result.stdout)
+    if any((d // 2, d % 2) in occupied for d in devices):
+        raise RuntimeError(f"Requested physical chips {devices} include an occupied chip; no job started")
     if not ports_available(ports):
         raise RuntimeError("A selected port became occupied; no existing process was modified")
     return result.stdout
@@ -117,8 +142,12 @@ def assert_free(device, ports=()):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--device", type=int, choices=range(8), required=True)
-    parser.add_argument("--suite", choices=("smoke", "trace"), required=True)
+    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress"), required=True)
+    parser.add_argument("--tp", type=int, choices=(1, 2), required=True)
+    parser.add_argument("--model-size", choices=("0.8B", "4B"), required=True)
     args = parser.parse_args()
+    devices = physical_devices(args.device, args.tp)
+    traced = args.suite != "smoke"
     # Coordinates our launchers only; this cannot reserve a shared-server chip.
     with (BASE / ".hw3-smoke.lock").open("a") as lock:
         try:
@@ -130,12 +159,12 @@ def main():
             (ROOT / "results").mkdir()
             save_status(status="running", stage="preflight", device=args.device)
             prepare_source()
-            if args.suite == "trace":
+            if traced:
                 os.environ["PYTHONPATH"] = str(ROOT / "homework-3/runtime") + os.pathsep + os.environ["PYTHONPATH"]
-            model = BASE / "models/Qwen3.5-0.8B"
-            config = ROOT / "homework-2/metadata/Qwen3.5-0.8B/config.json"
+            model = BASE / "models" / f"Qwen3.5-{args.model_size}"
+            config = ROOT / "homework-2/metadata" / f"Qwen3.5-{args.model_size}" / "config.json"
             if (model / "config.json").read_bytes() != config.read_bytes():
-                raise RuntimeError("Server model configuration differs from prepared 0.8B configuration")
+                raise RuntimeError("Server model configuration differs from prepared configuration")
             # Check model artifacts against the existing download receipt before NPU use.
             receipt = json.loads((model / "source-manifest.json").read_text())
             for entry in receipt["files"]:
@@ -154,30 +183,36 @@ def main():
             (ROOT / "results/ports.json").write_text(json.dumps({"engine": port, "hccl": hccl_ports}) + "\n")
             common = [sys.executable, "homework-3/scripts/run_offloading.py", "--action", "run",
                       "--model", str(model), "--model-config", str(config), "--seed-cases", "homework-2/cases.json",
-                      "--tp", "1", "--physical-devices", str(args.device), "--memory-fraction", "0.12",
-                      "--device-tokens", "16384", "--port", str(port), "--dtype", "bfloat16",
-                      "--head-dtype", "native", "--pattern", "high", "--repeats", "2",
-                      "--working-set", "4", "--revisit-suffix-tokens", "8"]
-            for name, mode, ratio, force in [("off", "off", "0", "0"),
-                                              ("on-decode", "on", "1", "2"),
-                                              ("on-prefill", "on", "1", "-2")]:
-                snapshot = assert_free(args.device, [port, *hccl_ports])
+                      "--tp", str(args.tp), "--physical-devices", ",".join(map(str, devices)),
+                      "--memory-fraction", "0.12" if args.model_size == "0.8B" else "0.25",
+                      "--device-tokens", "16384", "--port", str(port),
+                      "--dtype", "bfloat16" if args.model_size == "0.8B" else "float16",
+                      "--head-dtype", "native" if args.model_size == "0.8B" else "float32",
+                      "--revisit-suffix-tokens", "8"]
+            jobs = experiment_jobs(args.suite)
+            (ROOT / "results/experiment-plan.json").write_text(json.dumps(jobs, indent=2) + "\n")
+            for job in jobs:
+                name, mode, ratio, force = (job[k] for k in ("name", "mode", "ratio", "force"))
+                snapshot = assert_free(args.device, [port, *hccl_ports], args.tp)
                 (ROOT / "results" / f"{name}-preflight.txt").write_text(snapshot)
                 save_status(status="running", stage=name, device=args.device)
-                if args.suite == "trace":
+                if traced:
                     os.environ["HW3_TRACE_DIR"] = str(ROOT / "results" / name / "trace")
                 bounded([*common, "--offloading", mode, "--host-ratio", ratio,
-                         "--snapshot-ratio", ratio, "--force-interval", force,
+                         "--snapshot-ratio", "0" if mode == "off" else "1", "--force-interval", force,
+                         "--pattern", job["pattern"], "--repeats", str(job["cycles"]),
+                         "--working-set", str(job["working_set"]),
                          "--output-dir", f"results/{name}"], name)
-                if args.suite == "trace":
+                if traced:
                     bounded([sys.executable, "homework-3/scripts/summarize_trace.py", "--run-dir", f"results/{name}"],
                             f"trace-{name}", 60)
                 if mode == "on":
                     bounded([sys.executable, "homework-3/scripts/compare_results.py",
-                             "--reference", "results/off/result.json", "--candidate", f"results/{name}/result.json",
+                             "--reference", f"results/{job['reference']}/result.json", "--candidate", f"results/{name}/result.json",
                              "--output", f"results/{name}-comparison.json"], f"compare-{name}", 60)
-            save_status(status="smoke_passed", offload_lifecycle_verified=False,
-                        limitation="Token agreement only; lifecycle, TP2, larger-model and performance evidence pending")
+            save_status(status="suite_passed", suite=args.suite, model_size=args.model_size, tp=args.tp,
+                        jobs_completed=len(jobs), offload_lifecycle_verified=False,
+                        limitation="Individual suite completed; full assignment acceptance requires evidence across all requirements")
             return 0
         except Exception as exc:
             save_status(status="failed", error=f"{type(exc).__name__}: {exc}")

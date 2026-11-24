@@ -18,6 +18,7 @@ FILES = [
     "homework-2/metadata/Qwen3.5-0.8B/config.json",
     "homework-3/runtime/sitecustomize.py", "homework-3/runtime/runtime_observer.py",
     "homework-3/scripts/summarize_trace.py", "homework-3/tests/test_observer.py",
+    "homework-2/metadata/Qwen3.5-4B/config.json",
 ]
 
 
@@ -47,10 +48,14 @@ def main():
     parser.add_argument("--device", type=int, choices=range(8), default=1,
                         help="Previously verified course physical chip ID; refuses occupied chip")
     parser.add_argument("--prepare-only", action="store_true")
-    parser.add_argument("--suite", choices=("smoke", "trace"), default="smoke")
+    parser.add_argument("--suite", choices=("smoke", "trace", "matrix", "stress"), default="smoke")
+    parser.add_argument("--tp", type=int, choices=(1, 2), default=1)
+    parser.add_argument("--model-size", choices=("0.8B", "4B"), default="0.8B")
     args = parser.parse_args()
     if args.host.startswith("-") or any(c.isspace() for c in args.host):
         parser.error("Invalid SSH destination")
+    if args.tp == 2 and args.device % 2:
+        parser.error("TP2 requires an even first chip: --device 0, 2, 4, or 6")
     label = datetime.now(timezone.utc).strftime("hw3-smoke-%Y%m%dT%H%M%SZ-") + uuid.uuid4().hex[:8]
     local = ROOT / ".local-review" / label
     local.mkdir(parents=True, exist_ok=False)
@@ -89,13 +94,14 @@ assert python.is_file(), "Existing server Python missing"
 script = root / "homework-3/scripts/server_smoke.py"
 with (root / "suite.log").open("xb") as log:
     process = subprocess.Popen(["bash", "-c", 'source /usr/local/Ascend/cann-9.0.0/set_env.sh && exec "$@"',
-        "hw3", str(python), "-u", str(script), "--device", str(DEVICE), "--suite", SUITE],
+        "hw3", str(python), "-u", str(script), "--device", str(DEVICE), "--suite", SUITE,
+        "--tp", str(TP), "--model-size", MODEL_SIZE],
         cwd=root, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
         start_new_session=True, env=env)
 (root / "launch.json").write_text(json.dumps({"pid": process.pid, "root": str(root)}) + "\\n")
 print(json.dumps({"pid": process.pid, "root": str(root)}), flush=True)
 '''
-    code = f"LABEL={label!r}\nSHA={sha!r}\nDEVICE={args.device!r}\nSUITE={args.suite!r}\n" + bootstrap
+    code = f"LABEL={label!r}\nSHA={sha!r}\nDEVICE={args.device!r}\nSUITE={args.suite!r}\nTP={args.tp!r}\nMODEL_SIZE={args.model_size!r}\n" + bootstrap
     result = subprocess.run([*ssh, "python3 -"], input=code, text=True,
                             capture_output=True, timeout=45)
     (local / "launch-output.txt").write_text(result.stdout + result.stderr)
