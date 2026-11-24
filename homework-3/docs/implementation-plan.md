@@ -50,7 +50,17 @@ restore sources owned until required transfers/rank acknowledgements complete.
 Record block IDs and successive owners to prove reuse when preallocated HBM stays
 constant in `npu-smi`.
 
-## Required experiments — all hardware evidence pending
+## Required experiments — initial TP1 smoke complete
+
+November 24 update: the baseline and forced decode/prefill runs on 0.8B TP1
+completed, with eight requests each and exact token agreement for both candidates.
+The logs show suspension, writeback and restore starts. Both comparisons were
+reverified after checksum-verified download; chip 1 was released. See
+[the evidence summary](../results/2026-11-24-tp1-smoke/summary.json).
+Completed-copy bytes/timing, state-frontier instrumentation, eviction, leakage,
+TP2 and performance acceptance below remain pending. The initial 1,024-token
+budget could not admit a request; the successful smoke used a fixed 16,384-token
+cap in all three modes. Do not interpret this as calibrated Host-cache pressure.
 
 | Requirement | Acceptance evidence |
 | --- | --- |
@@ -92,10 +102,11 @@ measurements and exclude artificial forced retractions from normal performance.
 
 ## Next steps
 
-1. Re-establish current server access; deploy a verified HW3 snapshot beside
-   earlier runs. Do not alter the group's running environment.
-2. Test direct Host allocation/copy and 0.8B off/on with forced restore on a free
-   chip. Inspect actual state payloads and copy completion before trusting output.
+1. Initial server access, isolated verified deployment and 0.8B TP1 forced-restore
+   token smoke are complete. Recheck connectivity and device occupancy before
+   each additional run; only one chip was free during the initial smoke.
+2. Inspect actual state payloads and copy completion; the initial logs show starts
+   and correct final tokens, not complete lifecycle measurements.
 3. Add missing instrumentation in existing scheduler/transfer owners, with an
    HW3-only incremental patch and focused regressions.
 4. Complete TP2, 4B, eviction/leak cases and performance matrix; write the report

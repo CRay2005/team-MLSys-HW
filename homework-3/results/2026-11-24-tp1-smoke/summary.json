@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-24",
+  "scope": "0.8B TP1 high-reuse forced-suspension smoke; not complete HW3 validation",
+  "launcher_commit": "5a9b70f",
+  "server_suite_status": "smoke_passed",
+  "physical_device": 1,
+  "request_count_per_run": 8,
+  "output_tokens_per_request": 16,
+  "compared_requests": 16,
+  "compared_output_tokens": 256,
+  "comparisons_reverified_locally": true,
+  "actual_device_arena_bytes_each_mode": 213909504,
+  "device_lcm_blocks_each_mode": 16,
+  "configured_device_token_cap_each_mode": 16384,
+  "cycles": 2,
+  "working_set": 4,
+  "input_lengths_by_cycle": [
+    256,
+    264
+  ],
+  "host_l2_ratio_on": 1,
+  "snapshot_ratio_on": 1,
+  "log_event_counts": {
+    "off": {
+      "snapshot_store_started": 0,
+      "snapshot_restore_started": 0,
+      "l2_writeback_started": 0,
+      "scheduler_retract_logged": 0,
+      "scheduler_restore_logged": 0
+    },
+    "on-decode": {
+      "snapshot_store_started": 179,
+      "snapshot_restore_started": 179,
+      "l2_writeback_started": 119,
+      "scheduler_retract_logged": 179,
+      "scheduler_restore_logged": 179
+    },
+    "on-prefill": {
+      "snapshot_store_started": 4,
+      "snapshot_restore_started": 4,
+      "l2_writeback_started": 19,
+      "scheduler_retract_logged": 4,
+      "scheduler_restore_logged": 4
+    }
+  },
+  "log_count_interpretation": "Started/logged operations only; not completed-copy byte/timing measurements",
+  "offload_lifecycle_verified": false,
+  "missing_evidence": [
+    "completed-copy bytes/timings and hybrid-state frontier validation",
+    "measured Host usage and eviction/miss/replay",
+    "repeated-cycle leak checks",
+    "0.8B TP2 and larger-model TP2",
+    "high/low reuse at two Host budgets with independent performance repetitions"
+  ],
+  "failed_calibration_trials": [
+    {
+      "run": "hw3-smoke-20261124T103423Z-19914720",
+      "status": {
+        "status": "failed",
+        "error": "OSError: [Errno 98] Address already in use",
+        "updated_unix": 1795516403.8124774
+      },
+      "retained_local": "/Users/stevenwalxim/Projects/MLSys-HW/.local-review/hw3-evidence-20261124/hw3-smoke-20261124T103423Z-19914720"
+    },
+    {
+      "run": "hw3-smoke-20261124T103645Z-81eff428",
+      "status": {
+        "status": "failed",
+        "error": "RuntimeError: No available engine/HCCL port range; no existing process was modified",
+        "updated_unix": 1795516543.5335245
+      },
+      "retained_local": "/Users/stevenwalxim/Projects/MLSys-HW/.local-review/hw3-evidence-20261124/hw3-smoke-20261124T103645Z-81eff428"
+    },
+    {
+      "run": "hw3-smoke-20261124T103907Z-350b8268",
+      "status": {
+        "status": "failed",
+        "error": "RuntimeError: off exited 1; inspect results/off.log",
+        "updated_unix": 1795516725.1537135
+      },
+      "retained_local": "/Users/stevenwalxim/Projects/MLSys-HW/.local-review/hw3-evidence-20261124/hw3-smoke-20261124T103907Z-350b8268"
+    }
+  ],
+  "verified_transfer_files": 49,
+  "chip1_free_after_suite": true,
+  "raw_evidence_directory": "/Users/stevenwalxim/Projects/MLSys-HW/.local-review/hw3-evidence-20261124",
+  "raw_file_sha256": {
+    "hw3-smoke-20261124T103423Z-19914720/status.json": "086b043c80adfb46f2203fe979af5293ed03a869573cc969f0227f95e91f2371",
+    "hw3-smoke-20261124T103423Z-19914720/suite.log": "a3e152e14aa6a508afb673865277ee5e9ffff449249c302312e401a8bf50a8bb",
+    "hw3-smoke-20261124T103423Z-19914720/launch.json": "df50de1c4e8e7c63a9ca3a74fb1b1af20cc5fa467446d7143ace5b0a7251cf42",
+    "hw3-smoke-20261124T103423Z-19914720/deployment-manifest.json": "c457f3d8b32607aea1d7390aca6d97f24cfa857deaa701d838cd64193d9b16e9",
+    "hw3-smoke-20261124T103423Z-19914720/results/unit-tests.log": "41b8eac29bf3545714514201e0e3ae437292fe217a4ba03273de324aafc6655a",
+    "hw3-smoke-20261124T103645Z-81eff428/status.json": "b553377354454b3c8783d5358a06333a6151a4f871b749e581645b7075b7b45a",
+    "hw3-smoke-20261124T103645Z-81eff428/suite.log": "daf781bcd5ca3b746bba3178d44de5efd6345204365db36c93f36a29073de27e",
+    "hw3-smoke-20261124T103645Z-81eff428/launch.json": "159832f15fd1c5c1dbb97463f01b958acc62e6db397bbc6d69c97b0994f8f5a2",
+    "hw3-smoke-20261124T103645Z-81eff428/deployment-manifest.json": "0d649710c4fc34a05d6befecd7f77ea71731c6d30601a5563201b4936234412f",
+    "hw3-smoke-20261124T103645Z-81eff428/results/unit-tests.log": "2ab50bce990a6e6ca8ce3092f47d1674cd5cda0162193ad528855e4c2acc7cd3",
+    "hw3-smoke-20261124T103907Z-350b8268/status.json": "949d57f0eb33c8bd6a7ca7f97052c09b3bcef8f8a3dccb221cdae6c080e2bb3b",
+    "hw3-smoke-20261124T103907Z-350b8268/suite.log": "75621f8250a51071e34afc2e17cebba90b3540df97b85e6559c7168f6f635717",
+    "hw3-smoke-20261124T103907Z-350b8268/launch.json": "358135011b2ab91fb3d4a0f13ae07bb1cc9bbbfd4b565b6783aa9b2b53c81430",
+    "hw3-smoke-20261124T103907Z-350b8268/deployment-manifest.json": "355c4d7130bf920d1da06d2aa61783b817d20a7cbc6f7cac579f43b4c4af97ad",
+    "hw3-smoke-20261124T103907Z-350b8268/results/off/npu-before.txt": "e275db2bacc59d78e7c3c7e60314efd66e28a92f2a6992206de9d51c502c4bb1",
+    "hw3-smoke-20261124T103907Z-350b8268/results/off/result.json": "60a999344ea12aae66f4344c19d64864a7daf66d1d6def2b14fcfee96c091b6f",
+    "hw3-smoke-20261124T103907Z-350b8268/results/off-preflight.txt": "c0ddeac7d8d154ccd87ea5b1aefb84ab056ba3d223d1f037c40460262476915d",
+    "hw3-smoke-20261124T103907Z-350b8268/results/off.log": "8f9cc52e3d501619374ad8e5bc1449fc6c87397477dbdbd42b501dab2edb88e4",
+    "hw3-smoke-20261124T103907Z-350b8268/results/ports.json": "165f8049a7c44ed0459dd4112017e77180d6fa4f9b26e2c984e42c5484686b90",
+    "hw3-smoke-20261124T103907Z-350b8268/results/unit-tests.log": "41b8eac29bf3545714514201e0e3ae437292fe217a4ba03273de324aafc6655a",
+    "hw3-smoke-20261124T104058Z-62c91ed2/status.json": "2f6860e82cc87ae606223409cd708596f0dfd2f2bb6f621b6d2561b27491c7a1",
+    "hw3-smoke-20261124T104058Z-62c91ed2/suite.log": "9cbe10079f6ade3e54fa4a6ceb96581200c077b45e07f6a8c3ef1b7d34a2f5f6",
+    "hw3-smoke-20261124T104058Z-62c91ed2/launch.json": "41746a499c40aaa2a6691f9173b704419e058cc2cf2746ffa14c73bc7b409af7",
+    "hw3-smoke-20261124T104058Z-62c91ed2/deployment-manifest.json": "722cae29b45800c0f3331723b197ceff08ab995125cda3165b65d607da19e8f3",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/compare-on-decode.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/compare-on-prefill.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/final-npu.txt": "f9d29b2a993631702553087df78df8e73794faa711569c6fd908c374eea6e4f5",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off/npu-after-workload.txt": "f7d36aafb9e598754f7d950b9859de951e6ce58f2853cb34381519e8ba6b00d9",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off/npu-before.txt": "c1fae5e731246c7128d02a96ee2e9de3e4bfdf543c9fbf0cae9e3c0ce4bea2ac",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off/npu-loaded.txt": "bd671a11e1f5c652ede2079031ee3241fc628ed6ad8c007694dbbde3dd966047",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off/result.json": "1b2c85e0f858d7d3387c7f26770b74514fe6efa105dfed1e108e6d70d72628c5",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off-preflight.txt": "1e302566afe4d8320de7ab31d9acbe9fa7837ca89cb512d100aae2b1a09422e7",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/off.log": "3a0c8c47b9dadbd13ba44fe693c6ce9c46f3dcb94223e75776fb60901b13b31f",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode/npu-after-workload.txt": "4140058a28d4c135efbe2c677cb359342d3a8a1efc6440ce80f35ebb3c454b11",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode/npu-before.txt": "5d01ac03b09f100dc0e0c9b66b0ab9db2d992e7596c79439ac8efdcdf7225840",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode/npu-loaded.txt": "b42551f101bc2c02d46f4bdd06f9485b573944a6db467c2d6d38960da662c1d2",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode/result.json": "dc6d93733523311900c53db68cfea41175c263fb3b763f10bbb9faac6a97828c",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode-comparison.json": "18b28fe6346e422d6f6f1365e9991739f77362cf410dbb6e0f83951269f6ddef",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode-preflight.txt": "efb253eb08b29154f98b9d40bcff8a0919cb6cb2fe67bf3ccbb845fda008297d",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-decode.log": "ad8d14e2a323d46e7be722df9f8c19a0bb12146ee5ff9f532b5f25820ee5e9bb",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill/npu-after-workload.txt": "e1f3a2f3df75e2b5ea240963c9a792dd070cef699221f1c602d44bc521ad23d0",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill/npu-before.txt": "fd89c945153490ee15587f56ba4664ccc94b04de7ee31d6e8d58313a5df743e2",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill/npu-loaded.txt": "c80fda00fbabc37bfdad8947a0802dceb3c0994b6aa056e1adb6ba3da466a6a8",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill/result.json": "d691cf80e368094e3ecbdeb44e87dd26f1e592c71489cbe1a658646c514c7690",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill-comparison.json": "18b28fe6346e422d6f6f1365e9991739f77362cf410dbb6e0f83951269f6ddef",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill-preflight.txt": "b8b857c3f2d38eba4a68a2eebed12285bac2d1a29b2936adfb922f81e5c50a43",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/on-prefill.log": "f03dc4514c86873da5e6aa6c1181834cde985eb3eaab4ecf0215da83e3ad6654",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/ports.json": "165f8049a7c44ed0459dd4112017e77180d6fa4f9b26e2c984e42c5484686b90",
+    "hw3-smoke-20261124T104058Z-62c91ed2/results/unit-tests.log": "c20992c85beba6e26dccbfd0f37cfa636524c114431225d68ee4692dfc341715"
+  },
+  "gemini_launcher_review": "Attempt failed: model selection rejected, then model discovery timed out; no new review/signoff"
+}

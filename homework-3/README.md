@@ -1,7 +1,8 @@
 # Homework 3 — HBM/Host cache offloading
 
 Status, 2026-11-24: assignment evaluated; initial experiment runner and 39 local
-tests implemented. **No HW3 Ascend execution or end-to-end offload result yet.**
+tests implemented. **Initial 0.8B TP1 baseline and forced decode/prefill smoke
+passed on Ascend; complete offload lifecycle validation remains pending.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
 ## Assessment
@@ -54,10 +55,35 @@ Gemini 4 Neon independently reviewed the runner and checker. See the
 were checked against source, including rejection of an incorrect negative-interval
 restriction. The review is not hardware certification.
 
-This milestone adds a harness, not a new transport implementation. NPU
-Engine execution, eviction, real suspension/resumption, leak freedom and full
-numerical validation remain pending. Even the larger working set may fit entirely
+This milestone adds a harness, not a new transport implementation. Initial NPU
+generation and forced-suspension token comparisons now pass. Completed-copy
+measurements, eviction, leak freedom and full numerical validation remain pending.
+Even the larger working set may fit entirely
 in HBM; calibrate pressure before claiming a Host-cache benefit.
+
+## First Ascend results — November 24
+
+[Verified results and limitations](results/2026-11-24-tp1-smoke/summary.json):
+0.8B BF16 with FP32 recurrent state, TP1 on physical chip 1. Baseline, forced
+decode (`2`) and forced prefill (`-2`) each completed eight requests with 16 output
+tokens. Both candidates matched every baseline token: 16 request comparisons,
+256 output-token comparisons. Comparisons passed again on the downloaded files.
+
+All modes allocated the same 213,909,504-byte device arena with 16 LCM blocks.
+The decode log records 179 snapshot-store/restore starts; the prefill log records
+four. These are **started-operation logs**, not completed-transfer byte/timing
+measurements. The checker therefore retains `offload_lifecycle_verified: false`.
+These forced runs are correctness probes, not performance comparisons.
+
+All 49 downloaded evidence files passed checksum verification, including three
+failed setup/calibration trials. The final NPU snapshot confirms chip 1 was free
+again. Source/model checks and 32 core CPU tests also passed on the server.
+TP2, larger models, Host eviction/misses, repeated-cycle leak checks and the full
+performance matrix remain outstanding.
+
+Gemini reviewed the original harness earlier. The new launcher review attempt
+failed when the CLI rejected the previously working Neon model identifier and
+model discovery timed out; no new Gemini signoff is claimed.
 
 ## Local checks
 

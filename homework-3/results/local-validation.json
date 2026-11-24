@@ -6,7 +6,7 @@
   "comparison_cli": "passed: complete synthetic provenance, eight requests, lifecycle proof false",
   "python_ast": "passed",
   "original_assignment_sha256": "e66c6769a94417c46d40857e97e77c912bc8b12ad3cdfe319e08c60fa7cc70df",
-  "hardware_validation": "pending",
+  "hardware_validation": "Initial0.8B TP1 off/+2/-2 smoke passed,16requests/256tokens compared; complete lifecycle and otherHW3experiments pending. See2026-11-24-tp1-smoke/summary.json.",
   "source_sha256": {
     "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
     "homework-3/scripts/launch_smoke.py": "d0e1a61348af823e94c5939d114e2064d30691be2c30b42e34decbace58044fe",
@@ -19,6 +19,6 @@
   "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
   "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md",
   "launcher_validation": "Seven CPU launcher checks passed including real timeout cleanup, occupied-port refusal and selection of an alternate range. Port test requires socket permissions.",
-  "server_preflight": "Third launch reached NPU scheduler, but 1024-token cap yielded2 hybrid pages and zero admissible request tokens. Increased all smoke runs to HW2-tested16384 cap; new hardware run pending. Earlier two launches stopped on port conflicts.",
+  "server_preflight": "Source/model hashes and original32CPUtests passed. Three failed setup/calibration trials retained. Fourth suite passed with16384token cap and available lower HCCL range.",
   "launcher_gemini_review": "Attempt failed: agy rejected gemini-4-neon-high as unrecognized; no launcher review or signoff received."
 }
