@@ -1,5 +1,6 @@
 """Course-server 0.8B TP1 smoke only; no claim of complete offload validation."""
 import argparse
+import errno
 import fcntl
 import hashlib
 import importlib.util
@@ -72,18 +73,42 @@ def prepare_source():
         if actual["files"] != expected["files"] or actual["sha256"] != expected["sha256"]:
             raise RuntimeError(f"Server source differs from reviewed source: {relative}")
     os.environ["PYTHONPATH"] = os.pathsep.join(str(source / name) for name in manifest["expected_runtime_trees"])
-    os.environ.update(OMP_NUM_THREADS="1", MKL_NUM_THREADS="1", PYTHONDONTWRITEBYTECODE="1",
-                      HCCL_NPU_SOCKET_PORT_RANGE="41200-41231")
+    os.environ.update(OMP_NUM_THREADS="1", MKL_NUM_THREADS="1", PYTHONDONTWRITEBYTECODE="1")
 
 
-def assert_free(device):
+def ports_available(ports):
+    sockets = []
+    try:
+        for port in ports:
+            sock = socket.socket()
+            sockets.append(sock)
+            sock.bind(("0.0.0.0", port))
+        return True
+    except OSError as exc:
+        if exc.errno != errno.EADDRINUSE:
+            raise
+        return False
+    finally:
+        for sock in sockets:
+            sock.close()
+
+
+def choose_ports():
+    for engine in range(31893, 31913):
+        for start in range(41200, 42000, 100):
+            if ports_available([engine, *range(start, start + 32)]):
+                os.environ["HCCL_NPU_SOCKET_PORT_RANGE"] = f"{start}-{start + 31}"
+                return engine, list(range(start, start + 32))
+    raise RuntimeError("No available engine/HCCL port range; no existing process was modified")
+
+
+def assert_free(device, ports=()):
     result = subprocess.run(["npu-smi", "info"], check=True, capture_output=True, text=True, timeout=15)
     occupancy = load("smoke_occupancy", ROOT / "homework-2/scripts/npu_occupancy.py")
     if (device // 2, device % 2) in occupancy.occupied_chips(result.stdout):
         raise RuntimeError(f"Physical chip {device} is occupied; no job started on it")
-    for port in [31893, *range(41200, 41232)]:
-        with socket.socket() as sock:
-            sock.bind(("0.0.0.0", port))
+    if not ports_available(ports):
+        raise RuntimeError("A selected port became occupied; no existing process was modified")
     return result.stdout
 
 
@@ -120,16 +145,18 @@ def main():
                     raise RuntimeError(f"Model file checksum mismatch: {entry['path']}")
             bounded([sys.executable, "-m", "unittest", "discover", "-s", "homework-3/tests", "-v"],
                     "unit-tests", 180)
+            port, hccl_ports = choose_ports()
+            (ROOT / "results/ports.json").write_text(json.dumps({"engine": port, "hccl": hccl_ports}) + "\n")
             common = [sys.executable, "homework-3/scripts/run_offloading.py", "--action", "run",
                       "--model", str(model), "--model-config", str(config), "--seed-cases", "homework-2/cases.json",
                       "--tp", "1", "--physical-devices", str(args.device), "--memory-fraction", "0.12",
-                      "--device-tokens", "1024", "--port", "31893", "--dtype", "bfloat16",
+                      "--device-tokens", "1024", "--port", str(port), "--dtype", "bfloat16",
                       "--head-dtype", "native", "--pattern", "high", "--repeats", "2",
                       "--working-set", "4", "--revisit-suffix-tokens", "8"]
             for name, mode, ratio, force in [("off", "off", "0", "0"),
                                               ("on-decode", "on", "1", "2"),
                                               ("on-prefill", "on", "1", "-2")]:
-                snapshot = assert_free(args.device)
+                snapshot = assert_free(args.device, [port, *hccl_ports])
                 (ROOT / "results" / f"{name}-preflight.txt").write_text(snapshot)
                 save_status(status="running", stage=name, device=args.device)
                 bounded([*common, "--offloading", mode, "--host-ratio", ratio,

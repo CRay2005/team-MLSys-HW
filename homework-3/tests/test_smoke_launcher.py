@@ -2,6 +2,7 @@
 import hashlib
 import importlib.util
 import json
+import socket
 from pathlib import Path
 import subprocess
 import sys
@@ -25,6 +26,19 @@ server = load("server_smoke")
 
 
 class SmokeLauncherTests(unittest.TestCase):
+    def test_occupied_port_is_not_reused(self):
+        with socket.socket() as sock:
+            sock.bind(("0.0.0.0", 0))
+            sock.listen()
+            self.assertFalse(server.ports_available([sock.getsockname()[1]]))
+
+    def test_choose_ports_skips_occupied_range(self):
+        with patch.object(server, "ports_available", side_effect=[False, True]), patch.dict(server.os.environ):
+            port, ports = server.choose_ports()
+            self.assertEqual(port, 31893)
+            self.assertEqual(ports, list(range(41300, 41332)))
+            self.assertEqual(server.os.environ["HCCL_NPU_SOCKET_PORT_RANGE"], "41300-41331")
+
     def test_archive_hashes_and_safe_members(self):
         with tempfile.TemporaryDirectory() as tmp:
             archive = launcher.build_bundle(Path(tmp))

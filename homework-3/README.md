@@ -1,6 +1,6 @@
 # Homework 3 — HBM/Host cache offloading
 
-Status, 2026-11-24: assignment evaluated; initial experiment runner and 37 local
+Status, 2026-11-24: assignment evaluated; initial experiment runner and 39 local
 tests implemented. **No HW3 Ascend execution or end-to-end offload result yet.**
 Due 2026-11-26. Original requirements: [assignment.md](assignment.md).
 
@@ -84,7 +84,8 @@ off, forced decode suspension (`2`), and forced prefill suspension (`-2`), check
 all generated tokens against off. Each model invocation has a ten-minute limit;
 failures stop the sequence. Four sessions and two cycles provide an initial smoke,
 not a calibrated memory-pressure benchmark. Only this launcher's child process
-groups are cleaned up. A per-account lock prevents overlapping smoke launchers.
+groups are cleaned up. Available engine/HCCL ports are selected and rechecked
+before each run. A per-account lock prevents overlapping smoke launchers.
 
 Wait for the printed **Started independently** confirmation before closing the
 Terminal. Once started, server jobs survive VPN/chat loss. The command prints
@@ -94,10 +95,12 @@ printed server directory before retrying: launch may have succeeded without its
 acknowledgment reaching the Mac. `suite.log`, `status.json`, and `results/` remain
 on the server. Missing status can mean the environment setup failed; read the log.
 
-`--prepare-only` builds the package without contacting the server. The five new
+`--prepare-only` builds the package without contacting the server. The seven new
 local launcher tests check packaging, occupied/unknown device refusal, failure
-propagation and real subprocess timeout cleanup. Server integration is still
-unvalidated. A successful smoke does **not** certify actual offload completion,
+propagation, port conflict handling and real subprocess timeout cleanup. Initial
+server preflight passed source/model verification and all 32 harness tests, then
+stopped on a port conflict before NPU use; automatic port selection was added.
+A successful smoke does **not** certify actual offload completion,
 eviction, leak freedom, TP2, larger models or performance; those experiments remain.
 
 From the repository root:
