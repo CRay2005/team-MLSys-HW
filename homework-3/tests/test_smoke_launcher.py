@@ -36,8 +36,8 @@ class SmokeLauncherTests(unittest.TestCase):
         with patch.object(server, "ports_available", side_effect=[False, True]), patch.dict(server.os.environ):
             port, ports = server.choose_ports()
             self.assertEqual(port, 31893)
-            self.assertEqual(ports, list(range(41300, 41332)))
-            self.assertEqual(server.os.environ["HCCL_NPU_SOCKET_PORT_RANGE"], "41300-41331")
+            self.assertEqual(ports, list(range(25064, 25096)))
+            self.assertEqual(server.os.environ["HCCL_NPU_SOCKET_PORT_RANGE"], "25064-25095")
 
     def test_archive_hashes_and_safe_members(self):
         with tempfile.TemporaryDirectory() as tmp:

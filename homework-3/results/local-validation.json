@@ -11,14 +11,14 @@
     "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
     "homework-3/scripts/launch_smoke.py": "d0e1a61348af823e94c5939d114e2064d30691be2c30b42e34decbace58044fe",
     "homework-3/scripts/run_offloading.py": "48a83e38976d04bf6c0c6a7a78efcb050ed2c8bb5946077bcf30a72112d6a0da",
-    "homework-3/scripts/server_smoke.py": "440817846c1054d79a7eaa98df13f1f8e2d74c053eb3c1c364c4cdcf676673e3",
+    "homework-3/scripts/server_smoke.py": "4c4c41be7ae63eb7892e82c83da135f977ab274240609e14e9b73e36be6a2856",
     "homework-3/tests/test_host_budget_contract.py": "2b4af4575a3e3661ee457a227286e6c14213907d728e614d29ce253a474708df",
     "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c",
-    "homework-3/tests/test_smoke_launcher.py": "d0d65bd59e2bf3c15da7cd936d51198fc1a7a3d249bc06d972e22e2135cea6df"
+    "homework-3/tests/test_smoke_launcher.py": "e677857263da3c6797f3d2d025adc2c810fff791242aef342a69c462c45e95b7"
   },
   "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
   "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md",
   "launcher_validation": "Seven CPU launcher checks passed including real timeout cleanup, occupied-port refusal and selection of an alternate range. Port test requires socket permissions.",
-  "server_preflight": "First launch verified source/model hashes and passed original 32 tests; stopped before model loading on occupied port. Automatic port selection added; rerun pending.",
+  "server_preflight": "Two preflights verified sources/model and passed original32 CPU tests. Scattered occupied ports prevented contiguous HCCL allocation; moved candidate ranges below usual Linux ephemeral range. No model had started at this checkpoint.",
   "launcher_gemini_review": "Attempt failed: agy rejected gemini-4-neon-high as unrecognized; no launcher review or signoff received."
 }

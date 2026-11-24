@@ -95,7 +95,9 @@ def ports_available(ports):
 
 def choose_ports():
     for engine in range(31893, 31913):
-        for start in range(41200, 42000, 100):
+        # Prefer ranges below Linux's usual ephemeral-client range: scattered
+        # outgoing connections can occupy every candidate 32-port block above it.
+        for start in range(25000, 28000, 64):
             if ports_available([engine, *range(start, start + 32)]):
                 os.environ["HCCL_NPU_SOCKET_PORT_RANGE"] = f"{start}-{start + 31}"
                 return engine, list(range(start, start + 32))
