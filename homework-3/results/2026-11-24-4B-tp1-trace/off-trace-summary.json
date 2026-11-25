@@ -1,0 +1,165 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": null,
+      "peaks": {
+        "device_active": 10,
+        "host_cached": 0,
+        "host_pinned": 0,
+        "retracted": 0,
+        "tail_cap_evictions": 0
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 648377,
+        "monotonic_ns": 4510448830913760,
+        "device_total": 16,
+        "device_empty": 0,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 0,
+        "host_pinned": 0,
+        "snapshot_free": 0,
+        "tail_entries": 4,
+        "tail_cap_evictions": 0,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {},
+      "completed_operations": {},
+      "observed_completion_seconds_sum": {},
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 0,
+      "h2d_bytes": 0,
+      "transfer_batches": 0,
+      "frontier_checks": [],
+      "first_admission_prefix_hits": 2,
+      "first_admission_prefix_misses": 6,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 0,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 53,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "7489e57821db4b408ad52b9b59d699b4",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "7489e57821db4b408ad52b9b59d699b4",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "019e271fcc2440c9a113518c25291191",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "019e271fcc2440c9a113518c25291191",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c93cb4fd15944bee8d17a23e789a1c1a",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c93cb4fd15944bee8d17a23e789a1c1a",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6214a2c7e61b482e973082aa1e44768e",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6214a2c7e61b482e973082aa1e44768e",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fa0d1977c9fa4f52b15f011d9c0378e6",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "1b912593db4d49849b42aa9aae745bbb",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "558ec6908c2b43898ab7ecf320fdb530",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "558ec6908c2b43898ab7ecf320fdb530",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "558ec6908c2b43898ab7ecf320fdb530",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "168204a2d1314712aa46ca9e3b1f9158",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "168204a2d1314712aa46ca9e3b1f9158",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "168204a2d1314712aa46ca9e3b1f9158",
+          "start": 248,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "168204a2d1314712aa46ca9e3b1f9158",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-648377.jsonl": "b4ebff9558a125c17c19492b3e6545fb706b51d492a0c90ab7359e865515868a"
+  },
+  "rank_completion_agreement": true,
+  "rank_restore_frontier_agreement": true,
+  "d2h_bytes": 0,
+  "h2d_bytes": 0,
+  "full_assignment_verified": false
+}

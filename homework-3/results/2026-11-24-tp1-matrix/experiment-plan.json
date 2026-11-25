@@ -1,0 +1,200 @@
+[
+  {
+    "name": "high-r0-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r0-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r0-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r1-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r1-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r1-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r2-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r2-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "high-r2-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "high",
+    "reference": "high-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r0-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r0-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r0-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r0-off",
+    "repetition": 0,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r1-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r1-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r1-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r1-off",
+    "repetition": 1,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r2-off",
+    "mode": "off",
+    "ratio": "0",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r2-on-small",
+    "mode": "on",
+    "ratio": "0.5",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  },
+  {
+    "name": "low-r2-on-large",
+    "mode": "on",
+    "ratio": "1",
+    "force": "0",
+    "pattern": "low",
+    "reference": "low-r2-off",
+    "repetition": 2,
+    "working_set": 8,
+    "cycles": 2
+  }
+]

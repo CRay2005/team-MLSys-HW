@@ -1,0 +1,739 @@
+{
+  "ranks": [
+    {
+      "rank": 0,
+      "allocation": {
+        "event": "allocation",
+        "rank": 0,
+        "pid": 651784,
+        "monotonic_ns": 4511216414994740,
+        "device_lcm_blocks": 16,
+        "host_l2_bytes": 201326592,
+        "host_snapshot_bytes": 201326592,
+        "slot_blob_bytes": 432,
+        "snapshot_blocks": 16,
+        "host_blocks": 16,
+        "groups": [
+          {
+            "name": "linear_attention_0",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.0.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.2.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.0.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.10.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.13.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.16.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.18.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.2.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.21.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.8.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.5.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.8.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.10.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.13.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.16.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.18.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.21.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "linear_attention_1",
+            "blocks_per_lcm": 1,
+            "fields": [
+              {
+                "name": "layer.1.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.4.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.1.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.12.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.14.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.17.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.20.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.22.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.4.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.9.conv",
+                "bytes": 36864
+              },
+              {
+                "name": "layer.6.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.9.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.12.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.14.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.17.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.20.ssm",
+                "bytes": 1048576
+              },
+              {
+                "name": "layer.22.ssm",
+                "bytes": 1048576
+              }
+            ]
+          },
+          {
+            "name": "full_attention",
+            "blocks_per_lcm": 8,
+            "fields": [
+              {
+                "name": "layer.3.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.3.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.23.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.7.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.11.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.15.v",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.k",
+                "bytes": 131072
+              },
+              {
+                "name": "layer.19.v",
+                "bytes": 131072
+              }
+            ]
+          }
+        ]
+      },
+      "peaks": {
+        "device_active": 10,
+        "host_cached": 30,
+        "host_pinned": 0,
+        "retracted": 0,
+        "tail_cap_evictions": 0
+      },
+      "final_scheduler": {
+        "event": "scheduler_quiescent",
+        "rank": 0,
+        "pid": 651784,
+        "monotonic_ns": 4511251929381190,
+        "device_total": 16,
+        "device_empty": 0,
+        "device_available": 16,
+        "device_active": 0,
+        "host_cached": 30,
+        "host_pinned": 0,
+        "snapshot_free": 16,
+        "tail_entries": 8,
+        "tail_cap_evictions": 0,
+        "waiting": 0,
+        "retracted": 0,
+        "decoding": 0,
+        "prefilling": 0,
+        "pending_operations": 0
+      },
+      "completed_payload_bytes": {
+        "writeback": 830521344
+      },
+      "completed_operations": {
+        "writeback": 47
+      },
+      "observed_completion_seconds_sum": {
+        "writeback": 13.66143893
+      },
+      "timing_note": "Call entry to observed ACK; includes queueing, polling and instrumentation. Overlaps must not be summed as wall time.",
+      "d2h_bytes": 830521344,
+      "h2d_bytes": 0,
+      "transfer_batches": 39,
+      "frontier_checks": [],
+      "first_admission_prefix_hits": 0,
+      "first_admission_prefix_misses": 16,
+      "prefix_hit_note": "Any cache tier; loadback operation counts separately show Host prefix loads, not a per-request Host hit counter.",
+      "observed_host_key_replacements": 102,
+      "replacement_note": "Host destinations assigned different keys; counts slot replacements, not all logical eviction events.",
+      "observed_device_owner_changes": 146,
+      "owner_note": "Block IDs assigned to different request IDs; shared prefixes can also cause owner changes.",
+      "replay_tokens": 0,
+      "prefill_ranges": [
+        {
+          "request_id": "878a0851a30946dba90b3cd009d62229",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "878a0851a30946dba90b3cd009d62229",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6afc6f229068445f9650f1c08fec7290",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "6afc6f229068445f9650f1c08fec7290",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "bb0ee94b039740ceba10e7dfb1a6b30d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "bb0ee94b039740ceba10e7dfb1a6b30d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "088f287402d547198fd23bd713a4d1f7",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "088f287402d547198fd23bd713a4d1f7",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d2fc5effb3c1449ab241ab76ce99b9f0",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "d2fc5effb3c1449ab241ab76ce99b9f0",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "800b56bb74f745368a84452b404c190d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "800b56bb74f745368a84452b404c190d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fc8e5974baf245168150e448e72dec21",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "fc8e5974baf245168150e448e72dec21",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "7846fbdcdd404bbb9110c45bab32c06a",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "7846fbdcdd404bbb9110c45bab32c06a",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e79fc37e42c541ed83e946fef1d4c9ba",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e79fc37e42c541ed83e946fef1d4c9ba",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "e79fc37e42c541ed83e946fef1d4c9ba",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0b06415d91754c2991f82b29aaaa15a7",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0b06415d91754c2991f82b29aaaa15a7",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0b06415d91754c2991f82b29aaaa15a7",
+          "start": 248,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "0b06415d91754c2991f82b29aaaa15a7",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "abce605570d84ab4a97df9a67c80f028",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "abce605570d84ab4a97df9a67c80f028",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "abce605570d84ab4a97df9a67c80f028",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "04c44f9e7af94e60bb667c9c938692ef",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "04c44f9e7af94e60bb667c9c938692ef",
+          "start": 120,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "04c44f9e7af94e60bb667c9c938692ef",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "04c44f9e7af94e60bb667c9c938692ef",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "f47d50cdc41549e18cf36c2813df944d",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "f47d50cdc41549e18cf36c2813df944d",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "f47d50cdc41549e18cf36c2813df944d",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c26491415dbf45438f47dacf09d76559",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c26491415dbf45438f47dacf09d76559",
+          "start": 120,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c26491415dbf45438f47dacf09d76559",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "c26491415dbf45438f47dacf09d76559",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b83be86a5dc74da09c3d54835b1bd757",
+          "start": 0,
+          "end": 128,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b83be86a5dc74da09c3d54835b1bd757",
+          "start": 128,
+          "end": 256,
+          "replay_length": 0
+        },
+        {
+          "request_id": "b83be86a5dc74da09c3d54835b1bd757",
+          "start": 256,
+          "end": 264,
+          "replay_length": 0
+        },
+        {
+          "request_id": "72f0c61cb3514520ac4a991672971255",
+          "start": 0,
+          "end": 120,
+          "replay_length": 0
+        },
+        {
+          "request_id": "72f0c61cb3514520ac4a991672971255",
+          "start": 120,
+          "end": 248,
+          "replay_length": 0
+        },
+        {
+          "request_id": "72f0c61cb3514520ac4a991672971255",
+          "start": 248,
+          "end": 264,
+          "replay_length": 0
+        }
+      ],
+      "rank_agreed_operations": [
+        [
+          "WriteBackDoneEvent",
+          0
+        ],
+        [
+          "WriteBackDoneEvent",
+          1
+        ],
+        [
+          "WriteBackDoneEvent",
+          2
+        ],
+        [
+          "WriteBackDoneEvent",
+          3
+        ],
+        [
+          "WriteBackDoneEvent",
+          4
+        ],
+        [
+          "WriteBackDoneEvent",
+          5
+        ],
+        [
+          "WriteBackDoneEvent",
+          6
+        ],
+        [
+          "WriteBackDoneEvent",
+          7
+        ],
+        [
+          "WriteBackDoneEvent",
+          8
+        ],
+        [
+          "WriteBackDoneEvent",
+          9
+        ],
+        [
+          "WriteBackDoneEvent",
+          10
+        ],
+        [
+          "WriteBackDoneEvent",
+          11
+        ],
+        [
+          "WriteBackDoneEvent",
+          12
+        ],
+        [
+          "WriteBackDoneEvent",
+          13
+        ],
+        [
+          "WriteBackDoneEvent",
+          14
+        ],
+        [
+          "WriteBackDoneEvent",
+          15
+        ],
+        [
+          "WriteBackDoneEvent",
+          16
+        ],
+        [
+          "WriteBackDoneEvent",
+          17
+        ],
+        [
+          "WriteBackDoneEvent",
+          18
+        ],
+        [
+          "WriteBackDoneEvent",
+          19
+        ],
+        [
+          "WriteBackDoneEvent",
+          20
+        ],
+        [
+          "WriteBackDoneEvent",
+          21
+        ],
+        [
+          "WriteBackDoneEvent",
+          22
+        ],
+        [
+          "WriteBackDoneEvent",
+          23
+        ],
+        [
+          "WriteBackDoneEvent",
+          24
+        ],
+        [
+          "WriteBackDoneEvent",
+          25
+        ],
+        [
+          "WriteBackDoneEvent",
+          26
+        ],
+        [
+          "WriteBackDoneEvent",
+          27
+        ],
+        [
+          "WriteBackDoneEvent",
+          28
+        ],
+        [
+          "WriteBackDoneEvent",
+          29
+        ],
+        [
+          "WriteBackDoneEvent",
+          30
+        ],
+        [
+          "WriteBackDoneEvent",
+          31
+        ],
+        [
+          "WriteBackDoneEvent",
+          32
+        ],
+        [
+          "WriteBackDoneEvent",
+          33
+        ],
+        [
+          "WriteBackDoneEvent",
+          34
+        ],
+        [
+          "WriteBackDoneEvent",
+          35
+        ],
+        [
+          "WriteBackDoneEvent",
+          36
+        ],
+        [
+          "WriteBackDoneEvent",
+          37
+        ],
+        [
+          "WriteBackDoneEvent",
+          38
+        ],
+        [
+          "WriteBackDoneEvent",
+          39
+        ],
+        [
+          "WriteBackDoneEvent",
+          40
+        ],
+        [
+          "WriteBackDoneEvent",
+          41
+        ],
+        [
+          "WriteBackDoneEvent",
+          42
+        ],
+        [
+          "WriteBackDoneEvent",
+          43
+        ],
+        [
+          "WriteBackDoneEvent",
+          44
+        ],
+        [
+          "WriteBackDoneEvent",
+          45
+        ],
+        [
+          "WriteBackDoneEvent",
+          46
+        ]
+      ],
+      "complete_assignment_verified": false
+    }
+  ],
+  "trace_sha256": {
+    "rank-0-pid-651784.jsonl": "a2426ce5dbe6cc7bf2bed249aad239e1dd2923d009c45600ae12e7429a8962f8"
+  },
+  "rank_completion_agreement": true,
+  "rank_restore_frontier_agreement": true,
+  "d2h_bytes": 830521344,
+  "h2d_bytes": 0,
+  "full_assignment_verified": false
+}

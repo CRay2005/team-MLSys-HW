@@ -2,7 +2,7 @@
 
 **Technical work is complete for the stored assignment and recorded experimental scope.** All four required models run one sharded model across the two chips of a single910C card and have passing matched TP1/TP2 configurations. The last4B discrepancy was explained and fixed, not waived by changing the tolerance. **Nothing has been submitted.**
 
-The [report](report.md) records all three confirmed members and their respective contributions: **Zhuoxi Zeng (2501213387)**, **Steven Walxim (2501112130)** and **陈子睿 (2601112045)**. Group details are complete. Technical results are unchanged. See the [submission guide](../SUBMISSION.md).
+The [report](report.md) records all three confirmed members and their respective contributions: **Zhuoxi Zeng (2501213387)**, **Steven Walxim (2501112130)** and **陈子睿 (2601112045)**. Group details are complete. The new [streaming latency instrumentation](docs/streaming-metrics.md) is locally implemented/tested and validated on Ascend TP1 (18 measured streaming requests); new TP2 streaming validation awaits a free same-card pair. It does not change the earlier recorded technical results. See the [submission guide](../SUBMISSION.md).
 
 ## Requirement coverage
 

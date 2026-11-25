@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-24",
+  "scope": "CPU harness only; no hardware execution",
+  "unittest_passed": 48,
+  "plan_cli": "passed: explicit eight-session working set, two cycles, 256/264-token inputs; no generation",
+  "comparison_cli": "passed: complete synthetic provenance, eight requests, lifecycle proof false",
+  "python_ast": "passed",
+  "original_assignment_sha256": "e66c6769a94417c46d40857e97e77c912bc8b12ad3cdfe319e08c60fa7cc70df",
+  "hardware_validation": "Initial0.8B TP1 off/+2/-2 smoke passed,16requests/256tokens compared; complete lifecycle and otherHW3experiments pending. See2026-11-24-tp1-smoke/summary.json.",
+  "source_sha256": {
+    "homework-3/scripts/compare_results.py": "83ed7a278ff3d46b79b47a02c3e83a22bc4183bb5d5fe8616240981246265ccc",
+    "homework-3/scripts/download_supervisor.py": "b95527cf7d6b28a4f0f49f58d90af49ac7309404c62694016eaa1c82449cb497",
+    "homework-3/scripts/launch_smoke.py": "480bcb932e31995c41f6133bc092df91e67c2d6d8ecb9f80cca72bddb1ab8bc9",
+    "homework-3/scripts/run_offloading.py": "b8711acee6771f21990d1ffe0f497a8e2772b615c79638ef5f3499c464a01a0e",
+    "homework-3/scripts/server_smoke.py": "adc44566d5f5cc03473d7dacec641adaca7795b53c5a6b29eb24ee29001b40c4",
+    "homework-3/scripts/summarize_trace.py": "45e260a2839b4e47f41ae909e845197cf46587e495a4c3a7d0c84aacd59e96f6",
+    "homework-3/tests/test_host_budget_contract.py": "2b4af4575a3e3661ee457a227286e6c14213907d728e614d29ce253a474708df",
+    "homework-3/tests/test_observer.py": "4def1a70e0f9fa805e4d6825cdccab2da5d2a24a3d1c97dbb095dc4ea7b1b277",
+    "homework-3/tests/test_offloading.py": "a76bf5bef72d685d39a43dc6ae62d2f1e03f394ec24ad408cfcb7854e343a58c",
+    "homework-3/tests/test_smoke_launcher.py": "7d4ce507f74d17843b64f288b45acda7f98eeca331a34527db1d62bf272d629b",
+    "homework-3/runtime/runtime_observer.py": "86a8a22f68534ebbabb995703ae519712e407e9c1f41cd5d27649bb775a29fb7",
+    "homework-3/runtime/sitecustomize.py": "eeaf5f449a4b96777d8a49beab3a82971b4bcbd28f0667a247f95111778fd8a5"
+  },
+  "upstream_pool_sizing_sha256": "c3a9c9b7fa4da906e028ecf60ade48b4a82202fae95effd3e6207c35b3139e35",
+  "gemini_review": "two scoped Neon High reviews of ab43a85 completed; dispositions in docs/gemini-neon-review-20261124.md",
+  "launcher_validation": "Seven CPU launcher checks passed including real timeout cleanup, occupied-port refusal and selection of an alternate range. Port test requires socket permissions.",
+  "server_preflight": "Source/model hashes and original32CPUtests passed. Three failed setup/calibration trials retained. Fourth suite passed with16384token cap and available lower HCCL range.",
+  "launcher_gemini_review": "Attempt failed: agy rejected gemini-4-neon-high as unrecognized; no launcher review or signoff received.",
+  "observer_validation": "Instrumented0.8B TP1 off/decode/prefill suite passed remotely after fresh-idle fix; independent trace download/recheck pending.",
+  "matrix_validation": "18 distinct jobs with paired references,3independent repetitions,high/lowreuse,twoHostbudgets,force0; longerstress andsamecardTP2selection CPUchecks passed. Hardwarematrix pending."
+}

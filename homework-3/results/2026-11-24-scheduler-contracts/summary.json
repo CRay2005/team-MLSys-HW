@@ -1,0 +1,26 @@
+{
+  "exit_code": 0,
+  "files": {
+    "conftest.py": "34705a81799c47c9c457bda35a7d36bb9a94ec38781050c2e3b4c76c4e39adff",
+    "test_retraction_image.py": "fcae601e1318ef8573e9ab3cbd5952225172aee05f27cae2c846a209ed7d0675",
+    "test_kv_cache.py": "62352e8b284f0926876e611a262d526bee77e4ad69a207449fffcb16e7ef7275"
+  },
+  "scope": "CPU scheduler contracts; not NPU transfer or model validation",
+  "passed_tests": 63,
+  "reported_test_seconds": 0.37,
+  "reused_upstream_tests": true,
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "test_retraction_image.py",
+    "test_kv_cache.py"
+  ],
+  "server_evidence_directory": "/home/u2501112130/MLSys-HW/hw3-native-checks-20261124",
+  "source_directory": "homework-1/tokenspeed/tokenspeed-scheduler/python/tests",
+  "limitations": [
+    "Tests drive the installed native scheduler bindings with simulated execution and transfer acknowledgments.",
+    "They do not execute NPU DMA or model kernels and do not replace TP2 or large-model hardware checks."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "suite_passed",
+  "suite": "matrix",
+  "model_size": "0.8B",
+  "tp": 1,
+  "jobs_completed": 18,
+  "offload_lifecycle_verified": false,
+  "limitation": "Individual suite completed; full assignment acceptance requires evidence across all requirements",
+  "updated_unix": 1795520114.2014294
+}

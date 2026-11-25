@@ -1,0 +1,386 @@
+{
+  "witnesses": [
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 9,
+      "host_block": 10,
+      "original_request": "f033af3557e54c29890cdc379429fae2",
+      "writeback_op": 7,
+      "writeback_ack_ns": 4511298669480300,
+      "reuse": {
+        "request_id": "e6345f305df6458aa721a761a5a36206",
+        "first_token": 20948,
+        "forward_ns": 4511300692444260
+      },
+      "loadback_op": 20,
+      "restored_device_block": 6,
+      "loadback_plan_ns": 4511305814584450,
+      "loadback_ack_ns": 4511305972831350,
+      "resumed_request": "34f4d8b2cdea4759b4b7d4d60542d0da",
+      "resumed_first_token": 20946,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511305814627300
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 11,
+      "host_block": 11,
+      "original_request": "f033af3557e54c29890cdc379429fae2",
+      "writeback_op": 7,
+      "writeback_ack_ns": 4511298669480300,
+      "reuse": {
+        "request_id": "7417475b27864ecf8ab8b89d40b91361",
+        "first_token": 20950,
+        "forward_ns": 4511304152316890
+      },
+      "loadback_op": 20,
+      "restored_device_block": 9,
+      "loadback_plan_ns": 4511305814584450,
+      "loadback_ack_ns": 4511305972831350,
+      "resumed_request": "34f4d8b2cdea4759b4b7d4d60542d0da",
+      "resumed_first_token": 20946,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511305814627300
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 15,
+      "host_block": 13,
+      "original_request": "e4cec609586a40b5ac39efdd48bea373",
+      "writeback_op": 7,
+      "writeback_ack_ns": 4511298669480300,
+      "reuse": {
+        "request_id": "7417475b27864ecf8ab8b89d40b91361",
+        "first_token": 20950,
+        "forward_ns": 4511302765164570
+      },
+      "loadback_op": 21,
+      "restored_device_block": 13,
+      "loadback_plan_ns": 4511305814584450,
+      "loadback_ack_ns": 4511305972831350,
+      "resumed_request": "f2a6605991a94509bd67706affeed919",
+      "resumed_first_token": 20945,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511305814627300
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 3,
+      "host_block": 14,
+      "original_request": "e4cec609586a40b5ac39efdd48bea373",
+      "writeback_op": 7,
+      "writeback_ack_ns": 4511298669480300,
+      "reuse": {
+        "request_id": "a78c268f2ead40a5830f11e054df4ff0",
+        "first_token": 20949,
+        "forward_ns": 4511304152316890
+      },
+      "loadback_op": 21,
+      "restored_device_block": 15,
+      "loadback_plan_ns": 4511305814584450,
+      "loadback_ack_ns": 4511305972831350,
+      "resumed_request": "f2a6605991a94509bd67706affeed919",
+      "resumed_first_token": 20945,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511305814627300
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 1,
+      "host_block": 19,
+      "original_request": "75430d39c8974a8681761a7d9ec5dd8d",
+      "writeback_op": 12,
+      "writeback_ack_ns": 4511301674697420,
+      "reuse": {
+        "request_id": "7417475b27864ecf8ab8b89d40b91361",
+        "first_token": 20950,
+        "forward_ns": 4511304152316890
+      },
+      "loadback_op": 26,
+      "restored_device_block": 15,
+      "loadback_plan_ns": 4511307227902340,
+      "loadback_ack_ns": 4511307376635200,
+      "resumed_request": "036fb7ab99334c2a920d1978e0689caf",
+      "resumed_first_token": 20947,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511307227950320
+    },
+    {
+      "group": "full_attention",
+      "original_device_block": 28,
+      "host_block": 95,
+      "original_request": "75430d39c8974a8681761a7d9ec5dd8d",
+      "writeback_op": 12,
+      "writeback_ack_ns": 4511301674697420,
+      "reuse": {
+        "request_id": "34f4d8b2cdea4759b4b7d4d60542d0da",
+        "first_token": 20946,
+        "forward_ns": 4511305815764680
+      },
+      "loadback_op": 26,
+      "restored_device_block": 36,
+      "loadback_plan_ns": 4511307227902340,
+      "loadback_ack_ns": 4511307376635200,
+      "resumed_request": "036fb7ab99334c2a920d1978e0689caf",
+      "resumed_first_token": 20947,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511307227950320
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 15,
+      "host_block": 28,
+      "original_request": "7417475b27864ecf8ab8b89d40b91361",
+      "writeback_op": 17,
+      "writeback_ack_ns": 4511304681664250,
+      "reuse": {
+        "request_id": "036fb7ab99334c2a920d1978e0689caf",
+        "first_token": 20947,
+        "forward_ns": 4511307227950320
+      },
+      "loadback_op": 31,
+      "restored_device_block": 16,
+      "loadback_plan_ns": 4511308581117180,
+      "loadback_ack_ns": 4511308731373920,
+      "resumed_request": "96541c28957941a4a3b8612f0728705b",
+      "resumed_first_token": 20950,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511308581148140
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 8,
+      "host_block": 29,
+      "original_request": "7417475b27864ecf8ab8b89d40b91361",
+      "writeback_op": 17,
+      "writeback_ack_ns": 4511304681664250,
+      "reuse": {
+        "request_id": "f2a6605991a94509bd67706affeed919",
+        "first_token": 20945,
+        "forward_ns": 4511305814627300
+      },
+      "loadback_op": 31,
+      "restored_device_block": 2,
+      "loadback_plan_ns": 4511308581117180,
+      "loadback_ack_ns": 4511308731373920,
+      "resumed_request": "96541c28957941a4a3b8612f0728705b",
+      "resumed_first_token": 20950,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511308581148140
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 7,
+      "host_block": 30,
+      "original_request": "a78c268f2ead40a5830f11e054df4ff0",
+      "writeback_op": 17,
+      "writeback_ack_ns": 4511304681664250,
+      "reuse": {
+        "request_id": "34f4d8b2cdea4759b4b7d4d60542d0da",
+        "first_token": 20946,
+        "forward_ns": 4511305815764680
+      },
+      "loadback_op": 32,
+      "restored_device_block": 9,
+      "loadback_plan_ns": 4511308581117180,
+      "loadback_ack_ns": 4511308731373920,
+      "resumed_request": "17d352ce21d64d7d99e3e9f5f66565ba",
+      "resumed_first_token": 20949,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511308581148140
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 2,
+      "host_block": 31,
+      "original_request": "a78c268f2ead40a5830f11e054df4ff0",
+      "writeback_op": 17,
+      "writeback_ack_ns": 4511304681664250,
+      "reuse": {
+        "request_id": "34f4d8b2cdea4759b4b7d4d60542d0da",
+        "first_token": 20946,
+        "forward_ns": 4511305815764680
+      },
+      "loadback_op": 32,
+      "restored_device_block": 10,
+      "loadback_plan_ns": 4511308581117180,
+      "loadback_ack_ns": 4511308731373920,
+      "resumed_request": "17d352ce21d64d7d99e3e9f5f66565ba",
+      "resumed_first_token": 20949,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511308581148140
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 6,
+      "host_block": 2,
+      "original_request": "eec608d4d1bc468f959ed7db009bb6c8",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "f033af3557e54c29890cdc379429fae2",
+        "first_token": 20946,
+        "forward_ns": 4511298133415610
+      },
+      "loadback_op": 36,
+      "restored_device_block": 10,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "97d76e2eb51545408fb86b7592769bf6",
+      "resumed_first_token": 20943,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 7,
+      "host_block": 3,
+      "original_request": "eec608d4d1bc468f959ed7db009bb6c8",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "75430d39c8974a8681761a7d9ec5dd8d",
+        "first_token": 20947,
+        "forward_ns": 4511301134877660
+      },
+      "loadback_op": 36,
+      "restored_device_block": 15,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "97d76e2eb51545408fb86b7592769bf6",
+      "resumed_first_token": 20943,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "full_attention",
+      "original_device_block": 33,
+      "host_block": 1,
+      "original_request": "eec608d4d1bc468f959ed7db009bb6c8",
+      "writeback_op": 0,
+      "writeback_ack_ns": 4511293815961160,
+      "reuse": {
+        "request_id": "7417475b27864ecf8ab8b89d40b91361",
+        "first_token": 20950,
+        "forward_ns": 4511302764116190
+      },
+      "loadback_op": 36,
+      "restored_device_block": 33,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "97d76e2eb51545408fb86b7592769bf6",
+      "resumed_first_token": 20943,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "full_attention",
+      "original_device_block": 34,
+      "host_block": 3,
+      "original_request": "eec608d4d1bc468f959ed7db009bb6c8",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "a78c268f2ead40a5830f11e054df4ff0",
+        "first_token": 20949,
+        "forward_ns": 4511303230847090
+      },
+      "loadback_op": 36,
+      "restored_device_block": 39,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "97d76e2eb51545408fb86b7592769bf6",
+      "resumed_first_token": 20943,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "linear_attention_0",
+      "original_device_block": 12,
+      "host_block": 4,
+      "original_request": "243d007542964ae6acf7bf1c36e0b033",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "e6345f305df6458aa721a761a5a36206",
+        "first_token": 20948,
+        "forward_ns": 4511300229513930
+      },
+      "loadback_op": 37,
+      "restored_device_block": 3,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "88616bf7791940e78c498cf5dbd8d23b",
+      "resumed_first_token": 20944,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "linear_attention_1",
+      "original_device_block": 13,
+      "host_block": 5,
+      "original_request": "243d007542964ae6acf7bf1c36e0b033",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "e6345f305df6458aa721a761a5a36206",
+        "first_token": 20948,
+        "forward_ns": 4511301134877660
+      },
+      "loadback_op": 37,
+      "restored_device_block": 6,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "88616bf7791940e78c498cf5dbd8d23b",
+      "resumed_first_token": 20944,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "full_attention",
+      "original_device_block": 36,
+      "host_block": 2,
+      "original_request": "243d007542964ae6acf7bf1c36e0b033",
+      "writeback_op": 1,
+      "writeback_ack_ns": 4511295275377610,
+      "reuse": {
+        "request_id": "a78c268f2ead40a5830f11e054df4ff0",
+        "first_token": 20949,
+        "forward_ns": 4511303230847090
+      },
+      "loadback_op": 37,
+      "restored_device_block": 97,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "88616bf7791940e78c498cf5dbd8d23b",
+      "resumed_first_token": 20944,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    },
+    {
+      "group": "full_attention",
+      "original_device_block": 37,
+      "host_block": 4,
+      "original_request": "243d007542964ae6acf7bf1c36e0b033",
+      "writeback_op": 2,
+      "writeback_ack_ns": 4511295417607920,
+      "reuse": {
+        "request_id": "34f4d8b2cdea4759b4b7d4d60542d0da",
+        "first_token": 20946,
+        "forward_ns": 4511305814627300
+      },
+      "loadback_op": 37,
+      "restored_device_block": 99,
+      "loadback_plan_ns": 4511309917778790,
+      "loadback_ack_ns": 4511310064243150,
+      "resumed_request": "88616bf7791940e78c498cf5dbd8d23b",
+      "resumed_first_token": 20944,
+      "resumed_prefix_tokens": 256,
+      "resumed_forward_plan_ns": 4511309917810200
+    }
+  ],
+  "block_witnesses": 18,
+  "resumed_requests": 7,
+  "scope": "TP1: completed writeback -> different-first-token forward plan using old device block -> original-prefix loadback/continuation plan, with actual loadback ACK",
+  "limitation": "Forward records are CPU plans, not kernel timestamps; executor stream fences order actual copies and computation. Exact output correctness must be checked against off separately."
+}

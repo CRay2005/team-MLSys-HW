@@ -1,0 +1,5 @@
+{
+  "exact_token_agreement_requests": 8,
+  "offload_lifecycle_verified": false,
+  "reason": "Requires per-rank copy, restore-position, allocation/reuse and eviction evidence."
+}
