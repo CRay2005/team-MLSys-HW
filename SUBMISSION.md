@@ -1,4 +1,6 @@
-# Homework 1 / Homework 2 提交说明
+# Homework 1–3 提交说明
+
+**作业三：**[最终报告](homework-3/report.md)将 0.8B/4B 双芯片的 14 次运行与独立单芯片实验分列，并标明前置贡献。使用 `python scripts/build_hw3_submission.py` 单独生成本阶段 PDF、HTML 和带 SHA256 清单的 ZIP；[复算命令及运行环境](homework-3/README.md)。文件已准备不等于教学网已提交。以下作业一、二的生成器与核验命令保持不变。
 
 **已确认 HW1/HW2 成员：Zhuoxi Zeng（2501213387）、Steven Walxim（2501112130）、陈子睿（2601112045）。两份小组报告开头记录三人各自贡献；尚未上传教学网。** 下方小组生成器仍使用 Zhuoxi 的文件名前缀；Steven 的独立 HW1 报告使用单独生成脚本，不代表所有成员必须各交一份或必须提交 ZIP。
 
@@ -12,6 +14,7 @@
 | --- | --- | --- |
 | 第1次作业 / 计算子系统 | `2501213387_Zhuoxi_Zeng_HW1_Report.pdf` | `2501213387_Zhuoxi_Zeng_HW1_Submission.zip` |
 | 第2次作业 / 通信子系统 | `2501213387_Zhuoxi_Zeng_HW2_Report.pdf` | `2501213387_Zhuoxi_Zeng_HW2_Submission.zip` |
+| 第3次作业 / 存储子系统 | `2501213387_Zhuoxi_Zeng_HW3_Report.pdf` | `2501213387_Zhuoxi_Zeng_HW3_Submission.zip` |
 
 附件包含报告 PDF/Markdown/HTML、原题、完整对应阶段的 TokenSpeed 源码、固定版本 patch、测试与复现脚本、原始日志/结果和压缩 trace，以及文件 SHA256 清单。**HW1 附件使用冻结的 HW1 源码；HW2 附件使用 HW1 + HW2 增量源码。** HW2 包中的 HW1 材料是前置依据，不应拿该包的源码重做 HW1 基线。
 

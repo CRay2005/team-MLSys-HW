@@ -1,0 +1,2790 @@
+{
+  "0.8B-high-large": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 1.4618412046693265,
+      "output_tokens_per_second": 0.965056351024481,
+      "post_warmup_output_tokens_per_second": 3.870229408220807,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 39.37593899015337,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3511263,
+            3511264,
+            3511265
+          ],
+          "matched_child_pids": [
+            3511264,
+            3511265
+          ],
+          "unmatched_child_pids": [
+            3511263
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344312.3885684,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511264,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3511263,
+            3511264,
+            3511265
+          ],
+          "matched_child_pids": [
+            3511264,
+            3511265
+          ],
+          "unmatched_child_pids": [
+            3511263
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344312.3885684,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511264,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 0.7312988545745611,
+      "output_tokens_per_second": 3.4285906000868738,
+      "post_warmup_output_tokens_per_second": 5.311152764341215,
+      "cached_prompt_tokens": 768,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 11.083271359093487,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 226492416,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 195035136,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 3,
+          "host_misses": 6,
+          "host_evictions": 0,
+          "copies": {
+            "LoadBackDone": {
+              "bytes": 34025472,
+              "operations": 3,
+              "median_submission_to_completion_ms": 104.772
+            },
+            "WriteBackDone": {
+              "bytes": 152494080,
+              "operations": 20,
+              "median_submission_to_completion_ms": 77.96600000000001
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 226492416,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 195035136,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 3,
+          "host_misses": 6,
+          "host_evictions": 0,
+          "copies": {
+            "LoadBackDone": {
+              "bytes": 34025472,
+              "operations": 3,
+              "median_submission_to_completion_ms": 105.567
+            },
+            "WriteBackDone": {
+              "bytes": 152494080,
+              "operations": 20,
+              "median_submission_to_completion_ms": 74.017
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3515754,
+            3515755,
+            3515756
+          ],
+          "matched_child_pids": [
+            3515755,
+            3515756
+          ],
+          "unmatched_child_pids": [
+            3515754
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344394.7664511,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3515755,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3515756,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3515756,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3515754,
+            3515755,
+            3515756
+          ],
+          "matched_child_pids": [
+            3515755,
+            3515756
+          ],
+          "unmatched_child_pids": [
+            3515754
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344394.7664511,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3515755,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3515756,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3515756,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    }
+  },
+  "0.8B-high-small": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 1.4618412046693265,
+      "output_tokens_per_second": 0.965056351024481,
+      "post_warmup_output_tokens_per_second": 3.870229408220807,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 39.37593899015337,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3511263,
+            3511264,
+            3511265
+          ],
+          "matched_child_pids": [
+            3511264,
+            3511265
+          ],
+          "unmatched_child_pids": [
+            3511263
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344312.3885684,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511264,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3511263,
+            3511264,
+            3511265
+          ],
+          "matched_child_pids": [
+            3511264,
+            3511265
+          ],
+          "unmatched_child_pids": [
+            3511263
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344312.3885684,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511264,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3511265,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 1.4254722050391138,
+      "output_tokens_per_second": 3.25740085947037,
+      "post_warmup_output_tokens_per_second": 3.737030205973738,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 11.665742608718574,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 25165824,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 25165824,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 9,
+          "host_evictions": 42,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 164622336,
+              "operations": 22,
+              "median_submission_to_completion_ms": 69.2225
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 25165824,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 25165824,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 9,
+          "host_evictions": 42,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 164622336,
+              "operations": 22,
+              "median_submission_to_completion_ms": 82.27250000000001
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3519002,
+            3519003,
+            3519004
+          ],
+          "matched_child_pids": [
+            3519003,
+            3519004
+          ],
+          "unmatched_child_pids": [
+            3519002
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344453.047151,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3519003,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3519004,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3519004,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3519002,
+            3519003,
+            3519004
+          ],
+          "matched_child_pids": [
+            3519003,
+            3519004
+          ],
+          "unmatched_child_pids": [
+            3519002
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344453.047151,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3519003,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3519004,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3519004,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    }
+  },
+  "0.8B-low-on": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 1.5658221300691366,
+      "output_tokens_per_second": 2.8819789299136396,
+      "post_warmup_output_tokens_per_second": 3.5348176509817515,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 13.18538439180702,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3520141,
+            3520142,
+            3520143
+          ],
+          "matched_child_pids": [
+            3520142,
+            3520143
+          ],
+          "unmatched_child_pids": [
+            3520141
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344507.7617831,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3520142,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3520143,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3520143,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3520141,
+            3520142,
+            3520143
+          ],
+          "matched_child_pids": [
+            3520142,
+            3520143
+          ],
+          "unmatched_child_pids": [
+            3520141
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344507.7617831,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3520142,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3520143,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3520143,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 1.6164187900722027,
+      "output_tokens_per_second": 2.7545179435104163,
+      "post_warmup_output_tokens_per_second": 3.388407530514311,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 13.795517320744693,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 226492416,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 195035136,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 10,
+          "host_evictions": 0,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 155639808,
+              "operations": 24,
+              "median_submission_to_completion_ms": 98.55799999999999
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 226492416,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 195035136,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 10,
+          "host_evictions": 0,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 155639808,
+              "operations": 24,
+              "median_submission_to_completion_ms": 5.3785
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3521415,
+            3521416,
+            3521417
+          ],
+          "matched_child_pids": [
+            3521416,
+            3521417
+          ],
+          "unmatched_child_pids": [
+            3521415
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344565.1593766,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3521416,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3521417,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3521417,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2246
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2358
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2246
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4604
+        },
+        "after": {
+          "child_pids": [
+            3521415,
+            3521416,
+            3521417
+          ],
+          "matched_child_pids": [
+            3521416,
+            3521417
+          ],
+          "unmatched_child_pids": [
+            3521415
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344565.1593766,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3521416,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3521417,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3521417,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2473
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2585
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2473
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5058
+        }
+      }
+    }
+  },
+  "0.8B-retract-on": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 2.2983068800531328,
+      "output_tokens_per_second": 6.281562113909196,
+      "post_warmup_output_tokens_per_second": 7.047419623281393,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 10.188548459671438,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 14,
+          "min_empty_device_lcm_blocks": 2,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 10,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 14,
+          "min_empty_device_lcm_blocks": 2,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 10,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3523472,
+            3523473,
+            3523474
+          ],
+          "matched_child_pids": [
+            3523473,
+            3523474
+          ],
+          "unmatched_child_pids": [
+            3523472
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344622.5904453,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3523473,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2288
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3523474,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3523474,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2288
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2400
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2288
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4688
+        },
+        "after": {
+          "child_pids": [
+            3523472,
+            3523473,
+            3523474
+          ],
+          "matched_child_pids": [
+            3523473,
+            3523474
+          ],
+          "unmatched_child_pids": [
+            3523472
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344622.5904453,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3523473,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2517
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3523474,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3523474,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2517
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2629
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2517
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5146
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 2.4389695450663567,
+      "output_tokens_per_second": 5.953690232436004,
+      "post_warmup_output_tokens_per_second": 6.688531522271599,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {
+        "193": 1,
+        "194": 1,
+        "196": 3,
+        "197": 2,
+        "198": 1
+      },
+      "total_seconds": 10.749635520391166,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 245366784,
+            "blob_arena_bytes": 432,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 16,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 12,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 31457280,
+          "final_snapshot_free_lcm_blocks": 39,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {
+            "RestoreDone": {
+              "bytes": 100504704,
+              "operations": 8,
+              "median_submission_to_completion_ms": 73.656
+            },
+            "SnapshotDone": {
+              "bytes": 100504704,
+              "operations": 8,
+              "median_submission_to_completion_ms": 79.7145
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 245366784,
+            "blob_arena_bytes": 432,
+            "lcm_block_bytes": 6291456
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 16,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 12,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 31457280,
+          "final_snapshot_free_lcm_blocks": 39,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {
+            "RestoreDone": {
+              "bytes": 100504704,
+              "operations": 8,
+              "median_submission_to_completion_ms": 73.8075
+            },
+            "SnapshotDone": {
+              "bytes": 100504704,
+              "operations": 8,
+              "median_submission_to_completion_ms": 79.76599999999999
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3524450,
+            3524451,
+            3524452
+          ],
+          "matched_child_pids": [
+            3524451,
+            3524452
+          ],
+          "unmatched_child_pids": [
+            3524450
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344677.1464024,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3524451,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2288
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3524452,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3524452,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2288
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2400
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2288
+            }
+          ],
+          "total_owned_child_process_memory_mb": 4688
+        },
+        "after": {
+          "child_pids": [
+            3524450,
+            3524451,
+            3524452
+          ],
+          "matched_child_pids": [
+            3524451,
+            3524452
+          ],
+          "unmatched_child_pids": [
+            3524450
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344677.1464024,
+          "rows": [
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3524451,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2517
+            },
+            {
+              "card": 3,
+              "chip": 0,
+              "pid": 3524452,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "pid": 3524452,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 2517
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 3,
+              "chip": 0,
+              "matched_child_process_memory_mb": 2629
+            },
+            {
+              "card": 3,
+              "chip": 1,
+              "matched_child_process_memory_mb": 2517
+            }
+          ],
+          "total_owned_child_process_memory_mb": 5146
+        }
+      }
+    }
+  },
+  "4B-high-large": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.007444858551025391,
+    "baseline": {
+      "median_target_batch_seconds": 1.946469480637461,
+      "output_tokens_per_second": 1.2217085255474558,
+      "post_warmup_output_tokens_per_second": 2.862516497172407,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 31.103982009924948,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3516024,
+            3516025,
+            3516026
+          ],
+          "matched_child_pids": [
+            3516025,
+            3516026
+          ],
+          "unmatched_child_pids": [
+            3516024
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344409.8784642,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516025,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3516024,
+            3516025,
+            3516026
+          ],
+          "matched_child_pids": [
+            3516025,
+            3516026
+          ],
+          "unmatched_child_pids": [
+            3516024
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344409.8784642,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516025,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 1.001256784889847,
+      "output_tokens_per_second": 2.596989026296651,
+      "post_warmup_output_tokens_per_second": 3.7806575995096487,
+      "cached_prompt_tokens": 768,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 14.632329830899835,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 603979776,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 520093696,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 3,
+          "host_misses": 6,
+          "host_evictions": 0,
+          "copies": {
+            "LoadBackDone": {
+              "bytes": 89849856,
+              "operations": 3,
+              "median_submission_to_completion_ms": 141.814
+            },
+            "WriteBackDone": {
+              "bytes": 402522112,
+              "operations": 20,
+              "median_submission_to_completion_ms": 5.3325
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 603979776,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 520093696,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 3,
+          "host_misses": 6,
+          "host_evictions": 0,
+          "copies": {
+            "LoadBackDone": {
+              "bytes": 89849856,
+              "operations": 3,
+              "median_submission_to_completion_ms": 141.127
+            },
+            "WriteBackDone": {
+              "bytes": 402522112,
+              "operations": 20,
+              "median_submission_to_completion_ms": 98.2795
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3519520,
+            3519521,
+            3519522
+          ],
+          "matched_child_pids": [
+            3519521,
+            3519522
+          ],
+          "unmatched_child_pids": [
+            3519520
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344486.9210014,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3519521,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3519522,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3519522,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3519520,
+            3519521,
+            3519522
+          ],
+          "matched_child_pids": [
+            3519521,
+            3519522
+          ],
+          "unmatched_child_pids": [
+            3519520
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344486.9210014,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3519521,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3519522,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3519522,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    }
+  },
+  "4B-high-small": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 1.946469480637461,
+      "output_tokens_per_second": 1.2217085255474558,
+      "post_warmup_output_tokens_per_second": 2.862516497172407,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 31.103982009924948,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3516024,
+            3516025,
+            3516026
+          ],
+          "matched_child_pids": [
+            3516025,
+            3516026
+          ],
+          "unmatched_child_pids": [
+            3516024
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344409.8784642,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516025,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3516024,
+            3516025,
+            3516026
+          ],
+          "matched_child_pids": [
+            3516025,
+            3516026
+          ],
+          "unmatched_child_pids": [
+            3516024
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344409.8784642,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516025,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3516026,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 2.231585665140301,
+      "output_tokens_per_second": 2.1243408307770597,
+      "post_warmup_output_tokens_per_second": 2.5556694375337634,
+      "cached_prompt_tokens": 192,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 17.887901719659567,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 67108864,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 67108864,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 9,
+          "host_evictions": 42,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 434569216,
+              "operations": 22,
+              "median_submission_to_completion_ms": 4.9285
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 67108864,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 67108864,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 9,
+          "host_evictions": 42,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 434569216,
+              "operations": 22,
+              "median_submission_to_completion_ms": 7.264
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3520948,
+            3520949,
+            3520950
+          ],
+          "matched_child_pids": [
+            3520949,
+            3520950
+          ],
+          "unmatched_child_pids": [
+            3520948
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344551.6648626,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3520949,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3520950,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3520950,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3520948,
+            3520949,
+            3520950
+          ],
+          "matched_child_pids": [
+            3520949,
+            3520950
+          ],
+          "unmatched_child_pids": [
+            3520948
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344551.6648626,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3520949,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3520950,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3520950,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    }
+  },
+  "4B-low-on": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0,
+    "baseline": {
+      "median_target_batch_seconds": 1.8462396701797843,
+      "output_tokens_per_second": 2.447919791425977,
+      "post_warmup_output_tokens_per_second": 2.9881432171692763,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 15.523384439758956,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 4,
+          "final_reclaimable_device_lcm_blocks": 6,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3523330,
+            3523331,
+            3523332
+          ],
+          "matched_child_pids": [
+            3523331,
+            3523332
+          ],
+          "unmatched_child_pids": [
+            3523330
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344615.1848571,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3523331,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3523332,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3523332,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3523330,
+            3523331,
+            3523332
+          ],
+          "matched_child_pids": [
+            3523331,
+            3523332
+          ],
+          "unmatched_child_pids": [
+            3523330
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344615.1848571,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3523331,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3523332,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3523332,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 1.845081479754299,
+      "output_tokens_per_second": 2.4711216194942223,
+      "post_warmup_output_tokens_per_second": 3.000245533798887,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 15.37763244844973,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 603979776,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 520093696,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 10,
+          "host_evictions": 0,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 410910720,
+              "operations": 24,
+              "median_submission_to_completion_ms": 3.2385
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 603979776,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 9,
+          "peak_used_device_lcm_blocks": 9,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 2,
+          "final_reclaimable_device_lcm_blocks": 9,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 520093696,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 10,
+          "host_evictions": 0,
+          "copies": {
+            "WriteBackDone": {
+              "bytes": 410910720,
+              "operations": 24,
+              "median_submission_to_completion_ms": 3.2865
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3524394,
+            3524395,
+            3524396
+          ],
+          "matched_child_pids": [
+            3524395,
+            3524396
+          ],
+          "unmatched_child_pids": [
+            3524394
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344676.4096794,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3524395,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3524396,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3524396,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6776
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6776
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13664
+        },
+        "after": {
+          "child_pids": [
+            3524394,
+            3524395,
+            3524396
+          ],
+          "matched_child_pids": [
+            3524395,
+            3524396
+          ],
+          "unmatched_child_pids": [
+            3524394
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344676.4096794,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3524395,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3524396,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3524396,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8215
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8327
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8215
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16542
+        }
+      }
+    }
+  },
+  "4B-retract-on": {
+    "passed": true,
+    "atol": 0.15,
+    "failures": [],
+    "max_error_on_matching_sequences": 0.0076885223388671875,
+    "baseline": {
+      "median_target_batch_seconds": 3.1960669006220996,
+      "output_tokens_per_second": 4.582535399710509,
+      "post_warmup_output_tokens_per_second": 5.024399067542343,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {},
+      "total_seconds": 13.966067780740559,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 14,
+          "min_empty_device_lcm_blocks": 2,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 10,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 0,
+            "blob_arena_bytes": 0,
+            "lcm_block_bytes": 1
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 14,
+          "min_empty_device_lcm_blocks": 2,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 10,
+          "final_empty_device_lcm_blocks": 2,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 0,
+          "final_snapshot_free_lcm_blocks": 0,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {}
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3525466,
+            3525467,
+            3525468
+          ],
+          "matched_child_pids": [
+            3525467,
+            3525468
+          ],
+          "unmatched_child_pids": [
+            3525466
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344737.3582435,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3525467,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3525468,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3525468,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6888
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 7000
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6888
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13888
+        },
+        "after": {
+          "child_pids": [
+            3525466,
+            3525467,
+            3525468
+          ],
+          "matched_child_pids": [
+            3525467,
+            3525468
+          ],
+          "unmatched_child_pids": [
+            3525466
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344737.3582435,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3525467,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8329
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3525468,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3525468,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8329
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8441
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8329
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16770
+        }
+      }
+    },
+    "trial": {
+      "median_target_batch_seconds": 3.453848535194993,
+      "output_tokens_per_second": 4.400514931866203,
+      "post_warmup_output_tokens_per_second": 4.797808754016751,
+      "cached_prompt_tokens": 0,
+      "snapshot_counts_by_computed_tokens": {
+        "193": 2,
+        "195": 1,
+        "196": 4,
+        "197": 2,
+        "198": 2
+      },
+      "total_seconds": 14.543752490542829,
+      "rank": {
+        "0": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 234881024,
+            "blob_arena_bytes": 432,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 16,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 12,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 83886080,
+          "final_snapshot_free_lcm_blocks": 14,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {
+            "RestoreDone": {
+              "bytes": 380962352,
+              "operations": 11,
+              "median_submission_to_completion_ms": 5.379
+            },
+            "SnapshotDone": {
+              "bytes": 380962352,
+              "operations": 11,
+              "median_submission_to_completion_ms": 100.597
+            }
+          }
+        },
+        "1": {
+          "pool": {
+            "l2_bytes": 0,
+            "snapshot_bytes": 234881024,
+            "blob_arena_bytes": 432,
+            "lcm_block_bytes": 16777216
+          },
+          "device_total_lcm_blocks": 16,
+          "peak_used_device_lcm_blocks": 16,
+          "min_empty_device_lcm_blocks": 0,
+          "min_reclaimable_device_lcm_blocks": 6,
+          "final_reclaimable_device_lcm_blocks": 12,
+          "final_empty_device_lcm_blocks": 0,
+          "peak_claimed_l2_bytes": 0,
+          "peak_claimed_snapshot_bytes": 83886080,
+          "final_snapshot_free_lcm_blocks": 14,
+          "host_hits": 0,
+          "host_misses": 0,
+          "host_evictions": 0,
+          "copies": {
+            "RestoreDone": {
+              "bytes": 380962352,
+              "operations": 11,
+              "median_submission_to_completion_ms": 5.473
+            },
+            "SnapshotDone": {
+              "bytes": 380962352,
+              "operations": 11,
+              "median_submission_to_completion_ms": 100.721
+            }
+          }
+        }
+      },
+      "owned_hbm": {
+        "loaded": {
+          "child_pids": [
+            3526999,
+            3527000,
+            3527001
+          ],
+          "matched_child_pids": [
+            3527000,
+            3527001
+          ],
+          "unmatched_child_pids": [
+            3526999
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344796.019946,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3527000,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6888
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3527001,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3527001,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 6888
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 7000
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 6888
+            }
+          ],
+          "total_owned_child_process_memory_mb": 13888
+        },
+        "after": {
+          "child_pids": [
+            3526999,
+            3527000,
+            3527001
+          ],
+          "matched_child_pids": [
+            3527000,
+            3527001
+          ],
+          "unmatched_child_pids": [
+            3526999
+          ],
+          "all_scheduler_pids_matched": true,
+          "missing_scheduler_child_pids": [],
+          "coverage": "all scheduler child PIDs matched",
+          "process_snapshot_captured_at_unix_seconds": 1795344796.019946,
+          "rows": [
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3527000,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8329
+            },
+            {
+              "card": 2,
+              "chip": 0,
+              "pid": 3527001,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 112
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "pid": 3527001,
+              "process_name": "tokenspeedsch",
+              "process_memory_mb": 8329
+            }
+          ],
+          "per_chip": [
+            {
+              "card": 2,
+              "chip": 0,
+              "matched_child_process_memory_mb": 8441
+            },
+            {
+              "card": 2,
+              "chip": 1,
+              "matched_child_process_memory_mb": 8329
+            }
+          ],
+          "total_owned_child_process_memory_mb": 16770
+        }
+      }
+    }
+  }
+}

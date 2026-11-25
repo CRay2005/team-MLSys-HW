@@ -1,8 +1,6 @@
 # MLSys-HW
 
-- [Homework 3: HBM/Host offloading](homework-3/README.md) — 0.8B/4B TP1 restoration,
-  repeated-cycle stress and Host-capacity tests verified; TP2 and final evidence checks pending.
-  [Steven’s HW3 contribution and progress](homework-3/report.md).
+- [Homework 3: HBM/Host offloading](homework-3/report.md) — 0.8B and 4B restored correctly on Ascend TP=2. Fourteen runs cover high/low reuse, bounded Host eviction, and active-session recovery. [Replay the TP2 comparisons or rebuild the PDF/ZIP](homework-3/README.md); the [independent TP1 experiments](homework-3/report-tp1.md) retain their own provenance and attribution.
 
 **Confirmed HW1/HW2 contributors: Zhuoxi Zeng (2501213387), Steven Walxim (2501112130), and 陈子睿 (2601112045).** Both group reports record all three members' respective contributions. Report sources and package-building tools are retained; generated PDFs/ZIPs are local outputs, not GitHub downloads. No teaching-platform submission has been performed by this project. Start with the [submission guide](SUBMISSION.md) and [generated-file instructions](submissions/README.md).
 
